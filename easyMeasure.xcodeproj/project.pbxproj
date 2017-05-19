@@ -7,25 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		801252101A13CE78C36DC949 /* libPods-easyMeasure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6BA325C0583237E56DE6B7 /* libPods-easyMeasure.a */; };
 		C11CB7721ECE877E006E67D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CB7711ECE877E006E67D5 /* main.m */; };
 		C11CB7751ECE877E006E67D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CB7741ECE877E006E67D5 /* AppDelegate.m */; };
 		C11CB7781ECE877E006E67D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CB7771ECE877E006E67D5 /* ViewController.m */; };
-		C11CB77B1ECE877E006E67D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11CB7791ECE877E006E67D5 /* Main.storyboard */; };
 		C11CB77D1ECE877E006E67D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C11CB77C1ECE877E006E67D5 /* Assets.xcassets */; };
-		C11CB7801ECE877E006E67D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11CB77E1ECE877E006E67D5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D866535AB31CBFA0D0FA59F /* Pods-easyMeasure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-easyMeasure.release.xcconfig"; path = "Pods/Target Support Files/Pods-easyMeasure/Pods-easyMeasure.release.xcconfig"; sourceTree = "<group>"; };
+		AD6BA325C0583237E56DE6B7 /* libPods-easyMeasure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-easyMeasure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCE57F5EC696E1F3F8045BDA /* Pods-easyMeasure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-easyMeasure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-easyMeasure/Pods-easyMeasure.debug.xcconfig"; sourceTree = "<group>"; };
 		C11CB76D1ECE877E006E67D5 /* easyMeasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = easyMeasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C11CB7711ECE877E006E67D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C11CB7731ECE877E006E67D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C11CB7741ECE877E006E67D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C11CB7761ECE877E006E67D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C11CB7771ECE877E006E67D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C11CB77A1ECE877E006E67D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C11CB77C1ECE877E006E67D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C11CB77F1ECE877E006E67D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C11CB7811ECE877E006E67D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C185A1DA1ECECFB500877798 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +34,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801252101A13CE78C36DC949 /* libPods-easyMeasure.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FDDE6BAB6B3426387C80E98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCE57F5EC696E1F3F8045BDA /* Pods-easyMeasure.debug.xcconfig */,
+				2D866535AB31CBFA0D0FA59F /* Pods-easyMeasure.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C11CB7641ECE877E006E67D5 = {
 			isa = PBXGroup;
 			children = (
 				C11CB76F1ECE877E006E67D5 /* easyMeasure */,
 				C11CB76E1ECE877E006E67D5 /* Products */,
+				3FDDE6BAB6B3426387C80E98 /* Pods */,
+				F34091B5A2D5F0D90BB60391 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,11 +75,10 @@
 				C11CB7741ECE877E006E67D5 /* AppDelegate.m */,
 				C11CB7761ECE877E006E67D5 /* ViewController.h */,
 				C11CB7771ECE877E006E67D5 /* ViewController.m */,
-				C11CB7791ECE877E006E67D5 /* Main.storyboard */,
 				C11CB77C1ECE877E006E67D5 /* Assets.xcassets */,
-				C11CB77E1ECE877E006E67D5 /* LaunchScreen.storyboard */,
 				C11CB7811ECE877E006E67D5 /* Info.plist */,
 				C11CB7701ECE877E006E67D5 /* Supporting Files */,
+				C185A1DA1ECECFB500877798 /* PrefixHeader.pch */,
 			);
 			path = easyMeasure;
 			sourceTree = "<group>";
@@ -79,6 +91,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F34091B5A2D5F0D90BB60391 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD6BA325C0583237E56DE6B7 /* libPods-easyMeasure.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C11CB7841ECE877E006E67D5 /* Build configuration list for PBXNativeTarget "easyMeasure" */;
 			buildPhases = (
+				2FB593EBEE60198EF88282F0 /* 📦 Check Pods Manifest.lock */,
 				C11CB7691ECE877E006E67D5 /* Sources */,
 				C11CB76A1ECE877E006E67D5 /* Frameworks */,
 				C11CB76B1ECE877E006E67D5 /* Resources */,
+				1371996AD90BCA611AFAE82E /* 📦 Embed Pods Frameworks */,
+				6E56F356AACE55F9D32F1C6F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,13 +159,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C11CB7801ECE877E006E67D5 /* LaunchScreen.storyboard in Resources */,
 				C11CB77D1ECE877E006E67D5 /* Assets.xcassets in Resources */,
-				C11CB77B1ECE877E006E67D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1371996AD90BCA611AFAE82E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-easyMeasure/Pods-easyMeasure-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FB593EBEE60198EF88282F0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6E56F356AACE55F9D32F1C6F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-easyMeasure/Pods-easyMeasure-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C11CB7691ECE877E006E67D5 /* Sources */ = {
@@ -156,25 +225,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		C11CB7791ECE877E006E67D5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C11CB77A1ECE877E006E67D5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C11CB77E1ECE877E006E67D5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C11CB77F1ECE877E006E67D5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C11CB7821ECE877E006E67D5 /* Debug */ = {
@@ -203,6 +253,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = easyMeasure/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -245,6 +297,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = easyMeasure/PrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -261,23 +315,29 @@
 		};
 		C11CB7851ECE877E006E67D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCE57F5EC696E1F3F8045BDA /* Pods-easyMeasure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = easyMeasure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldsmith.easyMeasure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C11CB7861ECE877E006E67D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D866535AB31CBFA0D0FA59F /* Pods-easyMeasure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = easyMeasure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldsmith.easyMeasure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -300,6 +360,7 @@
 				C11CB7861ECE877E006E67D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
