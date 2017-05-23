@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E79351FCF413B827537435963EDFA963AA41A7DC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E79351FCF413B827537435963EDFA963AA41A7DC" : 0,
+    "5E4826DB58B7D547074EDCEB78E3563E1EBB6707" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0AE877C6-F4AA-44E7-B9DF-24724B2047BC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E79351FCF413B827537435963EDFA963AA41A7DC" : "easyMeasure\/",
+    "5E4826DB58B7D547074EDCEB78E3563E1EBB6707" : "..\/mmc_iot_ios2"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "easyMeasure",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "easyMeasure.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "182.92.193.208:mmc_iot_ios2",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5E4826DB58B7D547074EDCEB78E3563E1EBB6707"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:John-xiao\/easyMeasure.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E79351FCF413B827537435963EDFA963AA41A7DC"
+    }
+  ]
+}
