@@ -35,9 +35,13 @@
 		C173C0261ED5507600BCD66F /* XJFServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0071ED5507600BCD66F /* XJFServerManager.m */; };
 		C173C0271ED5507600BCD66F /* XJFBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C00C1ED5507600BCD66F /* XJFBackgroundView.m */; };
 		C173C0281ED5507600BCD66F /* XJFSeperatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C00F1ED5507600BCD66F /* XJFSeperatorLineView.m */; };
-		C173C0291ED5507600BCD66F /* XJFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0111ED5507600BCD66F /* XJFTextField.m */; };
 		C173C02A1ED5507600BCD66F /* XJFUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0131ED5507600BCD66F /* XJFUILabel.m */; };
 		C173C0381ED5643600BCD66F /* NotificationConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0331ED5643600BCD66F /* NotificationConst.m */; };
+		C173C0471ED56F2E00BCD66F /* XJFUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C03E1ED56F2E00BCD66F /* XJFUIButton.m */; };
+		C173C0481ED56F2E00BCD66F /* XJFUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0401ED56F2E00BCD66F /* XJFUIImageView.m */; };
+		C173C04A1ED56F2E00BCD66F /* XJFUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0441ED56F2E00BCD66F /* XJFUITextField.m */; };
+		C173C04B1ED56F2E00BCD66F /* XJFUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0461ED56F2E00BCD66F /* XJFUITextView.m */; };
+		C173C04E1ED5702400BCD66F /* XJFUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C04D1ED5702400BCD66F /* XJFUIView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,8 +103,6 @@
 		C173C00C1ED5507600BCD66F /* XJFBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFBackgroundView.m; sourceTree = "<group>"; };
 		C173C00E1ED5507600BCD66F /* XJFSeperatorLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFSeperatorLineView.h; sourceTree = "<group>"; };
 		C173C00F1ED5507600BCD66F /* XJFSeperatorLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFSeperatorLineView.m; sourceTree = "<group>"; };
-		C173C0101ED5507600BCD66F /* XJFTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFTextField.h; sourceTree = "<group>"; };
-		C173C0111ED5507600BCD66F /* XJFTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFTextField.m; sourceTree = "<group>"; };
 		C173C0121ED5507600BCD66F /* XJFUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFUILabel.h; sourceTree = "<group>"; };
 		C173C0131ED5507600BCD66F /* XJFUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFUILabel.m; sourceTree = "<group>"; };
 		C173C02B1ED552E000BCD66F /* XJFContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFContoller.h; sourceTree = "<group>"; };
@@ -117,6 +119,16 @@
 		C173C0391ED5647300BCD66F /* CustomFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFramework.h; sourceTree = "<group>"; };
 		C173C03B1ED567FB00BCD66F /* XJFConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFConstant.h; sourceTree = "<group>"; };
 		C173C03C1ED568C900BCD66F /* XJFCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFCategory.h; sourceTree = "<group>"; };
+		C173C03D1ED56F2E00BCD66F /* XJFUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFUIButton.h; sourceTree = "<group>"; };
+		C173C03E1ED56F2E00BCD66F /* XJFUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFUIButton.m; sourceTree = "<group>"; };
+		C173C03F1ED56F2E00BCD66F /* XJFUIImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFUIImageView.h; sourceTree = "<group>"; };
+		C173C0401ED56F2E00BCD66F /* XJFUIImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFUIImageView.m; sourceTree = "<group>"; };
+		C173C0431ED56F2E00BCD66F /* XJFUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFUITextField.h; sourceTree = "<group>"; };
+		C173C0441ED56F2E00BCD66F /* XJFUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFUITextField.m; sourceTree = "<group>"; };
+		C173C0451ED56F2E00BCD66F /* XJFUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFUITextView.h; sourceTree = "<group>"; };
+		C173C0461ED56F2E00BCD66F /* XJFUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFUITextView.m; sourceTree = "<group>"; };
+		C173C04C1ED5702400BCD66F /* XJFUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFUIView.h; sourceTree = "<group>"; };
+		C173C04D1ED5702400BCD66F /* XJFUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFUIView.m; sourceTree = "<group>"; };
 		C185A1DA1ECECFB500877798 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -397,10 +409,18 @@
 				C173C00C1ED5507600BCD66F /* XJFBackgroundView.m */,
 				C173C00E1ED5507600BCD66F /* XJFSeperatorLineView.h */,
 				C173C00F1ED5507600BCD66F /* XJFSeperatorLineView.m */,
-				C173C0101ED5507600BCD66F /* XJFTextField.h */,
-				C173C0111ED5507600BCD66F /* XJFTextField.m */,
 				C173C0121ED5507600BCD66F /* XJFUILabel.h */,
 				C173C0131ED5507600BCD66F /* XJFUILabel.m */,
+				C173C03D1ED56F2E00BCD66F /* XJFUIButton.h */,
+				C173C03E1ED56F2E00BCD66F /* XJFUIButton.m */,
+				C173C03F1ED56F2E00BCD66F /* XJFUIImageView.h */,
+				C173C0401ED56F2E00BCD66F /* XJFUIImageView.m */,
+				C173C0431ED56F2E00BCD66F /* XJFUITextField.h */,
+				C173C0441ED56F2E00BCD66F /* XJFUITextField.m */,
+				C173C0451ED56F2E00BCD66F /* XJFUITextView.h */,
+				C173C0461ED56F2E00BCD66F /* XJFUITextView.m */,
+				C173C04C1ED5702400BCD66F /* XJFUIView.h */,
+				C173C04D1ED5702400BCD66F /* XJFUIView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -534,14 +554,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C173C0291ED5507600BCD66F /* XJFTextField.m in Sources */,
 				C173C01B1ED5507600BCD66F /* UIImage+animatedGIF.m in Sources */,
+				C173C04E1ED5702400BCD66F /* XJFUIView.m in Sources */,
 				C173C0201ED5507600BCD66F /* XJFBaseViewController.m in Sources */,
 				C173C0271ED5507600BCD66F /* XJFBackgroundView.m in Sources */,
 				C173C0171ED5507600BCD66F /* NSMutableDictionary+Extension.m in Sources */,
 				C173C02A1ED5507600BCD66F /* XJFUILabel.m in Sources */,
 				C173C01A1ED5507600BCD66F /* UIColor+Hex.m in Sources */,
+				C173C0471ED56F2E00BCD66F /* XJFUIButton.m in Sources */,
 				C173C0141ED5507600BCD66F /* NSArray+Extension.m in Sources */,
+				C173C04B1ED56F2E00BCD66F /* XJFUITextView.m in Sources */,
 				C173C0381ED5643600BCD66F /* NotificationConst.m in Sources */,
 				C173C0251ED5507600BCD66F /* XJFNetworkManager.m in Sources */,
 				C11CB7781ECE877E006E67D5 /* ViewController.m in Sources */,
@@ -550,6 +572,7 @@
 				C173C01C1ED5507600BCD66F /* UIImageView+SD.m in Sources */,
 				C173C0161ED5507600BCD66F /* NSDictionary+Extension.m in Sources */,
 				C173C01D1ED5507600BCD66F /* UITableViewCell+roundCorner.m in Sources */,
+				C173C0481ED56F2E00BCD66F /* XJFUIImageView.m in Sources */,
 				C11CB7751ECE877E006E67D5 /* AppDelegate.m in Sources */,
 				C173C0191ED5507600BCD66F /* UIButton+SD.m in Sources */,
 				C173C0281ED5507600BCD66F /* XJFSeperatorLineView.m in Sources */,
@@ -557,6 +580,7 @@
 				C173C01F1ED5507600BCD66F /* XJFBaseNavigationController.m in Sources */,
 				C173C0151ED5507600BCD66F /* NSDate+ext.m in Sources */,
 				C173BE241ED3D90300BCD66F /* initServer.m in Sources */,
+				C173C04A1ED56F2E00BCD66F /* XJFUITextField.m in Sources */,
 				C173BFC31ED5503400BCD66F /* UNICDatabaseTableManager.m in Sources */,
 				C173C0211ED5507600BCD66F /* XJFBaseModel.m in Sources */,
 				C173C0241ED5507600BCD66F /* XJFHUDManager.m in Sources */,

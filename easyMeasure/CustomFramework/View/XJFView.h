@@ -11,7 +11,11 @@
 
 #import "XJFBackgroundView.h"
 #import "XJFSeperatorLineView.h"
-#import "XJFTextField.h"
 #import "XJFUILabel.h"
+#import "XJFUIButton.h"
+#import "XJFUIImageView.h"
+#import "XJFUITextView.h"
+#import "XJFUITextField.h"
+#import "XJFUIView.h"
 
 #endif /* XJFView_h */
