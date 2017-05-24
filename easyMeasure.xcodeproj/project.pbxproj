@@ -14,9 +14,9 @@
 		C11CB77D1ECE877E006E67D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C11CB77C1ECE877E006E67D5 /* Assets.xcassets */; };
 		C173BE1D1ED3D84B00BCD66F /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = C173BE1F1ED3D84B00BCD66F /* Localization.strings */; };
 		C173BE241ED3D90300BCD66F /* initServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C173BE231ED3D90300BCD66F /* initServer.m */; };
-		C173BF231ED52F9700BCD66F /* CommonManager in Resources */ = {isa = PBXBuildFile; fileRef = C173BF221ED52F9700BCD66F /* CommonManager */; };
-		C173BF251ED52FA300BCD66F /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = C173BF241ED52FA300BCD66F /* Resource */; };
-		C173BF271ED52FAF00BCD66F /* CustomFramework in Resources */ = {isa = PBXBuildFile; fileRef = C173BF261ED52FAF00BCD66F /* CustomFramework */; };
+		C173BF291ED530AD00BCD66F /* CommonManager in Resources */ = {isa = PBXBuildFile; fileRef = C173BF281ED530AD00BCD66F /* CommonManager */; };
+		C173BF2B1ED530B600BCD66F /* CustomFramework in Resources */ = {isa = PBXBuildFile; fileRef = C173BF2A1ED530B600BCD66F /* CustomFramework */; };
+		C173BF2D1ED530BD00BCD66F /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = C173BF2C1ED530BD00BCD66F /* Resource */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +36,9 @@
 		C173BE211ED3D86200BCD66F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localization.strings"; sourceTree = "<group>"; };
 		C173BE221ED3D90300BCD66F /* initServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initServer.h; sourceTree = "<group>"; };
 		C173BE231ED3D90300BCD66F /* initServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initServer.m; sourceTree = "<group>"; };
-		C173BF221ED52F9700BCD66F /* CommonManager */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CommonManager; sourceTree = "<group>"; };
-		C173BF241ED52FA300BCD66F /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
-		C173BF261ED52FAF00BCD66F /* CustomFramework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomFramework; sourceTree = "<group>"; };
+		C173BF281ED530AD00BCD66F /* CommonManager */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CommonManager; sourceTree = "<group>"; };
+		C173BF2A1ED530B600BCD66F /* CustomFramework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomFramework; sourceTree = "<group>"; };
+		C173BF2C1ED530BD00BCD66F /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
 		C185A1DA1ECECFB500877798 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,9 +84,9 @@
 		C11CB76F1ECE877E006E67D5 /* easyMeasure */ = {
 			isa = PBXGroup;
 			children = (
-				C173BF261ED52FAF00BCD66F /* CustomFramework */,
-				C173BF241ED52FA300BCD66F /* Resource */,
-				C173BF221ED52F9700BCD66F /* CommonManager */,
+				C173BF2C1ED530BD00BCD66F /* Resource */,
+				C173BF2A1ED530B600BCD66F /* CustomFramework */,
+				C173BF281ED530AD00BCD66F /* CommonManager */,
 				C11CB7761ECE877E006E67D5 /* ViewController.h */,
 				C11CB7771ECE877E006E67D5 /* ViewController.m */,
 				C11CB7701ECE877E006E67D5 /* Supporting Files */,
@@ -179,11 +179,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C173BF251ED52FA300BCD66F /* Resource in Resources */,
+				C173BF2B1ED530B600BCD66F /* CustomFramework in Resources */,
+				C173BF2D1ED530BD00BCD66F /* Resource in Resources */,
 				C11CB77D1ECE877E006E67D5 /* Assets.xcassets in Resources */,
-				C173BF231ED52F9700BCD66F /* CommonManager in Resources */,
+				C173BF291ED530AD00BCD66F /* CommonManager in Resources */,
 				C173BE1D1ED3D84B00BCD66F /* Localization.strings in Resources */,
-				C173BF271ED52FAF00BCD66F /* CustomFramework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
