@@ -9,25 +9,13 @@
 #ifndef CustomFramework_h
 #define CustomFramework_h
 
-#import "BaseModel.h"
+// Macro 必须放在最前面
+#import "XJFConstant.h"
 
-#import "BaseNavigationController.h"
-#import "BaseViewController.h"
-
-#import "BluetoothConst.h"
-#import "CommonConst.h"
-#import "NetWorkAPI.h"
-#import "NotificationConst.h"
-#import "TheThirdPartConst.h"
-#import "ThemeConst.h"
-#import "UserDefaultConst.h"
-#import "UtilsMacro.h"
-
-#import "Category.h"
-
-#import "UNICDBManager.h"
-#import "UNICDBOperator.h"
-
-#import "CustomViews.h"
+#import "XJFBaseModel.h"
+#import "XJFCategory.h"
+#import "XJFContoller.h"
+#import "XJFUtils.h"
+#import "XJFView.h"
 
 #endif /* CustomFramework_h */
