@@ -6,11 +6,11 @@
 //  Copyright © 2016年 johnxiao. All rights reserved.
 //
 
-#import "UNICDatabaseTableManager.h"
+#import "EMDatabaseTableManager.h"
 #import "XJFDBManager.h"
 
-@implementation UNICDatabaseTableManager
-Singleton_Implementation(UNICDatabaseTableManager);
+@implementation EMDatabaseTableManager
+Singleton_Implementation(EMDatabaseTableManager);
 
 - (void)initDatabase {
     //    NSArray *DBTableArray = @[ [UNICCommonOrderModel class], [UNICCommonTemperatureModel class] ];

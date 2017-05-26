@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UNICDatabaseTableManager : NSObject
-Singleton_Interface(UNICDatabaseTableManager);
+@interface EMDatabaseTableManager : NSObject
+Singleton_Interface(EMDatabaseTableManager);
 - (void)initDatabase;
 @end

@@ -14,7 +14,7 @@
 		C11CB77D1ECE877E006E67D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C11CB77C1ECE877E006E67D5 /* Assets.xcassets */; };
 		C173BE1D1ED3D84B00BCD66F /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = C173BE1F1ED3D84B00BCD66F /* Localization.strings */; };
 		C173BE241ED3D90300BCD66F /* initServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C173BE231ED3D90300BCD66F /* initServer.m */; };
-		C173BFC31ED5503400BCD66F /* UNICDatabaseTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C173BFC21ED5503400BCD66F /* UNICDatabaseTableManager.m */; };
+		C173BFC31ED5503400BCD66F /* EMDatabaseTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C173BFC21ED5503400BCD66F /* EMDatabaseTableManager.m */; };
 		C173C0141ED5507600BCD66F /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C173BFCF1ED5507600BCD66F /* NSArray+Extension.m */; };
 		C173C0151ED5507600BCD66F /* NSDate+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = C173BFD21ED5507600BCD66F /* NSDate+ext.m */; };
 		C173C0161ED5507600BCD66F /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C173BFD51ED5507600BCD66F /* NSDictionary+Extension.m */; };
@@ -42,6 +42,8 @@
 		C173C04A1ED56F2E00BCD66F /* XJFUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0441ED56F2E00BCD66F /* XJFUITextField.m */; };
 		C173C04B1ED56F2E00BCD66F /* XJFUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C0461ED56F2E00BCD66F /* XJFUITextView.m */; };
 		C173C04E1ED5702400BCD66F /* XJFUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = C173C04D1ED5702400BCD66F /* XJFUIView.m */; };
+		C1CB46751ED7F9390091732C /* DeviceScreenSize.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CB46741ED7F9390091732C /* DeviceScreenSize.plist */; };
+		C1CB46781ED803B20091732C /* EMScreenSizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CB46771ED803B20091732C /* EMScreenSizeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,8 +63,8 @@
 		C173BE211ED3D86200BCD66F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localization.strings"; sourceTree = "<group>"; };
 		C173BE221ED3D90300BCD66F /* initServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initServer.h; sourceTree = "<group>"; };
 		C173BE231ED3D90300BCD66F /* initServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initServer.m; sourceTree = "<group>"; };
-		C173BFC11ED5503400BCD66F /* UNICDatabaseTableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNICDatabaseTableManager.h; sourceTree = "<group>"; };
-		C173BFC21ED5503400BCD66F /* UNICDatabaseTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNICDatabaseTableManager.m; sourceTree = "<group>"; };
+		C173BFC11ED5503400BCD66F /* EMDatabaseTableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMDatabaseTableManager.h; sourceTree = "<group>"; };
+		C173BFC21ED5503400BCD66F /* EMDatabaseTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMDatabaseTableManager.m; sourceTree = "<group>"; };
 		C173BFCE1ED5507600BCD66F /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
 		C173BFCF1ED5507600BCD66F /* NSArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extension.m"; sourceTree = "<group>"; };
 		C173BFD11ED5507600BCD66F /* NSDate+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ext.h"; sourceTree = "<group>"; };
@@ -130,6 +132,9 @@
 		C173C04C1ED5702400BCD66F /* XJFUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFUIView.h; sourceTree = "<group>"; };
 		C173C04D1ED5702400BCD66F /* XJFUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFUIView.m; sourceTree = "<group>"; };
 		C185A1DA1ECECFB500877798 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C1CB46741ED7F9390091732C /* DeviceScreenSize.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeviceScreenSize.plist; sourceTree = "<group>"; };
+		C1CB46761ED803B20091732C /* EMScreenSizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMScreenSizeManager.h; sourceTree = "<group>"; };
+		C1CB46771ED803B20091732C /* EMScreenSizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMScreenSizeManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +195,7 @@
 				C173BE1F1ED3D84B00BCD66F /* Localization.strings */,
 				C11CB77C1ECE877E006E67D5 /* Assets.xcassets */,
 				C11CB7811ECE877E006E67D5 /* Info.plist */,
+				C1CB46741ED7F9390091732C /* DeviceScreenSize.plist */,
 				C185A1DA1ECECFB500877798 /* PrefixHeader.pch */,
 				C173BE221ED3D90300BCD66F /* initServer.h */,
 				C173BE231ED3D90300BCD66F /* initServer.m */,
@@ -203,8 +209,10 @@
 		C173BFC01ED5503400BCD66F /* CommonManager */ = {
 			isa = PBXGroup;
 			children = (
-				C173BFC11ED5503400BCD66F /* UNICDatabaseTableManager.h */,
-				C173BFC21ED5503400BCD66F /* UNICDatabaseTableManager.m */,
+				C173BFC11ED5503400BCD66F /* EMDatabaseTableManager.h */,
+				C173BFC21ED5503400BCD66F /* EMDatabaseTableManager.m */,
+				C1CB46761ED803B20091732C /* EMScreenSizeManager.h */,
+				C1CB46771ED803B20091732C /* EMScreenSizeManager.m */,
 			);
 			path = CommonManager;
 			sourceTree = "<group>";
@@ -496,6 +504,7 @@
 			files = (
 				C11CB77D1ECE877E006E67D5 /* Assets.xcassets in Resources */,
 				C173BE1D1ED3D84B00BCD66F /* Localization.strings in Resources */,
+				C1CB46751ED7F9390091732C /* DeviceScreenSize.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +576,7 @@
 				C173C0381ED5643600BCD66F /* NotificationConst.m in Sources */,
 				C173C0251ED5507600BCD66F /* XJFNetworkManager.m in Sources */,
 				C11CB7781ECE877E006E67D5 /* ViewController.m in Sources */,
+				C1CB46781ED803B20091732C /* EMScreenSizeManager.m in Sources */,
 				C173C0221ED5507600BCD66F /* XJFDBManager.m in Sources */,
 				C173C0231ED5507600BCD66F /* XJFDBOperator.m in Sources */,
 				C173C01C1ED5507600BCD66F /* UIImageView+SD.m in Sources */,
@@ -581,7 +591,7 @@
 				C173C0151ED5507600BCD66F /* NSDate+ext.m in Sources */,
 				C173BE241ED3D90300BCD66F /* initServer.m in Sources */,
 				C173C04A1ED56F2E00BCD66F /* XJFUITextField.m in Sources */,
-				C173BFC31ED5503400BCD66F /* UNICDatabaseTableManager.m in Sources */,
+				C173BFC31ED5503400BCD66F /* EMDatabaseTableManager.m in Sources */,
 				C173C0211ED5507600BCD66F /* XJFBaseModel.m in Sources */,
 				C173C0241ED5507600BCD66F /* XJFHUDManager.m in Sources */,
 				C11CB7721ECE877E006E67D5 /* main.m in Sources */,
