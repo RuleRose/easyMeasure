@@ -9,11 +9,26 @@
 #import "EMScreenSizeManager.h"
 #import <sys/utsname.h>
 
+@interface EMScreenSizeManager ()
+@property(nonatomic, assign) CGFloat width;
+@end
+
 @implementation EMScreenSizeManager
 Singleton_Implementation(EMScreenSizeManager);
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _width = NON_OBJECT_DEFAULT_VALUE;
+    }
+    return self;
+}
+
 - (CGFloat)widthOfOnePoint {
-    CGFloat widthOfPoint;
+    if (self.width != NON_OBJECT_DEFAULT_VALUE) {
+        return self.width;
+    }
+
     NSString *screenSizePath = [[NSBundle mainBundle] pathForResource:@"DeviceScreenSize" ofType:@"plist"];
     NSDictionary *devicesInfo = [NSDictionary dictionaryWithContentsOfFile:screenSizePath];
     NSString *deviceType = [self iphoneType];
@@ -23,9 +38,9 @@ Singleton_Implementation(EMScreenSizeManager);
     CGFloat width = ((NSNumber *)[screenInof leie_getObjectByPath:@"width"]).floatValue;
     CGFloat height = ((NSNumber *)[screenInof leie_getObjectByPath:@"height"]).floatValue;
 
-    widthOfPoint = (size / sqrt(width * width + height * height)) * 25.4;
+    self.width = (size / sqrt(width * width + height * height)) * 25.4;
 
-    return widthOfPoint;
+    return self.width;
 }
 
 - (NSString *)iphoneType {
