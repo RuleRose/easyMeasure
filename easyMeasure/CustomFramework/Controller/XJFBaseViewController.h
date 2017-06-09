@@ -22,9 +22,6 @@
 - (void)showStatusRightItems;
 - (void)hideStatusRightItems;
 
-//设置标题
-- (void)setTitle:(NSString *)title;
-
 //设置左按钮
 //- (void)setRightNavigationButton:(NSString *)title image:(UIImage *)image highlightedImage:(UIImage *)highlightedImage frame:(CGRect)frame;
 - (void)setNavigationButtons:(NSInteger)count
@@ -45,4 +42,6 @@
 
 //让左边第一个 bar button item 旋转
 - (void)setLeftBarItemRotate:(BOOL)needRotate;
+
+- (void)pushToNavigationController:(UINavigationController *)navigationController animated:(BOOL)animated;
 @end

@@ -10,6 +10,10 @@
 #define UtilsMacro_h
 
 #pragma mark - 设备相关
+
+#define kStatusHeight [UIApplication sharedApplication].statusBarFrame.size.height
+#define kNavigationHeight 44
+
 //屏幕的宽度,支持旋转屏幕
 #define kScreen_Width                                                                                                                              \
     ((floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1)                                                                       \

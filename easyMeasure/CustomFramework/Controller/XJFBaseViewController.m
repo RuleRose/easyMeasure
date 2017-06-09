@@ -16,12 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.navigationController.navigationBar setBarTintColor:COLOR_NAVI_BAR];
+    [self.navigationController.navigationBar setBarTintColor:kColor_NavigationBar];
     [self.navigationController.navigationBar setTintColor:kClear];
+    self.navigationController.navigationBar.barStyle = UIBaselineAdjustmentNone;
     self.view.backgroundColor = kColor_1;
     [self navigationBarLineHidden:YES];
-
+    self.navigationController.navigationBar.titleTextAttributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:16], NSForegroundColorAttributeName : kColor_Text1 };
     // Do any additional setup after loading the view.
 }
 
@@ -57,18 +57,6 @@
 
 - (void)hideStatusRightItems {
     self.navigationItem.rightBarButtonItems = nil;
-}
-
-- (void)setTitle:(NSString *)title;
-{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    label.text = title;
-    label.textColor = kColor_2_With_Alpha(0.8);
-    label.backgroundColor = kClear;
-    label.font = kFont16;
-    [label sizeToFit];
-    label.center = self.navigationController.navigationBar.center;
-    self.navigationItem.titleView = label;
 }
 
 //- (void)setRightNavigationButton:(NSString *)title image:(UIImage *)image highlightedImage:(UIImage *)highlightedImage frame:(CGRect)frame {
@@ -177,11 +165,17 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     [button setFrame:CGRectMake(0, 0, 44, 44)];
-    [button setTitle:kLocalization(@"common_back") forState:UIControlStateNormal];
+    [button setImage:kImage(@"titel_button_fanhui") forState:UIControlStateNormal];
+    [button setImage:kImage(@"titel_button_fanhui_highlight") forState:UIControlStateHighlighted];
     [button.titleLabel setFont:kFont16];
     [button setTitleColor:kColor_2_With_Alpha(0.8) forState:UIControlStateNormal];
     UIBarButtonItem *leftbutton = [[UIBarButtonItem alloc] initWithCustomView:button];
-    self.navigationItem.leftBarButtonItem = leftbutton;
+    UIBarButtonItem* leftSpaceItem = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil
+                                       action:nil];
+    leftSpaceItem.width = -20;
+    self.navigationItem.leftBarButtonItems = @[leftSpaceItem, leftbutton];
 }
 
 //返回
@@ -231,5 +225,12 @@
     } else {
         [leftItem.customView.layer removeAllAnimations];
     }
+}
+
+- (void)pushToNavigationController:(UINavigationController *)navigationController animated:(BOOL)animated{    UIViewController *vc = navigationController.topViewController;
+    if ([vc isKindOfClass:[self class]]) {
+        return;
+    }
+    [navigationController pushViewController:self animated:animated];
 }
 @end

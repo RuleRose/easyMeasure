@@ -16,5 +16,5 @@
 #import "ThemeConst.h"
 #import "UserDefaultConst.h"
 #import "UtilsMacro.h"
-
+#import "UtilsEnum.h"
 #endif /* XJFConstant_h */
