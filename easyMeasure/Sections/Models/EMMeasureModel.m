@@ -6,8 +6,8 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "MeasureModel.h"
+#import "EMMeasureModel.h"
 
-@implementation MeasureModel
+@implementation EMMeasureModel
 
 @end

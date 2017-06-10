@@ -6,18 +6,18 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "MeasurementViewController.h"
+#import "EMMeasurementViewController.h"
 
-@interface MeasurementViewController ()
+@interface EMMeasurementViewController ()
 @property(nonatomic,strong) UIScrollView *scrollView;
 @property(nonatomic,strong) NSArray *imageArr;
 @end
 
-@implementation MeasurementViewController
+@implementation EMMeasurementViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"测量说明";
+    self.title = kLocalization(@"em_measure_intro");
     self.view.backgroundColor = kColorFromRGB(0xffffff);
     if (_fingerType == kFingerOfThumb) {
         _imageArr = @[@"2_01",@"2_02",@"2_03",@"2_04",@"2_05"];

@@ -6,25 +6,25 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "EMMainViewController.h"
 #import "UIImage+Extension.h"
-#import "MeasureButton.h"
-#import "FingerChooseViewController.h"
-#import "ResultsListViewController.h"
+#import "EMMeasureButton.h"
+#import "EMFingerChooseViewController.h"
+#import "EMResultsListViewController.h"
 
-@interface MainViewController ()
+@interface EMMainViewController ()
 @property(nonatomic, strong)UILabel *measureNotiLabel;
-@property(nonatomic, strong)MeasureButton *leftFingerBtn;
-@property(nonatomic, strong)MeasureButton *rightFingerBtn;
+@property(nonatomic, strong)EMMeasureButton *leftFingerBtn;
+@property(nonatomic, strong)EMMeasureButton *rightFingerBtn;
 @property(nonatomic, strong)UIImageView *iconView;
 
 @end
 
-@implementation MainViewController
+@implementation EMMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"测量手指";
+    self.title = kLocalization(@"em_measure_finger");
     self.view.backgroundColor = kColorFromRGB(0xffffff);
     self.navigationController.navigationBar.titleTextAttributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:19], NSForegroundColorAttributeName : kColor_Text1 };
     [self setupViews];
@@ -39,7 +39,7 @@
 - (void)setupViews{
     _measureNotiLabel = [[UILabel alloc] init];
     _measureNotiLabel.backgroundColor = [UIColor clearColor];
-    _measureNotiLabel.text = @"请选择要测量的手";
+    _measureNotiLabel.text = kLocalization(@"em_label_measure_hand");
     _measureNotiLabel.textColor = kColor_Text1;
     _measureNotiLabel.font = [UIFont systemFontOfSize:16];
     _measureNotiLabel.textAlignment = NSTextAlignmentCenter;
@@ -50,31 +50,31 @@
     _iconView.image = kImage(@"image");
     [self.view addSubview:_iconView];
     MJWeakSelf;
-    _leftFingerBtn = [[MeasureButton alloc] init];
+    _leftFingerBtn = [[EMMeasureButton alloc] init];
     _leftFingerBtn.layer.masksToBounds = YES;
     _leftFingerBtn.layer.cornerRadius = 24;
     _leftFingerBtn.normalColor = kColor_Button1;
     _leftFingerBtn.highlightColor = kColor_Highlight_Button3;
-    [_leftFingerBtn setTitle:@"测量左手" forState:UIControlStateNormal];
+    [_leftFingerBtn setTitle:kLocalization(@"em_measure_lefthand") forState:UIControlStateNormal];
     [_leftFingerBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
     _leftFingerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     _leftFingerBtn.measureBlock = ^(){
-        FingerChooseViewController *chooseVC = [[FingerChooseViewController alloc] init];
+        EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
         chooseVC.isLeft = YES;
         [chooseVC pushToNavigationController:weakSelf.navigationController animated:YES];
     };
     [self.view addSubview:_leftFingerBtn];
     
-    _rightFingerBtn = [[MeasureButton alloc] init];
+    _rightFingerBtn = [[EMMeasureButton alloc] init];
     _rightFingerBtn.layer.masksToBounds = YES;
     _rightFingerBtn.layer.cornerRadius = 24;
     _rightFingerBtn.normalColor = kColor_Button1;
     _rightFingerBtn.highlightColor = kColor_Highlight_Button3;
-    [_rightFingerBtn setTitle:@"测量右手" forState:UIControlStateNormal];
+    [_rightFingerBtn setTitle:kLocalization(@"em_measure_righthand") forState:UIControlStateNormal];
     [_rightFingerBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
     _rightFingerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     _rightFingerBtn.measureBlock = ^(){
-        FingerChooseViewController *chooseVC = [[FingerChooseViewController alloc] init];
+        EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
         chooseVC.isLeft = NO;
         [chooseVC pushToNavigationController:weakSelf.navigationController animated:YES];
     };
@@ -108,7 +108,7 @@
 }
 
 - (void)navigationRightButtonClicked:(UIButton *)sender {
-    ResultsListViewController *listVC = [[ResultsListViewController alloc] init];
+    EMResultsListViewController *listVC = [[EMResultsListViewController alloc] init];
     [listVC pushToNavigationController:self.navigationController animated:YES];
 }
 

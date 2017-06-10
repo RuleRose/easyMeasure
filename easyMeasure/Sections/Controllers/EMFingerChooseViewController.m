@@ -6,27 +6,27 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "FingerChooseViewController.h"
-#import "FingerView.h"
-#import "MeasureViewController.h"
+#import "EMFingerChooseViewController.h"
+#import "EMFingerView.h"
+#import "EMMeasureViewController.h"
 
-@interface FingerChooseViewController ()<FingerViewDelegate>
+@interface EMFingerChooseViewController ()<FingerViewDelegate>
 @property(nonatomic, strong)UILabel *measureNotiLabel;
-@property(nonatomic, strong)FingerView *thumbView;
-@property(nonatomic, strong)FingerView *indexFingerView;
-@property(nonatomic, strong)FingerView *middleFingerView;
-@property(nonatomic, strong)FingerView *ringFingerView;
-@property(nonatomic, strong)FingerView *littleFingerView;
+@property(nonatomic, strong)EMFingerView *thumbView;
+@property(nonatomic, strong)EMFingerView *indexFingerView;
+@property(nonatomic, strong)EMFingerView *middleFingerView;
+@property(nonatomic, strong)EMFingerView *ringFingerView;
+@property(nonatomic, strong)EMFingerView *littleFingerView;
 @end
 
-@implementation FingerChooseViewController
+@implementation EMFingerChooseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (_isLeft) {
-        self.title = @"测量左手手指";
+        self.title = kLocalization(@"em_measure_leftfinger");
     }else{
-        self.title = @"测量右手手指";
+        self.title = kLocalization(@"em_measure_rightfinger");
     }
     self.view.backgroundColor = kColorFromRGB(0xffffff);
     [self setupViews];
@@ -41,24 +41,24 @@
 - (void)setupViews{
     _measureNotiLabel = [[UILabel alloc] init];
     _measureNotiLabel.backgroundColor = [UIColor clearColor];
-    _measureNotiLabel.text = @"请选择要测量的手指";
+    _measureNotiLabel.text = kLocalization(@"em_label_measure_finger");
     _measureNotiLabel.textColor = kColor_Text1;
     _measureNotiLabel.font = [UIFont systemFontOfSize:16];
     _measureNotiLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_measureNotiLabel];
-    _littleFingerView = [[FingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfLittleFinger];
+    _littleFingerView = [[EMFingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfLittleFinger];
     _littleFingerView.delegate = self;
     [self.view addSubview:_littleFingerView];
-    _ringFingerView = [[FingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfRingFinger];
+    _ringFingerView = [[EMFingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfRingFinger];
     _ringFingerView.delegate = self;
     [self.view addSubview:_ringFingerView];
-    _middleFingerView = [[FingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfMiddleFinger];
+    _middleFingerView = [[EMFingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfMiddleFinger];
     _middleFingerView.delegate = self;
     [self.view addSubview:_middleFingerView];
-    _indexFingerView = [[FingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfIndexFinger];
+    _indexFingerView = [[EMFingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfIndexFinger];
     _indexFingerView.delegate = self;
     [self.view addSubview:_indexFingerView];
-    _thumbView = [[FingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfThumb];
+    _thumbView = [[EMFingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfThumb];
     _thumbView.delegate = self;
     [self.view addSubview:_thumbView];
     
@@ -141,7 +141,7 @@
 
 #pragma mark FingerViewDelegate
 - (void)measureFinger:(FingerType)fingerType left:(BOOL)isLeft{
-    MeasureViewController *measureVC = [[MeasureViewController alloc] init];
+    EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
     measureVC.isLeft = isLeft;
     measureVC.fingerType = fingerType;
     [measureVC pushToNavigationController:self.navigationController animated:YES

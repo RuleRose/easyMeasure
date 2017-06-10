@@ -8,7 +8,7 @@
 
 #import "XJFBaseViewController.h"
 
-@interface FingerChooseViewController : XJFBaseViewController
+@interface EMFingerChooseViewController : XJFBaseViewController
 @property(nonatomic, assign) BOOL isLeft;
 
 @end

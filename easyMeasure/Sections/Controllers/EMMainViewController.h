@@ -8,6 +8,6 @@
 
 #import "XJFBaseViewController.h"
 
-@interface MainViewController : XJFBaseViewController
+@interface EMMainViewController : XJFBaseViewController
 
 @end
