@@ -96,6 +96,7 @@
 		CC708FBD1EEC131B0087AD74 /* EMMeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC708FB11EEC131B0087AD74 /* EMMeasureCell.m */; };
 		CC708FBF1EEC13450087AD74 /* shou_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC708FBE1EEC13450087AD74 /* shou_2@2x.png */; };
 		CC708FC11EEC135A0087AD74 /* shou_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC708FC01EEC135A0087AD74 /* shou_2@3x.png */; };
+		CC708FC51EEC1FCC0087AD74 /* EMDegree.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC708FC41EEC1FCC0087AD74 /* EMDegree.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -251,6 +252,7 @@
 		CC708FB11EEC131B0087AD74 /* EMMeasureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMeasureCell.m; sourceTree = "<group>"; };
 		CC708FBE1EEC13450087AD74 /* shou_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shou_2@2x.png"; sourceTree = "<group>"; };
 		CC708FC01EEC135A0087AD74 /* shou_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shou_2@3x.png"; sourceTree = "<group>"; };
+		CC708FC41EEC1FCC0087AD74 /* EMDegree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EMDegree.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 				C11CB77C1ECE877E006E67D5 /* Assets.xcassets */,
 				C11CB7811ECE877E006E67D5 /* Info.plist */,
 				C1CB46741ED7F9390091732C /* DeviceScreenSize.plist */,
+				CC708FC41EEC1FCC0087AD74 /* EMDegree.plist */,
 				C185A1DA1ECECFB500877798 /* PrefixHeader.pch */,
 				C173BE221ED3D90300BCD66F /* initServer.h */,
 				C173BE231ED3D90300BCD66F /* initServer.m */,
@@ -757,6 +760,7 @@
 				CC0F0FCA1EEACF0B002FD6DF /* button_wancheng@3x.png in Resources */,
 				CC0F10161EEBB699002FD6DF /* 2_04@2x.png in Resources */,
 				CC0F0FCF1EEACF0B002FD6DF /* titel_button_jilu_highlight@3x.png in Resources */,
+				CC708FC51EEC1FCC0087AD74 /* EMDegree.plist in Resources */,
 				CC0F10151EEBB699002FD6DF /* 2_03@2x.png in Resources */,
 				CC0F0FAC1EEACEF9002FD6DF /* button_jia@2x.png in Resources */,
 				CC0F10171EEBB699002FD6DF /* 2_05@2x.png in Resources */,
