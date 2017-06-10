@@ -106,4 +106,16 @@ Singleton_Implementation(EMScreenSizeManager);
 
     return type;
 }
+
+- (CGFloat)hkdegreeWithWidth:(CGFloat)width{
+    return 8;
+}
+
+- (CGFloat)usdegreeWithWidth:(CGFloat)width{
+    return 8;
+}
+
+- (CGFloat)eurodegreeWithWidth:(CGFloat)width{
+    return 8;
+}
 @end

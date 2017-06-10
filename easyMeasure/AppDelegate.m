@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
 #import "MainViewController.h"
 #import "NavigationController.h"
+#import "XJFDBManager.h"
+#import "MeasureModel.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +29,7 @@
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [XJFDBManager createTableWithModel:[MeasureModel class]];
 //    [NSThread sleepForTimeInterval:1.0];
 
     return YES;

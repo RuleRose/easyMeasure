@@ -9,5 +9,6 @@
 #import "XJFBaseViewController.h"
 
 @interface MeasurementViewController : XJFBaseViewController
+@property(nonatomic, assign) FingerType fingerType;
 
 @end

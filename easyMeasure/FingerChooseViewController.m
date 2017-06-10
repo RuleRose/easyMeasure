@@ -115,7 +115,7 @@
         [_middleFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@0);
             make.top.equalTo(weakSelf.ringFingerView.mas_bottom).offset(10);
-            make.left.equalTo(@35);
+            make.left.equalTo(@25);
             make.height.equalTo(@56);
         }];
         [_indexFingerView mas_makeConstraints:^(MASConstraintMaker *make) {

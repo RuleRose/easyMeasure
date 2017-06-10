@@ -7,9 +7,11 @@
 //
 
 #import "XJFBaseViewController.h"
+#import "MeasureModel.h"
 
 @interface MeasureViewController : XJFBaseViewController
 @property(nonatomic, assign) BOOL isLeft;
 @property(nonatomic, assign) FingerType fingerType;
+@property(nonatomic, strong) MeasureModel *measureModel;
 
 @end

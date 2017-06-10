@@ -10,6 +10,7 @@
 #import "UIImage+Extension.h"
 #import "MeasureButton.h"
 #import "FingerChooseViewController.h"
+#import "ResultsListViewController.h"
 
 @interface MainViewController ()
 @property(nonatomic, strong)UILabel *measureNotiLabel;
@@ -104,6 +105,11 @@
         make.height.equalTo(@48);
         make.width.equalTo(weakSelf.rightFingerBtn.mas_width);
     }];
+}
+
+- (void)navigationRightButtonClicked:(UIButton *)sender {
+    ResultsListViewController *listVC = [[ResultsListViewController alloc] init];
+    [listVC pushToNavigationController:self.navigationController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

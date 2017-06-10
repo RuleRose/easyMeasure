@@ -10,7 +10,8 @@
 #import "MeasureResultViewController.h"
 #import "MeasurementViewController.h"
 #import "EMScreenSizeManager.h"
-
+#import "NSDate+Extension.h"
+#import "MainViewController.h"
 
 @interface MeasureViewController ()
 @property(nonatomic, strong)UILabel *measureNotiLabel;
@@ -20,12 +21,15 @@
 @property(nonatomic, strong)UIButton *finishBtn;
 @property(nonatomic, strong)UIView *handleView;
 @property(nonatomic, assign)BOOL adding;
-@property(nonatomic, assign) NSTimeInterval time; //刷新间隔
-@property(nonatomic, strong) NSTimer *timer; //定时器
+@property(nonatomic, assign)NSTimeInterval time; //刷新间隔
+@property(nonatomic, strong)NSTimer *timer; //定时器
 @property(nonatomic, strong)UIView *baseLine;//基准线
 @property(nonatomic, strong)UIView *controlLine;//调节线
 @property(nonatomic, assign)CGFloat width;//手指宽度
 @property(nonatomic, assign)CGFloat widthUnit;//毫米单位
+@property(nonatomic, strong)UIImageView *fingerImageView;
+@property(nonatomic, strong)UIView *upRedCircle;
+@property(nonatomic, strong)UIView *downRedCircle;
 
 
 @end
@@ -64,7 +68,7 @@
     self.title = title;
     _widthUnit =  [[EMScreenSizeManager defaultInstance] widthOfOnePoint];
     [self setupViews];
-    self.width = 80;
+    [self refreshWithWithDisdance:80];
     // Do any additional setup after loading the view.
 }
 
@@ -76,6 +80,7 @@
 
 - (void)navigationRightButtonClicked:(UIButton *)sender {
     MeasurementViewController *measurementVC = [[MeasurementViewController alloc] init];
+    measurementVC.fingerType = _fingerType;
     [measurementVC pushToNavigationController:self.navigationController animated:YES];
 }
 
@@ -127,6 +132,23 @@
     _controlLine = [[UIView alloc] init];
     _controlLine.backgroundColor = [UIColor redColor];
     [self.view addSubview:_controlLine];
+    _fingerImageView = [[UIImageView alloc] init];
+    _fingerImageView.backgroundColor = [UIColor clearColor];
+    _fingerImageView.image= kImage(@"shou");
+    [self.view addSubview:_fingerImageView];
+    
+    _upRedCircle = [[UIView alloc] init];
+    _upRedCircle.backgroundColor = [UIColor redColor];
+    _upRedCircle.layer.masksToBounds = YES;
+    _upRedCircle.layer.cornerRadius = 8;
+    [self.view addSubview:_upRedCircle];
+    
+    _downRedCircle = [[UIView alloc] init];
+    _downRedCircle.backgroundColor = [UIColor redColor];
+    _downRedCircle.layer.masksToBounds = YES;
+    _downRedCircle.layer.cornerRadius = 8;
+    [self.view addSubview:_downRedCircle];
+    
     _handleView = [[UIView alloc] init];
     _handleView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_handleView];
@@ -170,18 +192,37 @@
         make.top.equalTo(weakSelf.measureNotiLabel.mas_bottom);
     }];
     
-    
     [_baseLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
         make.height.equalTo(@1);
         make.bottom.equalTo(@(-258));
     }];
+    CGFloat width = kScreen_Width*347/375;
+    
+    [_fingerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.width.equalTo(@(width));
+        make.height.equalTo(@77);
+        make.bottom.equalTo(weakSelf.baseLine.mas_top);
+    }];
     [_controlLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
         make.height.equalTo(@1);
-        make.bottom.equalTo(weakSelf.baseLine.mas_top).offset(-80);
+        make.top.equalTo(weakSelf.baseLine.mas_top).offset(-78);
+    }];
+    [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(weakSelf.baseLine.mas_centerX);
+        make.centerY.equalTo(weakSelf.baseLine.mas_centerY);
+        make.width.equalTo(@16);
+        make.height.equalTo(@16);
+    }];
+    [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(weakSelf.controlLine.mas_centerX);
+        make.centerY.equalTo(weakSelf.controlLine.mas_centerY);
+        make.width.equalTo(@16);
+        make.height.equalTo(@16);
     }];
     if (_isLeft) {
         [_handleView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -284,8 +325,26 @@
 }
 
 - (void)finishBtnPressed{
+    if (!_measureModel) {
+        _measureModel = [[MeasureModel alloc] init];
+    }
+    _measureModel.width = [NSString stringWithFormat:@"%f",_width];
+    _measureModel.finger_left = [NSString stringWithFormat:@"%d",_isLeft];
+    _measureModel.finger_type = [NSString stringWithFormat:@"%lu",(unsigned long)_fingerType];
+    _measureModel.measure_time = [NSDate timestampFromDate:[NSDate date]];
+    if ([NSString leie_isBlankString:_measureModel.pid]) {
+        [_measureModel insertToDB];
+    }else{
+        if (![_measureModel updateToDBDependsOn:nil]) {
+            [_measureModel insertToDB];
+        }
+    }
     MeasureResultViewController *resultVC = [[MeasureResultViewController alloc] init];
-    [resultVC pushToNavigationController:self.navigationController animated:YES];
+    resultVC.measure = _measureModel;
+    NSMutableArray* viewControllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+    [viewControllers removeObject:self];
+    [viewControllers addObject:resultVC];
+    [self.navigationController setViewControllers:viewControllers animated:YES];
 }
 
 //开启定时器
@@ -304,7 +363,7 @@
 
 //刷新Line
 - (void)refreshLine{
-    CGFloat distace = _baseLine.frame.origin.y - (_controlLine.frame.origin.y + _controlLine.frame.size.height);
+    CGFloat distace = _baseLine.frame.origin.y - _controlLine.frame.origin.y;
     if (_adding) {
         distace += 0.5;
     }else{
@@ -321,15 +380,18 @@
         make.left.equalTo(@0);
         make.right.equalTo(@0);
         make.height.equalTo(@1);
-        make.bottom.equalTo(weakSelf.baseLine.mas_top).offset(-distace);
+        make.top.equalTo(weakSelf.baseLine.mas_top).offset(-distace);
     }];
     [self.view layoutIfNeeded];
-    self.width = distace;
+    [self refreshWithWithDisdance:distace - _controlLine.frame.size.height];
 }
 
-- (void)setWidth:(CGFloat)width{
-    _width = width;
-    _measureLabel.text = [NSString stringWithFormat:@"%0.1fmm",width*_widthUnit];
+- (void)refreshWithWithDisdance:(CGFloat)distance{
+    if (distance < 0) {
+        distance = 0;
+    }
+    _width = distance*_widthUnit;
+    _measureLabel.text = [NSString stringWithFormat:@"%0.1fmm",_width];
 }
 
 

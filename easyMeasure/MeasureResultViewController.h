@@ -7,7 +7,9 @@
 //
 
 #import "XJFBaseViewController.h"
+#import "MeasureModel.h"
 
 @interface MeasureResultViewController : XJFBaseViewController
-@property(nonatomic, assign) CGFloat width;
+@property(nonatomic, strong)MeasureModel *measure;
+
 @end
