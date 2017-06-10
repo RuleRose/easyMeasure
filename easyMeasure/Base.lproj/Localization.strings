@@ -5,3 +5,36 @@
   Created by yongche on 17/5/23.
   Copyright © 2017年 goldsmith. All rights reserved.
 */
+
+"em_cancel" = "取消";
+"em_confirm" = "确定";
+"em_degree_unit" = "号";
+"em_thumb" = "拇指";
+"em_indexfinger" = "食指";
+"em_middlefinger" = "中指";
+"em_ringfinger" = "无名指";
+"em_littlefinger" = "小指";
+"em_left_hand" = "左手";
+"em_right_hand" = "右手";
+"em_measure_result" = "测量结果";
+"em_measure_result_detail" = "测量结果：%0.1fcm";
+"em_clear" = "清除";
+"em_measure" = "测量";
+"em_measure_intro" = "测量说明";
+"em_width" = "宽度";
+"em_remeasure" = "重新测量";
+"em_degree_us" = "美度";
+"em_degree_euro" = "欧度";
+"em_degree_hk" = "港度";
+"em_measure_leftfinger" = "测量左手手指";
+"em_measure_rightfinger" = "测量右手手指";
+"em_measure_lefthand" = "测量左手";
+"em_measure_righthand" = "测量右手";
+"em_measure_finger" = "测量手指";
+
+"em_label_ring_size" = "建议您挑选戒指的尺寸为";
+"em_label_ring_diameter" = "您的戒指内径为";
+"em_label_measure_finger" = "请选择要测量的手指";
+"em_label_measure_hand" = "请选择要测量的手";
+
+"em_noti_clear" = "您是否要清空历史记录?";

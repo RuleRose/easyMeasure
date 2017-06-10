@@ -8,6 +8,6 @@
 
 #import "XJFBaseViewController.h"
 
-@interface ResultsListViewController : XJFBaseViewController
+@interface EMResultsListViewController : XJFBaseViewController
 
 @end

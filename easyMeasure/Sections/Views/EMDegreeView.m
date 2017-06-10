@@ -6,11 +6,11 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "DegreeView.h"
+#import "EMDegreeView.h"
 #import "NSString+Extension.h"
 #import "EMScreenSizeManager.h"
 
-@implementation DegreeView
+@implementation EMDegreeView
 - (instancetype)init
 {
     self = [super init];
@@ -37,7 +37,7 @@
     _degreeUnitLabel.backgroundColor = [UIColor clearColor];
     _degreeUnitLabel.textColor = kColor_Text5;
     _degreeUnitLabel.font = [UIFont systemFontOfSize:12];
-    _degreeUnitLabel.text = @"号";
+    _degreeUnitLabel.text = kLocalization(@"em_degree_unit");
     [self addSubview:_degreeUnitLabel];
     MJWeakSelf;
     [_degreeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,7 +105,7 @@
     }
     _degreeLabel.text = text;
     CGSize size1 = [text sizeWithFont:[UIFont systemFontOfSize:20]];
-    CGSize size2 = [@"号" sizeWithFont:[UIFont systemFontOfSize:12]];
+    CGSize size2 = [kLocalization(@"em_degree_unit") sizeWithFont:[UIFont systemFontOfSize:12]];
     CGFloat viewWidth = width/2 + (size1.width - size2.width)/2;
     MJWeakSelf;
     [_degreeLabel mas_updateConstraints:^(MASConstraintMaker *make) {

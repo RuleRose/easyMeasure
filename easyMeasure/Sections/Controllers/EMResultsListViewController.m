@@ -6,19 +6,19 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "ResultsListViewController.h"
+#import "EMResultsListViewController.h"
 #import "XJFDBManager.h"
-#import "MeasureModel.h"
-#import "MeasureCell.h"
-#import "MeasureResultViewController.h"
+#import "EMMeasureModel.h"
+#import "EMMeasureCell.h"
+#import "EMMeasureResultViewController.h"
 
-@interface ResultsListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EMResultsListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *measures;
 
 @end
 
-@implementation ResultsListViewController
+@implementation EMResultsListViewController
 - (UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
@@ -49,7 +49,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setBackBarButton];
-    [self setNavigationButtons:1 title:@[@"清除"] image:nil highlightedImage:nil frame:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 64, 44)]] isRight:YES];
+    [self setNavigationButtons:1 title:@[kLocalization(@"em_clear")] image:nil highlightedImage:nil frame:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 64, 44)]] isRight:YES];
     [self loadData];
 }
 
@@ -64,7 +64,7 @@
 }
 
 - (void)loadData{
-    MeasureModel *measureModel = [[MeasureModel alloc] init];
+    EMMeasureModel *measureModel = [[EMMeasureModel alloc] init];
     NSArray *result = [XJFDBManager searchModelsWithCondition:measureModel andpage:-1 andOrderby:@"measure_time" isAscend:NO];
     [_measures removeAllObjects];
     [_measures addObjectsFromArray:result];
@@ -73,14 +73,14 @@
 
 - (void)navigationRightButtonClicked:(UIButton *)sender {
     if ([_measures count] > 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"您是否要清空历史记录" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:kLocalization(@"em_noti_clear") preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:kLocalization(@"em_cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         [alertController addAction:cancelAction];
-        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:kLocalization(@"em_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //清空
-            [XJFDBManager clearTableModel:[[MeasureModel alloc] init]];
+            [XJFDBManager clearTableModel:[[EMMeasureModel alloc] init]];
             [_measures removeAllObjects];
             [_tableView reloadData];
         }];
@@ -96,19 +96,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"Cell";
-    MeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    EMMeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[MeasureCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[EMMeasureCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
-- (void)configureCell:(MeasureCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(EMMeasureCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor whiteColor];
-    MeasureModel *measure = [_measures objectAtIndex:indexPath.row];
+    EMMeasureModel *measure = [_measures objectAtIndex:indexPath.row];
     cell.measure = measure;
 }
 
@@ -122,8 +122,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    MeasureModel *measure = [_measures objectAtIndex:indexPath.row];
-    MeasureResultViewController *resultVC = [[MeasureResultViewController alloc] init];
+    EMMeasureModel *measure = [_measures objectAtIndex:indexPath.row];
+    EMMeasureResultViewController *resultVC = [[EMMeasureResultViewController alloc] init];
     resultVC.measure = measure;
     [resultVC pushToNavigationController:self.navigationController animated:YES];
 }
@@ -131,7 +131,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        MeasureModel *measure = [_measures objectAtIndex:indexPath.row];
+        EMMeasureModel *measure = [_measures objectAtIndex:indexPath.row];
         [XJFDBManager deleteModel:measure dependOnKeys:nil];
         [_measures removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source.

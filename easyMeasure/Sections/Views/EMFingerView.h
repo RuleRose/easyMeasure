@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MeasureButton.h"
+#import "EMMeasureButton.h"
 
 @protocol FingerViewDelegate;
-@interface FingerView : UIView
+@interface EMFingerView : UIView
 - (instancetype)initWithLeft:(BOOL)left fingerType:(FingerType)fingerType;
 @property(nonatomic, assign) CGFloat radius;
 @property(nonatomic, assign) BOOL isLeft;
 @property(nonatomic, assign) CGSize buttonSize;
 @property(nonatomic, assign) CGFloat marginDisease;
 @property(nonatomic, strong) UIView *contentView;
-@property(nonatomic, strong) MeasureButton *fingerBtn;
+@property(nonatomic, strong) EMMeasureButton *fingerBtn;
 @property(nonatomic, assign) id<FingerViewDelegate> delegate;
 @property(nonatomic, assign) FingerType fingerType;
 @property(nonatomic, strong) NSString *finger;

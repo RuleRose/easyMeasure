@@ -8,6 +8,6 @@
 
 #import "XJFBaseNavigationController.h"
 
-@interface NavigationController : XJFBaseNavigationController
+@interface EMNavigationController : XJFBaseNavigationController
 
 @end

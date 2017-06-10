@@ -80,7 +80,7 @@
 
 /*****************************************************************************************/
 #pragma mark - 国际化
-#define kLocalization(key) NSLocalizedString(key, nil)
+#define kLocalization(key) NSLocalizedStringFromTable(key, @"Localization", nil)
 //当前语言
 #define kSystem_Language ([[NSLocale preferredLanguages] objectAtIndex:0])
 

@@ -7,9 +7,9 @@
 //
 
 #import "XJFBaseViewController.h"
-#import "MeasureModel.h"
+#import "EMMeasureModel.h"
 
-@interface MeasureResultViewController : XJFBaseViewController
-@property(nonatomic, strong)MeasureModel *measure;
+@interface EMMeasureResultViewController : XJFBaseViewController
+@property(nonatomic, strong)EMMeasureModel *measure;
 
 @end

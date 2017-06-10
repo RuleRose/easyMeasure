@@ -6,10 +6,10 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "MeasureCell.h"
+#import "EMMeasureCell.h"
 #import "NSDate+Extension.h"
 
-@implementation MeasureCell
+@implementation EMMeasureCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -46,36 +46,36 @@
     }];
 }
 
-- (void)setMeasure:(MeasureModel *)measure{
+- (void)setMeasure:(EMMeasureModel *)measure{
     _measure = measure;
     BOOL isLeft = [measure.finger_left boolValue];
     FingerType fingerType= [measure.finger_type integerValue];
     NSString *title = @"";
     if (isLeft) {
-        title = [title stringByAppendingString:@"左手"];
+        title = [title stringByAppendingString:kLocalization(@"em_left_hand")];
     }else{
-        title = [title stringByAppendingString:@"右手"];
+        title = [title stringByAppendingString:kLocalization(@"em_right_hand")];
     }
     switch (fingerType) {
         case kFingerOfThumb:
-            title = [title stringByAppendingString:@"拇指"];
+            title = [title stringByAppendingString:kLocalization(@"em_thumb")];
             break;
         case kFingerOfIndexFinger:
-            title = [title stringByAppendingString:@"食指"];
+            title = [title stringByAppendingString:kLocalization(@"em_indexfinger")];
             break;
         case kFingerOfMiddleFinger:
-            title = [title stringByAppendingString:@"中指"];
+            title = [title stringByAppendingString:kLocalization(@"em_middlefinger")];
             break;
         case kFingerOfRingFinger:
-            title = [title stringByAppendingString:@"无名指"];
+            title = [title stringByAppendingString:kLocalization(@"em_ringfinger")];
             break;
         case kFingerOfLittleFinger:
-            title = [title stringByAppendingString:@"小指"];
+            title = [title stringByAppendingString:kLocalization(@"em_littlefinger")];
             break;
         default:
             break;
     }
-    title =[title stringByAppendingFormat:@"测量结果：%0.1fcm",[measure.width floatValue]/10];
+    title =[title stringByAppendingFormat:kLocalization(@"em_measure_result_detail"),[measure.width floatValue]/10];
     _resultLabel.text = title;
    NSDate *date = [NSDate dateFromTimestampStr:_measure.measure_time];
     _dateLabel.text = [NSDate stringFromDate:date format:@"yyyy-MM-dd"];
