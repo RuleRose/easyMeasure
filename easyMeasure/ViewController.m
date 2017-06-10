@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "EMScreenSizeManager.h"
 
 @interface ViewController ()
 
@@ -17,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[EMScreenSizeManager defaultInstance] widthOfOnePoint];
     
     
     

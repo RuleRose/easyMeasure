@@ -21,7 +21,7 @@
     self.navigationController.navigationBar.barStyle = UIBaselineAdjustmentNone;
     self.view.backgroundColor = kColor_1;
     [self navigationBarLineHidden:YES];
-    self.navigationController.navigationBar.titleTextAttributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:16], NSForegroundColorAttributeName : kColor_Text1 };
+    self.navigationController.navigationBar.titleTextAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:19], NSForegroundColorAttributeName : kColor_Text1 };
     // Do any additional setup after loading the view.
 }
 
@@ -116,9 +116,8 @@
 
         if (title) {
             [button setTitle:[title leie_objectAtIndex:i] forState:UIControlStateNormal];
-            [button.titleLabel setFont:kFont14];
-            [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
-            [button setTitleColor:kColor_2_With_Alpha(0.8) forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont systemFontOfSize:16]];
+            [button setTitleColor:kColor_Text1 forState:UIControlStateNormal];
         }
 
         if (image) {

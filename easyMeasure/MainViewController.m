@@ -25,6 +25,7 @@
     [super viewDidLoad];
     self.title = @"测量手指";
     self.view.backgroundColor = kColorFromRGB(0xffffff);
+    self.navigationController.navigationBar.titleTextAttributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:19], NSForegroundColorAttributeName : kColor_Text1 };
     [self setupViews];
     // Do any additional setup after loading the view.
 }
