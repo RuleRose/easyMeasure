@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "initServer.h"
+#import "MainViewController.h"
+#import "NavigationController.h"
+#import "XJFDBManager.h"
+#import "MeasureModel.h"
 
 @interface AppDelegate ()
 
@@ -18,17 +20,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [NSThread sleepForTimeInterval:3.0];
-
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = kColor_1;
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    _navigationC = [[NavigationController alloc] initWithRootViewController:mainVC];
+    [self.window setRootViewController:_navigationC];
     // Override point for customization after application launch.
-
-    ViewController *viewController = [[ViewController alloc] init];
-    self.window.rootViewController = viewController;
-
-    self.window.backgroundColor = [UIColor purpleColor];
     [self.window makeKeyAndVisible];
-
+    [XJFDBManager createTableWithModel:[MeasureModel class]];
     return YES;
 }
 

@@ -21,7 +21,21 @@
 #define kRGBA_Color(r, g, b, a) [UIColor colorWithRed:r / 255.f green:g / 255.f blue:b / 255.f alpha:a]
 #define kRandom_Color (kRGB_Color(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256)))
 
+#define kColorFromRGBA(rgbValue, alpha) [UIColor leie_colorWithHex:rgbValue andAlpha:alpha]
+#define kColorFromRGB(rgbValue) kColorFromRGBA(rgbValue, 1.0f)
+
 /**************************颜色**************************************/
+#define kColor_NavigationBar kColorFromRGB(0xffc905)
+#define kColor_Text1 kColorFromRGB(0x333333)
+#define kColor_Text2 kColorFromRGB(0x666666)
+#define kColor_Text3 kColorFromRGB(0x999999)
+#define kColor_Text4 kColorFromRGB(0xffffff)
+#define kColor_Text5 kColorFromRGB(0x54b3c5)
+#define kColor_Button1 kColorFromRGB(0xffc905)
+#define kColor_Button2 kColorFromRGB(0xffefb4)
+#define kColor_Highlight_Button3 kColorFromRGB(0xcca004)
+
+
 #define kColor_1 kColor_1_With_Alpha(1.0)
 #define kColor_1_With_Alpha(alpha) [UIColor leie_colorWithHex:0xececec andAlpha:alpha]
 #define kColor_2 kColor_2_With_Alpha(1.0)
@@ -57,6 +71,7 @@
 #define COLOR_NAVI_BAR kColor_5
 
 /****************************字体大小***********************************/
+
 #define kFont6 [UIFont systemFontOfSize:6]
 #define kFont9 [UIFont systemFontOfSize:9]
 #define kFont10 [UIFont systemFontOfSize:10]

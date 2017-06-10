@@ -11,6 +11,7 @@
 @interface NSString (leie_Characters)
 
 #pragma mark - Category(leie_Characters)
+- (CGSize)sizeWithFont:(UIFont *)font;
 
 //汉字转换为拼音
 - (NSString *)leie_pinyinOfName;

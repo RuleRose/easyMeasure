@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #define LIMITNUMBER 30
 
-#define DATABASE_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingString:@"/UNICData.db"]
+#define DATABASE_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingString:@"/MeasureData.db"]
 
 @interface XJFDBOperator : NSObject
 Singleton_Interface(XJFDBOperator);

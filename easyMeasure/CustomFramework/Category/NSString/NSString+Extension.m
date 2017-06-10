@@ -9,6 +9,12 @@
 #import "NSString+Extension.h"
 
 @implementation NSString (leie_Characters)
+- (CGSize)sizeWithFont:(UIFont *)font{
+    if ([self length] == 0) {
+        return CGSizeZero;
+    }
+    return [self sizeWithAttributes:@{NSFontAttributeName : font}];
+}
 
 - (NSString *)leie_pinyinOfName {
     NSMutableString *name = [[NSMutableString alloc] initWithString:self];
