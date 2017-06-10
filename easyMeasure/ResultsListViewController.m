@@ -79,14 +79,13 @@
         }];
         [alertController addAction:cancelAction];
         UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
+            //清空
+            [XJFDBManager clearTableModel:[[MeasureModel alloc] init]];
+            [_measures removeAllObjects];
+            [_tableView reloadData];
         }];
         [alertController addAction:confirmAction];
         [self.navigationController presentViewController:alertController animated:YES completion:nil];
-        //清空
-        [XJFDBManager clearTableModel:[[MeasureModel alloc] init]];
-        [_measures removeAllObjects];
-        [_tableView reloadData];
     }
 }
 
