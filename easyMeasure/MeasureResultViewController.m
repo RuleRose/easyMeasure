@@ -11,19 +11,20 @@
 #import "MainViewController.h"
 #import "MeasureViewController.h"
 #import "EMScreenSizeManager.h"
+#import "DegreeView.h"
 
 @interface MeasureResultViewController ()
 @property(nonatomic, strong)UIImageView *imageView;
 @property(nonatomic, strong)UILabel *measureTitleLabel;
 @property(nonatomic, strong)UILabel *measureLabel;
 @property(nonatomic, strong)UILabel *suggestTitleLabel;
-@property(nonatomic, strong)UILabel *hkDegreeTitleLabel;
-@property(nonatomic, strong)UILabel *hkDegreeLabel;
-@property(nonatomic, strong)UILabel *euroDegreeTitleLabel;
-@property(nonatomic, strong)UILabel *euroDegreeLabel;
-@property(nonatomic, strong)UILabel *usDegreeTitleLabel;
-@property(nonatomic, strong)UILabel *usDegreeLabel;
+@property(nonatomic, strong)DegreeView *hkDegreeView;
+@property(nonatomic, strong)DegreeView *euroDegreeView;
+@property(nonatomic, strong)DegreeView *usDegreeView;
 @property(nonatomic, strong)MeasureButton *remeasureBtn;
+@property(nonatomic, strong)UIView *leftPoint;
+@property(nonatomic, strong)UIView *rightPoint;
+
 @end
 
 @implementation MeasureResultViewController
@@ -57,7 +58,7 @@
     _measureLabel = [[UILabel alloc] init];
     _measureLabel.backgroundColor = [UIColor clearColor];
     _measureLabel.textColor = kColor_Text5;
-    _measureLabel.font = [UIFont systemFontOfSize:40];
+    _measureLabel.font = [UIFont boldSystemFontOfSize:40];
     _measureLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_measureLabel];
     _suggestTitleLabel = [[UILabel alloc] init];
@@ -68,46 +69,29 @@
     _suggestTitleLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_suggestTitleLabel];
     
-    _hkDegreeTitleLabel = [[UILabel alloc] init];
-    _hkDegreeTitleLabel.backgroundColor = [UIColor clearColor];
-    _hkDegreeTitleLabel.text = @"港度";
-    _hkDegreeTitleLabel.textColor = kColor_Text2;
-    _hkDegreeTitleLabel.font = [UIFont systemFontOfSize:15];
-    _hkDegreeTitleLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_hkDegreeTitleLabel];
-    _hkDegreeLabel = [[UILabel alloc] init];
-    _hkDegreeLabel.backgroundColor = [UIColor clearColor];
-    _hkDegreeLabel.textColor = kColor_Text5;
-    _hkDegreeLabel.font = [UIFont systemFontOfSize:40];
-    _hkDegreeLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_hkDegreeLabel];
+    _leftPoint = [[UIView alloc] init];
+    _leftPoint.backgroundColor = [UIColor blackColor];
+    _leftPoint.layer.masksToBounds = YES;
+    _leftPoint.layer.cornerRadius = 4;
+    [self.view addSubview:_leftPoint];
+    _rightPoint = [[UIView alloc] init];
+    _rightPoint.backgroundColor = [UIColor blackColor];
+    _rightPoint.layer.masksToBounds = YES;
+    _rightPoint.layer.cornerRadius = 4;
+    [self.view addSubview:_rightPoint];
     
-    _euroDegreeTitleLabel = [[UILabel alloc] init];
-    _euroDegreeTitleLabel.backgroundColor = [UIColor clearColor];
-    _euroDegreeTitleLabel.text = @"欧度";
-    _euroDegreeTitleLabel.textColor = kColor_Text2;
-    _euroDegreeTitleLabel.font = [UIFont systemFontOfSize:15];
-    _euroDegreeTitleLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_euroDegreeTitleLabel];
-    _euroDegreeLabel = [[UILabel alloc] init];
-    _euroDegreeLabel.backgroundColor = [UIColor clearColor];
-    _euroDegreeLabel.textColor = kColor_Text5;
-    _euroDegreeLabel.font = [UIFont systemFontOfSize:40];
-    _euroDegreeLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_euroDegreeLabel];
-    _usDegreeTitleLabel = [[UILabel alloc] init];
-    _usDegreeTitleLabel.backgroundColor = [UIColor clearColor];
-    _usDegreeTitleLabel.text = @"美度";
-    _usDegreeTitleLabel.textColor = kColor_Text2;
-    _usDegreeTitleLabel.font = [UIFont systemFontOfSize:15];
-    _usDegreeTitleLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_usDegreeTitleLabel];
-    _usDegreeLabel = [[UILabel alloc] init];
-    _usDegreeLabel.backgroundColor = [UIColor clearColor];
-    _usDegreeLabel.textColor = kColor_Text5;
-    _usDegreeLabel.font = [UIFont systemFontOfSize:40];
-    _usDegreeLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_usDegreeLabel];
+    _hkDegreeView = [[DegreeView alloc] init];
+    _hkDegreeView.backgroundColor = [UIColor clearColor];
+    _hkDegreeView.degreeTitleLabel.text = @"港度";
+    [self.view addSubview:_hkDegreeView];
+    _euroDegreeView = [[DegreeView alloc] init];
+    _euroDegreeView.backgroundColor = [UIColor clearColor];
+    _euroDegreeView.degreeTitleLabel.text = @"欧度";
+    [self.view addSubview:_euroDegreeView];
+    _usDegreeView = [[DegreeView alloc] init];
+    _usDegreeView.backgroundColor = [UIColor clearColor];
+    _usDegreeView.degreeTitleLabel.text = @"美度";
+    [self.view addSubview:_usDegreeView];
     
     _remeasureBtn = [[MeasureButton alloc] init];
     _remeasureBtn.layer.masksToBounds = YES;
@@ -129,69 +113,67 @@
         [weakSelf.navigationController setViewControllers:viewControllers animated:YES];
     };
     [self.view addSubview:_remeasureBtn];
+    CGFloat height = kScreen_Width/1.6;
+    
     [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.top.equalTo(@(kNavigationHeight + kStatusHeight));
         make.right.equalTo(@0);
-        make.height.equalTo(@235);
+        make.height.equalTo(@(height));
     }];
     [_measureTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
-        make.top.equalTo(weakSelf.imageView.mas_bottom).offset(35);
-        make.height.equalTo(@24);
+        make.top.equalTo(weakSelf.imageView.mas_bottom).offset(kFitWidth(31));
+        make.height.equalTo(@23);
     }];
     [_measureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
-        make.top.equalTo(weakSelf.measureTitleLabel.mas_bottom).offset(18);
+        make.top.equalTo(weakSelf.measureTitleLabel.mas_bottom).offset(kFitWidth(14));
         make.height.equalTo(@48);
     }];
     [_suggestTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
-        make.top.equalTo(weakSelf.measureLabel.mas_bottom).offset(45);
-        make.height.equalTo(@24);
+        make.top.equalTo(weakSelf.measureLabel.mas_bottom).offset(kFitWidth(37));
+        make.height.equalTo(@23);
     }];
-    [_euroDegreeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(22);
-        make.left.equalTo(weakSelf.hkDegreeTitleLabel.mas_right);
-        make.right.equalTo(weakSelf.usDegreeTitleLabel.mas_left);
-        make.height.equalTo(@24);
-    }];
-    [_hkDegreeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(22);
+    [_hkDegreeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(14);
         make.left.equalTo(@0);
-        make.width.equalTo(weakSelf.euroDegreeTitleLabel.mas_width);
-        make.right.equalTo(weakSelf.euroDegreeTitleLabel.mas_left);
-        make.height.equalTo(@24);
+        make.width.equalTo(weakSelf.euroDegreeView.mas_width);
+        make.right.equalTo(weakSelf.euroDegreeView.mas_left);
+        make.height.equalTo(@54);
     }];
-    [_usDegreeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(22);
-        make.right.equalTo(@0);
-        make.width.equalTo(weakSelf.euroDegreeTitleLabel.mas_width);
-        make.left.equalTo(weakSelf.euroDegreeTitleLabel.mas_right);
-        make.height.equalTo(@24);
+    
+    [_euroDegreeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(14);
+        make.left.equalTo(weakSelf.hkDegreeView.mas_right);
+        make.right.equalTo(weakSelf.usDegreeView.mas_left);
+        make.height.equalTo(@54);
     }];
 
-    [_hkDegreeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.hkDegreeTitleLabel.mas_left);
-        make.top.equalTo(weakSelf.hkDegreeTitleLabel.mas_bottom);
-        make.right.equalTo(weakSelf.hkDegreeTitleLabel.mas_right);
-        make.height.equalTo(@48);
+    [_usDegreeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(14);
+        make.right.equalTo(@0);
+        make.width.equalTo(weakSelf.euroDegreeView.mas_width);
+        make.left.equalTo(weakSelf.euroDegreeView.mas_right);
+        make.height.equalTo(@54);
     }];
-    [_euroDegreeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.euroDegreeTitleLabel.mas_left);
-        make.top.equalTo(weakSelf.euroDegreeTitleLabel.mas_bottom);
-        make.right.equalTo(weakSelf.euroDegreeTitleLabel.mas_right);
-        make.height.equalTo(@48);
+    [_leftPoint mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(38);
+        make.left.equalTo(weakSelf.hkDegreeView.mas_right).offset(-4);
+        make.width.equalTo(@8);
+        make.height.equalTo(@8);
     }];
-    [_usDegreeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.usDegreeTitleLabel.mas_left);
-        make.top.equalTo(weakSelf.usDegreeTitleLabel.mas_bottom);
-        make.right.equalTo(weakSelf.usDegreeTitleLabel.mas_right);
-        make.height.equalTo(@48);
+    [_rightPoint mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.suggestTitleLabel.mas_bottom).offset(38);
+        make.right.equalTo(weakSelf.usDegreeView.mas_left).offset(-4);
+        make.width.equalTo(@8);
+        make.height.equalTo(@8);
     }];
+    
     [_remeasureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@295);
         make.height.equalTo(@44);
@@ -202,10 +184,9 @@
 
 - (void)loadData{
     _measureLabel.text = [NSString stringWithFormat:@"%0.1fmm", [_measure.width floatValue]];
-    _hkDegreeLabel.text = [NSString stringWithFormat:@"%0.1f",[[EMScreenSizeManager defaultInstance] hkdegreeWithWidth:[_measure.width floatValue]]];
-    _usDegreeLabel.text = [NSString stringWithFormat:@"%0.1f",[[EMScreenSizeManager defaultInstance] usdegreeWithWidth:[_measure.width floatValue]]];
-    _euroDegreeLabel.text = [NSString stringWithFormat:@"%0.1f",[[EMScreenSizeManager defaultInstance] eurodegreeWithWidth:[_measure.width floatValue]]];
-
+    [_hkDegreeView loadWidth:kScreen_Width/3 degreeWidth:[_measure.width floatValue]];
+    [_usDegreeView loadWidth:kScreen_Width/3 degreeWidth:[_measure.width floatValue]];
+    [_euroDegreeView loadWidth:kScreen_Width/3 degreeWidth:[_measure.width floatValue]];
 
 }
 

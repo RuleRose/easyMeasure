@@ -6,10 +6,9 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import <SWTableViewCell/SWTableViewCell.h>
 #import "MeasureModel.h"
 
-@interface MeasureCell : SWTableViewCell
+@interface MeasureCell : UITableViewCell
 @property(nonatomic, strong)UILabel *resultLabel;
 @property(nonatomic, strong)UILabel *dateLabel;
 @property(nonatomic, strong)MeasureModel *measure;

@@ -61,73 +61,79 @@
     _thumbView = [[FingerView alloc] initWithLeft:_isLeft fingerType:kFingerOfThumb];
     _thumbView.delegate = self;
     [self.view addSubview:_thumbView];
+    
+    CGFloat space = 60;
+    if ([[UIScreen mainScreen] bounds].size.height < 667) {
+        space = 48;
+    }
+    
     MJWeakSelf;
     [_measureNotiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
-        make.top.equalTo(@(61 + kNavigationHeight + kStatusHeight));
+        make.top.equalTo(@(space + kNavigationHeight + kStatusHeight));
         make.right.equalTo(@0);
         make.height.equalTo(@24);
     }];
     if (_isLeft) {
         [_littleFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@0);
-            make.top.equalTo(weakSelf.measureNotiLabel.mas_bottom).offset(60);
-            make.right.equalTo(@(-152));
+            make.top.equalTo(weakSelf.measureNotiLabel.mas_bottom).offset(space);
+            make.right.equalTo(@(kFitWidth(-152)));
             make.height.equalTo(@56);
         }];
         [_ringFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@0);
             make.top.equalTo(weakSelf.littleFingerView.mas_bottom).offset(10);
-            make.right.equalTo(@(-70));
+            make.right.equalTo(@(kFitWidth(-70)));
             make.height.equalTo(@56);
         }];
         [_middleFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(weakSelf.ringFingerView.mas_bottom).offset(10);
             make.height.equalTo(@56);
             make.left.equalTo(@0);
-            make.right.equalTo(@(-25));
+            make.right.equalTo(@(kFitWidth(-25)));
         }];
         [_indexFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@0);
             make.top.equalTo(weakSelf.middleFingerView.mas_bottom).offset(10);
-            make.right.equalTo(@(-91));
+            make.right.equalTo(@(kFitWidth(-91)));
             make.height.equalTo(@56);
         }];
         [_thumbView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(@0);
             make.top.equalTo(weakSelf.indexFingerView.mas_bottom).offset(10);
-            make.right.equalTo(@(-245));
+            make.right.equalTo(@(kFitWidth(-245)));
             make.height.equalTo(@69);
         }];
     }else{
         [_littleFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@0);
-            make.top.equalTo(weakSelf.measureNotiLabel.mas_bottom).offset(60);
-            make.left.equalTo(@152);
+            make.top.equalTo(weakSelf.measureNotiLabel.mas_bottom).offset(space);
+            make.left.equalTo(@(kFitWidth(152)));
             make.height.equalTo(@56);
         }];
         [_ringFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@0);
             make.top.equalTo(weakSelf.littleFingerView.mas_bottom).offset(10);
-            make.left.equalTo(@70);
+            make.left.equalTo(@(kFitWidth(70)));
             make.height.equalTo(@56);
         }];
         [_middleFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@0);
             make.top.equalTo(weakSelf.ringFingerView.mas_bottom).offset(10);
-            make.left.equalTo(@25);
+            make.left.equalTo(@(kFitWidth(25)));
             make.height.equalTo(@56);
         }];
         [_indexFingerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@0);
             make.top.equalTo(weakSelf.middleFingerView.mas_bottom).offset(10);
-            make.left.equalTo(@91);
+            make.left.equalTo(@(kFitWidth(91)));
             make.height.equalTo(@56);
         }];
         [_thumbView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@0);
             make.top.equalTo(weakSelf.indexFingerView.mas_bottom).offset(10);
-            make.left.equalTo(@245);
+            make.left.equalTo(@(kFitWidth(245)));
             make.height.equalTo(@69);
         }];
     }

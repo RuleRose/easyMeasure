@@ -13,6 +13,7 @@
 
 #define kStatusHeight [UIApplication sharedApplication].statusBarFrame.size.height
 #define kNavigationHeight 44
+#define kFitWidth(width) (width * (kScreen_Width > 375 ? 1 : kScreen_Width/375))
 
 //屏幕的宽度,支持旋转屏幕
 #define kScreen_Width                                                                                                                              \

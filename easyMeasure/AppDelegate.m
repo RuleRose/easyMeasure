@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = kColor_1;
     MainViewController *mainVC = [[MainViewController alloc] init];
@@ -28,10 +28,7 @@
     [self.window setRootViewController:_navigationC];
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [XJFDBManager createTableWithModel:[MeasureModel class]];
-//    [NSThread sleepForTimeInterval:1.0];
-
     return YES;
 }
 

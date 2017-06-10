@@ -39,8 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"历史纪录";
-    self.view.backgroundColor = kColorFromRGB(0xffffff);
+    self.title = @"历史记录";
+    self.view.backgroundColor = kColorFromRGB(0xefefef);
     _measures = [[NSMutableArray alloc] init];
     [self setupViews];
     // Do any additional setup after loading the view.
@@ -72,10 +72,22 @@
 }
 
 - (void)navigationRightButtonClicked:(UIButton *)sender {
-    //清空
-    [XJFDBManager clearTableModel:[[MeasureModel alloc] init]];
-    [_measures removeAllObjects];
-    [_tableView reloadData];
+    if ([_measures count] > 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"您是否要清空历史记录" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertController addAction:cancelAction];
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertController addAction:confirmAction];
+        [self.navigationController presentViewController:alertController animated:YES completion:nil];
+        //清空
+        [XJFDBManager clearTableModel:[[MeasureModel alloc] init]];
+        [_measures removeAllObjects];
+        [_tableView reloadData];
+    }
 }
 
 #pragma mark UITableViewDataSource
@@ -115,6 +127,25 @@
     MeasureResultViewController *resultVC = [[MeasureResultViewController alloc] init];
     resultVC.measure = measure;
     [resultVC pushToNavigationController:self.navigationController animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        MeasureModel *measure = [_measures objectAtIndex:indexPath.row];
+        [XJFDBManager deleteModel:measure dependOnKeys:nil];
+        [_measures removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

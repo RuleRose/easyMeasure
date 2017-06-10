@@ -23,6 +23,8 @@
     [self navigationBarLineHidden:YES];
     self.navigationController.navigationBar.titleTextAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:19], NSForegroundColorAttributeName : kColor_Text1 };
     // Do any additional setup after loading the view.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
 }
 
 - (void)didReceiveMemoryWarning {

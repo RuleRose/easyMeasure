@@ -9,9 +9,9 @@
 #import "MeasureButton.h"
 
 @implementation MeasureButton
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
 
     }
@@ -27,12 +27,27 @@
     self.backgroundColor = self.highlightColor;
 }
 
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch* touch = [touches anyObject];
+    CGPoint pos = [touch locationInView:self];
+    if (CGRectContainsPoint(self.bounds, pos)) {
+        self.backgroundColor = self.highlightColor;
+    }else{
+        self.backgroundColor = self.normalColor;
+    }
+}
+
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    self.backgroundColor = self.normalColor;
-    if (_measureBlock) {
-        _measureBlock();
+    UITouch* touch = [touches anyObject];
+    CGPoint pos = [touch locationInView:self];
+    if (CGRectContainsPoint(self.bounds, pos)) {
+        if (_measureBlock) {
+            _measureBlock();
+        }
     }
+    self.backgroundColor = self.normalColor;
+
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

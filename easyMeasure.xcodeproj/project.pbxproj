@@ -93,6 +93,7 @@
 		CC0F10151EEBB699002FD6DF /* 2_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0F100A1EEBB699002FD6DF /* 2_03@2x.png */; };
 		CC0F10161EEBB699002FD6DF /* 2_04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0F100B1EEBB699002FD6DF /* 2_04@2x.png */; };
 		CC0F10171EEBB699002FD6DF /* 2_05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0F100C1EEBB699002FD6DF /* 2_05@2x.png */; };
+		CC0F101E1EEBDF54002FD6DF /* DegreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0F101D1EEBDF54002FD6DF /* DegreeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +247,8 @@
 		CC0F100A1EEBB699002FD6DF /* 2_03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_03@2x.png"; sourceTree = "<group>"; };
 		CC0F100B1EEBB699002FD6DF /* 2_04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_04@2x.png"; sourceTree = "<group>"; };
 		CC0F100C1EEBB699002FD6DF /* 2_05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_05@2x.png"; sourceTree = "<group>"; };
+		CC0F101C1EEBDF54002FD6DF /* DegreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeView.h; sourceTree = "<group>"; };
+		CC0F101D1EEBDF54002FD6DF /* DegreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DegreeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +321,8 @@
 				CC0F0FF21EEBA353002FD6DF /* MeasureModel.m */,
 				CC0F0FFF1EEBA9DA002FD6DF /* MeasureCell.h */,
 				CC0F10001EEBA9DA002FD6DF /* MeasureCell.m */,
+				CC0F101C1EEBDF54002FD6DF /* DegreeView.h */,
+				CC0F101D1EEBDF54002FD6DF /* DegreeView.m */,
 				CC0F0F971EEACEC6002FD6DF /* Resource */,
 				C11CB7701ECE877E006E67D5 /* Supporting Files */,
 			);
@@ -801,6 +806,7 @@
 				C1CB46781ED803B20091732C /* EMScreenSizeManager.m in Sources */,
 				CC0F0FF01EEB7E05002FD6DF /* MeasurementViewController.m in Sources */,
 				C173C0221ED5507600BCD66F /* XJFDBManager.m in Sources */,
+				CC0F101E1EEBDF54002FD6DF /* DegreeView.m in Sources */,
 				C173C0231ED5507600BCD66F /* XJFDBOperator.m in Sources */,
 				CC0F0FDF1EEADD79002FD6DF /* FingerView.m in Sources */,
 				C173C01C1ED5507600BCD66F /* UIImageView+SD.m in Sources */,
