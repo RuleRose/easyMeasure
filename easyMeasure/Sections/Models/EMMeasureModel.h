@@ -8,7 +8,7 @@
 
 #import "XJFBaseModel.h"
 
-@interface MeasureModel : XJFBaseModel
+@interface EMMeasureModel : XJFBaseModel
 @property(nonatomic, copy) NSString *measure_time;//测量时间
 @property(nonatomic, copy) NSString *width; //宽度
 @property(nonatomic, copy) NSString *finger_type;//手指

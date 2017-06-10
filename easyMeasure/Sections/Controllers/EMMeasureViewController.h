@@ -7,11 +7,11 @@
 //
 
 #import "XJFBaseViewController.h"
-#import "MeasureModel.h"
+#import "EMMeasureModel.h"
 
-@interface MeasureViewController : XJFBaseViewController
+@interface EMMeasureViewController : XJFBaseViewController
 @property(nonatomic, assign) BOOL isLeft;
 @property(nonatomic, assign) FingerType fingerType;
-@property(nonatomic, strong) MeasureModel *measureModel;
+@property(nonatomic, strong) EMMeasureModel *measureModel;
 
 @end

@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
-#import "NavigationController.h"
+#import "EMMainViewController.h"
 #import "XJFDBManager.h"
-#import "MeasureModel.h"
+#import "EMMeasureModel.h"
 
 @interface AppDelegate ()
 
@@ -23,12 +22,12 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = kColor_1;
-    MainViewController *mainVC = [[MainViewController alloc] init];
-    _navigationC = [[NavigationController alloc] initWithRootViewController:mainVC];
+    EMMainViewController *mainVC = [[EMMainViewController alloc] init];
+    _navigationC = [[EMNavigationController alloc] initWithRootViewController:mainVC];
     [self.window setRootViewController:_navigationC];
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
-    [XJFDBManager createTableWithModel:[MeasureModel class]];
+    [XJFDBManager createTableWithModel:[EMMeasureModel class]];
     return YES;
 }
 

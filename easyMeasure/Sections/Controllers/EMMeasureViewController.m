@@ -6,14 +6,13 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "MeasureViewController.h"
-#import "MeasureResultViewController.h"
-#import "MeasurementViewController.h"
+#import "EMMeasureViewController.h"
+#import "EMMeasureResultViewController.h"
+#import "EMMeasurementViewController.h"
 #import "EMScreenSizeManager.h"
 #import "NSDate+Extension.h"
-#import "MainViewController.h"
 
-@interface MeasureViewController ()
+@interface EMMeasureViewController ()
 @property(nonatomic, strong)UILabel *measureNotiLabel;
 @property(nonatomic, strong)UILabel *measureLabel;
 @property(nonatomic, strong)UIButton *addBtn;
@@ -34,33 +33,33 @@
 
 @end
 
-@implementation MeasureViewController
+@implementation EMMeasureViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _time = 0.01;
     self.view.backgroundColor = kColorFromRGB(0xffffff);
-    NSString *title = @"测量";
+    NSString *title = kLocalization(@"em_measure");
     if (_isLeft) {
-        title = [title stringByAppendingString:@"左手"];
+        title = [title stringByAppendingString:kLocalization(@"em_left_hand")];
     }else{
-        title = [title stringByAppendingString:@"右手"];
+        title = [title stringByAppendingString:kLocalization(@"em_right_hand")];
     }
     switch (_fingerType) {
         case kFingerOfThumb:
-            title = [title stringByAppendingString:@"拇指"];
+            title = [title stringByAppendingString:kLocalization(@"em_thumb")];
             break;
         case kFingerOfIndexFinger:
-            title = [title stringByAppendingString:@"食指"];
+            title = [title stringByAppendingString:kLocalization(@"em_indexfinger")];
             break;
         case kFingerOfMiddleFinger:
-            title = [title stringByAppendingString:@"中指"];
+            title = [title stringByAppendingString:kLocalization(@"em_middlefinger")];
             break;
         case kFingerOfRingFinger:
-            title = [title stringByAppendingString:@"无名指"];
+            title = [title stringByAppendingString:kLocalization(@"em_ringfinger")];
             break;
         case kFingerOfLittleFinger:
-            title = [title stringByAppendingString:@"小指"];
+            title = [title stringByAppendingString:kLocalization(@"em_littlefinger")];
             break;
         default:
             break;
@@ -68,18 +67,18 @@
     self.title = title;
     _widthUnit =  [[EMScreenSizeManager defaultInstance] widthOfOnePoint];
     [self setupViews];
-    [self refreshWithWithDisdance:80];
+    [self loadData];
     // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setBackBarButton];
-    [self setNavigationButtons:1 title:@[@"测量说明"] image:nil highlightedImage:nil frame:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 80, 44)]] isRight:YES];
+    [self setNavigationButtons:1 title:@[kLocalization(@"em_measure_intro")] image:nil highlightedImage:nil frame:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 80, 44)]] isRight:YES];
 }
 
 - (void)navigationRightButtonClicked:(UIButton *)sender {
-    MeasurementViewController *measurementVC = [[MeasurementViewController alloc] init];
+    EMMeasurementViewController *measurementVC = [[EMMeasurementViewController alloc] init];
     measurementVC.fingerType = _fingerType;
     [measurementVC pushToNavigationController:self.navigationController animated:YES];
 }
@@ -92,33 +91,6 @@
     _measureNotiLabel.font = [UIFont systemFontOfSize:15];
     _measureNotiLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_measureNotiLabel];
-    NSString *notiText = @"";
-    if (_isLeft) {
-        notiText = [notiText stringByAppendingString:@"左手"];
-    }else{
-        notiText = [notiText stringByAppendingString:@"右手"];
-    }
-    switch (_fingerType) {
-        case kFingerOfThumb:
-            notiText = [notiText stringByAppendingString:@"拇指"];
-            break;
-        case kFingerOfIndexFinger:
-            notiText = [notiText stringByAppendingString:@"食指"];
-            break;
-        case kFingerOfMiddleFinger:
-            notiText = [notiText stringByAppendingString:@"中指"];
-            break;
-        case kFingerOfRingFinger:
-            notiText = [notiText stringByAppendingString:@"无名指"];
-            break;
-        case kFingerOfLittleFinger:
-            notiText = [notiText stringByAppendingString:@"小指"];
-            break;
-        default:
-            break;
-    }
-    notiText = [notiText stringByAppendingString:@"宽度"];
-    _measureNotiLabel.text = notiText;
 
     _measureLabel = [[UILabel alloc] init];
     _measureLabel.backgroundColor = [UIColor clearColor];
@@ -134,7 +106,6 @@
     [self.view addSubview:_controlLine];
     _fingerImageView = [[UIImageView alloc] init];
     _fingerImageView.backgroundColor = [UIColor clearColor];
-    _fingerImageView.image= kImage(@"shou");
     [self.view addSubview:_fingerImageView];
     
     _upRedCircle = [[UIView alloc] init];
@@ -200,12 +171,22 @@
     }];
     CGFloat width = kScreen_Width*347/375;
     
-    [_fingerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@0);
-        make.width.equalTo(@(width));
-        make.height.equalTo(@77);
-        make.bottom.equalTo(weakSelf.baseLine.mas_top);
-    }];
+    if (_isLeft) {
+        [_fingerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.width.equalTo(@(width));
+            make.height.equalTo(@77);
+            make.bottom.equalTo(weakSelf.baseLine.mas_top);
+        }];
+    }else{
+        [_fingerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@0);
+            make.width.equalTo(@(width));
+            make.height.equalTo(@77);
+            make.bottom.equalTo(weakSelf.baseLine.mas_top);
+        }];
+    }
+
     [_controlLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
@@ -259,6 +240,41 @@
         make.left.equalTo(@0);
         make.height.equalTo(@60);
     }];
+}
+
+- (void)loadData{
+    NSString *notiText = @"";
+    if (_isLeft) {
+        notiText = [notiText stringByAppendingString:kLocalization(@"em_left_hand")];
+        _fingerImageView.image= kImage(@"shou_1");
+        
+    }else{
+        notiText = [notiText stringByAppendingString:kLocalization(@"em_right_hand")];
+        _fingerImageView.image= kImage(@"shou_2");
+    }
+    switch (_fingerType) {
+        case kFingerOfThumb:
+            notiText = [notiText stringByAppendingString:kLocalization(@"em_thumb")];
+            break;
+        case kFingerOfIndexFinger:
+            notiText = [notiText stringByAppendingString:kLocalization(@"em_indexfinger")];
+            break;
+        case kFingerOfMiddleFinger:
+            notiText = [notiText stringByAppendingString:kLocalization(@"em_middlefinger")];
+            break;
+        case kFingerOfRingFinger:
+            notiText = [notiText stringByAppendingString:kLocalization(@"em_ringfinger")];
+            break;
+        case kFingerOfLittleFinger:
+            notiText = [notiText stringByAppendingString:kLocalization(@"em_littlefinger")];
+            break;
+        default:
+            break;
+    }
+    notiText = [notiText stringByAppendingString:kLocalization(@"em_width")];
+    _measureNotiLabel.text = notiText;
+    [self refreshWithWithDisdance:80];
+
 }
 
 //按钮按下
@@ -326,7 +342,7 @@
 
 - (void)finishBtnPressed{
     if (!_measureModel) {
-        _measureModel = [[MeasureModel alloc] init];
+        _measureModel = [[EMMeasureModel alloc] init];
     }
     _measureModel.width = [NSString stringWithFormat:@"%f",_width];
     _measureModel.finger_left = [NSString stringWithFormat:@"%d",_isLeft];
@@ -339,7 +355,7 @@
             [_measureModel insertToDB];
         }
     }
-    MeasureResultViewController *resultVC = [[MeasureResultViewController alloc] init];
+    EMMeasureResultViewController *resultVC = [[EMMeasureResultViewController alloc] init];
     resultVC.measure = _measureModel;
     NSMutableArray* viewControllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
     [viewControllers removeObject:self];

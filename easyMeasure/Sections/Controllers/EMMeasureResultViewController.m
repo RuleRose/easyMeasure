@@ -6,32 +6,31 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "MeasureResultViewController.h"
-#import "MeasureButton.h"
-#import "MainViewController.h"
-#import "MeasureViewController.h"
+#import "EMMeasureResultViewController.h"
+#import "EMMeasureButton.h"
+#import "EMMeasureViewController.h"
 #import "EMScreenSizeManager.h"
-#import "DegreeView.h"
+#import "EMDegreeView.h"
 
-@interface MeasureResultViewController ()
+@interface EMMeasureResultViewController ()
 @property(nonatomic, strong)UIImageView *imageView;
 @property(nonatomic, strong)UILabel *measureTitleLabel;
 @property(nonatomic, strong)UILabel *measureLabel;
 @property(nonatomic, strong)UILabel *suggestTitleLabel;
-@property(nonatomic, strong)DegreeView *hkDegreeView;
-@property(nonatomic, strong)DegreeView *euroDegreeView;
-@property(nonatomic, strong)DegreeView *usDegreeView;
-@property(nonatomic, strong)MeasureButton *remeasureBtn;
+@property(nonatomic, strong)EMDegreeView *hkDegreeView;
+@property(nonatomic, strong)EMDegreeView *euroDegreeView;
+@property(nonatomic, strong)EMDegreeView *usDegreeView;
+@property(nonatomic, strong)EMMeasureButton *remeasureBtn;
 @property(nonatomic, strong)UIView *leftPoint;
 @property(nonatomic, strong)UIView *rightPoint;
 
 @end
 
-@implementation MeasureResultViewController
+@implementation EMMeasureResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"测量结果";
+    self.title = kLocalization(@"em_measure_result");
     self.view.backgroundColor = kColorFromRGB(0xffffff);
     [self setupViews];
     [self loadData];
@@ -50,7 +49,7 @@
     [self.view addSubview:_imageView];
     _measureTitleLabel = [[UILabel alloc] init];
     _measureTitleLabel.backgroundColor = [UIColor clearColor];
-    _measureTitleLabel.text = @"您的戒指内径为";
+    _measureTitleLabel.text = kLocalization(@"em_label_ring_diameter");
     _measureTitleLabel.textColor = kColor_Text2;
     _measureTitleLabel.font = [UIFont systemFontOfSize:15];
     _measureTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -63,7 +62,7 @@
     [self.view addSubview:_measureLabel];
     _suggestTitleLabel = [[UILabel alloc] init];
     _suggestTitleLabel.backgroundColor = [UIColor clearColor];
-    _suggestTitleLabel.text = @"建议您挑选戒指的尺寸为";
+    _suggestTitleLabel.text = kLocalization(@"em_label_ring_size");
     _suggestTitleLabel.textColor = kColor_Text2;
     _suggestTitleLabel.font = [UIFont systemFontOfSize:15];
     _suggestTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -80,30 +79,30 @@
     _rightPoint.layer.cornerRadius = 4;
     [self.view addSubview:_rightPoint];
     
-    _hkDegreeView = [[DegreeView alloc] init];
+    _hkDegreeView = [[EMDegreeView alloc] init];
     _hkDegreeView.backgroundColor = [UIColor clearColor];
-    _hkDegreeView.degreeTitleLabel.text = @"港度";
+    _hkDegreeView.degreeTitleLabel.text = kLocalization(@"em_degree_hk");
     [self.view addSubview:_hkDegreeView];
-    _euroDegreeView = [[DegreeView alloc] init];
+    _euroDegreeView = [[EMDegreeView alloc] init];
     _euroDegreeView.backgroundColor = [UIColor clearColor];
-    _euroDegreeView.degreeTitleLabel.text = @"欧度";
+    _euroDegreeView.degreeTitleLabel.text = kLocalization(@"em_degree_euro");
     [self.view addSubview:_euroDegreeView];
-    _usDegreeView = [[DegreeView alloc] init];
+    _usDegreeView = [[EMDegreeView alloc] init];
     _usDegreeView.backgroundColor = [UIColor clearColor];
-    _usDegreeView.degreeTitleLabel.text = @"美度";
+    _usDegreeView.degreeTitleLabel.text = kLocalization(@"em_degree_us");
     [self.view addSubview:_usDegreeView];
     
-    _remeasureBtn = [[MeasureButton alloc] init];
+    _remeasureBtn = [[EMMeasureButton alloc] init];
     _remeasureBtn.layer.masksToBounds = YES;
     _remeasureBtn.layer.cornerRadius = 24;
     _remeasureBtn.normalColor = kColor_Button1;
     _remeasureBtn.highlightColor = kColor_Highlight_Button3;
-    [_remeasureBtn setTitle:@"重新测量" forState:UIControlStateNormal];
+    [_remeasureBtn setTitle:kLocalization(@"em_remeasure") forState:UIControlStateNormal];
     [_remeasureBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
     _remeasureBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     MJWeakSelf;
     _remeasureBtn.measureBlock = ^(){
-        MeasureViewController *measureVC = [[MeasureViewController alloc] init];
+        EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
         measureVC.measureModel = weakSelf.measure;
         measureVC.isLeft = [weakSelf.measure.finger_left boolValue];
         measureVC.fingerType = [weakSelf.measure.finger_type integerValue];

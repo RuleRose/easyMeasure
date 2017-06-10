@@ -6,9 +6,9 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "MeasureButton.h"
+#import "EMMeasureButton.h"
 
-@implementation MeasureButton
+@implementation EMMeasureButton
 - (instancetype)init
 {
     self = [super init];

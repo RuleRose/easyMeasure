@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DegreeView : UIView
+@interface EMDegreeView : UIView
 @property(nonatomic, strong)UILabel *degreeTitleLabel;
 @property(nonatomic, strong)UILabel *degreeUnitLabel;
 @property(nonatomic, strong)UILabel *degreeLabel;

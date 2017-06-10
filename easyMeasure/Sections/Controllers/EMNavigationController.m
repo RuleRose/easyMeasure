@@ -6,13 +6,13 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "NavigationController.h"
+#import "EMNavigationController.h"
 
-@interface NavigationController ()
+@interface EMNavigationController ()
 
 @end
 
-@implementation NavigationController
+@implementation EMNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];  

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NavigationController.h"
+#import "EMNavigationController.h"
 
 @interface AppDelegate : UIResponder<UIApplicationDelegate>
 
 @property(strong, nonatomic) UIWindow *window;
-@property(strong, nonatomic) NavigationController *navigationC;
+@property(strong, nonatomic) EMNavigationController *navigationC;
 
 @end

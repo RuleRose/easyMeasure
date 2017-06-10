@@ -6,9 +6,9 @@
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "FingerView.h"
+#import "EMFingerView.h"
 
-@implementation FingerView
+@implementation EMFingerView
 - (instancetype)initWithLeft:(BOOL)left fingerType:(FingerType)fingerType{
     self = [super init];
     if (self) {
@@ -19,34 +19,34 @@
                 _marginDisease = 13;
                 _buttonSize = CGSizeMake(68, 44);
                 _radius = 34;
-                _finger = @"拇指";
+                _finger = kLocalization(@"em_thumb");
                 break;
             case kFingerOfIndexFinger:
                 _marginDisease = 14;
                 _buttonSize = CGSizeMake(60, 39);
                 _radius = 28;
-                _finger = @"食指";
+                _finger = kLocalization(@"em_indexfinger");
 
                 break;
             case kFingerOfMiddleFinger:
                 _marginDisease = 11;
                 _buttonSize = CGSizeMake(60, 39);
                 _radius = 28;
-                _finger = @"中指";
+                _finger = kLocalization(@"em_middlefinger");
 
                 break;
             case kFingerOfRingFinger:
                 _marginDisease = 11;
                 _buttonSize = CGSizeMake(69, 39);
                 _radius = 28;
-                _finger = @"无名指";
+                _finger = kLocalization(@"em_ringfinger");
 
                 break;
             case kFingerOfLittleFinger:
                 _marginDisease = 11;
                 _buttonSize = CGSizeMake(60, 39);
                 _radius = 28;
-                _finger = @"小指";
+                _finger = kLocalization(@"em_littlefinger");
 
                 break;
             default:
@@ -65,7 +65,7 @@
     _contentView.layer.masksToBounds = YES;
     _contentView.layer.cornerRadius = _radius;
     [self addSubview:_contentView];
-    _fingerBtn = [[MeasureButton alloc] init];
+    _fingerBtn = [[EMMeasureButton alloc] init];
     _fingerBtn.layer.masksToBounds = YES;
     _fingerBtn.layer.cornerRadius = _buttonSize.height/2;
     _fingerBtn.normalColor = kColor_Button1;
