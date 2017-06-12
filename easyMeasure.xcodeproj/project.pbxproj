@@ -109,6 +109,7 @@
 		C11CB7741ECE877E006E67D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C11CB77C1ECE877E006E67D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C11CB7811ECE877E006E67D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C13EC4461EEE368000C94A1B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localization.strings"; sourceTree = "<group>"; };
 		C173BE1E1ED3D84B00BCD66F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localization.strings; sourceTree = "<group>"; };
 		C173BE221ED3D90300BCD66F /* initServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initServer.h; sourceTree = "<group>"; };
 		C173BE231ED3D90300BCD66F /* initServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initServer.m; sourceTree = "<group>"; };
@@ -709,6 +710,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = C11CB7641ECE877E006E67D5;
 			productRefGroup = C11CB76E1ECE877E006E67D5 /* Products */;
@@ -882,6 +884,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C173BE1E1ED3D84B00BCD66F /* Base */,
+				C13EC4461EEE368000C94A1B /* zh-Hans */,
 			);
 			name = Localization.strings;
 			sourceTree = "<group>";
