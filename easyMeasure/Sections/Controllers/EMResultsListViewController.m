@@ -7,35 +7,18 @@
 //
 
 #import "EMResultsListViewController.h"
+#import "EMResultsListView.h"
 #import "XJFDBManager.h"
 #import "EMMeasureModel.h"
-#import "EMMeasureCell.h"
 #import "EMMeasureResultViewController.h"
 
-@interface EMResultsListViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)UITableView *tableView;
+@interface EMResultsListViewController ()<EMResultsListViewDelegate>
 @property(nonatomic,strong)NSMutableArray *measures;
+@property(nonatomic, strong)EMResultsListView *resultView;
 
 @end
 
 @implementation EMResultsListViewController
-- (UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.backgroundColor = [UIColor clearColor];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.showsHorizontalScrollIndicator = NO;
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
-        }
-        _tableView.tableFooterView = [[UIView alloc] init];
-        _tableView.tableHeaderView = [[UIView alloc] init];
-    }
-    return _tableView;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,12 +37,15 @@
 }
 
 - (void)setupViews{
-    [self.view addSubview:self.tableView];
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
-        make.bottom.equalTo(@0);
+    _resultView = [[EMResultsListView alloc] init];
+    _resultView.backgroundColor = [UIColor clearColor];
+    _resultView.delegate = self;
+    [self.view addSubview:_resultView];
+    [_resultView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
+        make.top.equalTo(@0);
         make.right.equalTo(@0);
+        make.bottom.equalTo(@0);
     }];
 }
 
@@ -68,7 +54,14 @@
     NSArray *result = [XJFDBManager searchModelsWithCondition:measureModel andpage:-1 andOrderby:@"measure_time" isAscend:NO];
     [_measures removeAllObjects];
     [_measures addObjectsFromArray:result];
-    [_tableView reloadData];
+    _resultView.measures = _measures;
+}
+
+#pragma mark EMResultsListViewDelegate
+- (void)showResultWithMeasure:(EMMeasureModel *)measure{
+    EMMeasureResultViewController *resultVC = [[EMMeasureResultViewController alloc] init];
+    resultVC.measure = measure;
+    [resultVC pushToNavigationController:self.navigationController animated:YES];
 }
 
 - (void)navigationRightButtonClicked:(UIButton *)sender {
@@ -82,69 +75,11 @@
             //清空
             [XJFDBManager clearTableModel:[[EMMeasureModel alloc] init]];
             [_measures removeAllObjects];
-            [_tableView reloadData];
+            _resultView.measures = _measures;
         }];
         [alertController addAction:confirmAction];
         [self.navigationController presentViewController:alertController animated:YES completion:nil];
     }
-}
-
-#pragma mark UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_measures count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"Cell";
-    EMMeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[EMMeasureCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    [self configureCell:cell atIndexPath:indexPath];
-    
-    return cell;
-}
-- (void)configureCell:(EMMeasureCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor whiteColor];
-    EMMeasureModel *measure = [_measures objectAtIndex:indexPath.row];
-    cell.measure = measure;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
-#pragma mark UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 49;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    EMMeasureModel *measure = [_measures objectAtIndex:indexPath.row];
-    EMMeasureResultViewController *resultVC = [[EMMeasureResultViewController alloc] init];
-    resultVC.measure = measure;
-    [resultVC pushToNavigationController:self.navigationController animated:YES];
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        EMMeasureModel *measure = [_measures objectAtIndex:indexPath.row];
-        [XJFDBManager deleteModel:measure dependOnKeys:nil];
-        [_measures removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
