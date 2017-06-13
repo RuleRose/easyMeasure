@@ -7,16 +7,10 @@
 //
 
 #import "EMMainViewController.h"
-#import "UIImage+Extension.h"
-#import "EMMeasureButton.h"
-#import "EMFingerChooseViewController.h"
-#import "EMResultsListViewController.h"
+#import "EMMainView.h"
 
 @interface EMMainViewController ()
-@property(nonatomic, strong)UILabel *measureNotiLabel;
-@property(nonatomic, strong)EMMeasureButton *leftFingerBtn;
-@property(nonatomic, strong)EMMeasureButton *rightFingerBtn;
-@property(nonatomic, strong)UIImageView *iconView;
+@property(nonatomic, strong)EMMainView *mainView;
 
 @end
 
@@ -24,9 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = kLocalization(@"em_measure_finger");
     self.view.backgroundColor = kColorFromRGB(0xffffff);
-    self.navigationController.navigationBar.titleTextAttributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:19], NSForegroundColorAttributeName : kColor_Text1 };
+    UIImageView *titleView = [[UIImageView alloc] initWithImage:kImage(@"titel_text")];
+    titleView.backgroundColor = [UIColor clearColor];
+    self.navigationItem.titleView = titleView;
     [self setupViews];
     // Do any additional setup after loading the view.
 }
@@ -37,73 +32,25 @@
 }
 
 - (void)setupViews{
-    _measureNotiLabel = [[UILabel alloc] init];
-    _measureNotiLabel.backgroundColor = [UIColor clearColor];
-    _measureNotiLabel.text = kLocalization(@"em_label_measure_hand");
-    _measureNotiLabel.textColor = kColor_Text1;
-    _measureNotiLabel.font = [UIFont systemFontOfSize:16];
-    _measureNotiLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_measureNotiLabel];
-    
-    _iconView = [[UIImageView alloc] init];
-    _iconView.backgroundColor = [UIColor clearColor];
-    _iconView.image = kImage(@"image");
-    [self.view addSubview:_iconView];
+    _mainView = [[EMMainView alloc] init];
+    _mainView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_mainView];
     MJWeakSelf;
-    _leftFingerBtn = [[EMMeasureButton alloc] init];
-    _leftFingerBtn.layer.masksToBounds = YES;
-    _leftFingerBtn.layer.cornerRadius = 24;
-    _leftFingerBtn.normalColor = kColor_Button1;
-    _leftFingerBtn.highlightColor = kColor_Highlight_Button3;
-    [_leftFingerBtn setTitle:kLocalization(@"em_measure_lefthand") forState:UIControlStateNormal];
-    [_leftFingerBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
-    _leftFingerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    _leftFingerBtn.measureBlock = ^(){
+    _mainView.leftFingerBtn.measureBlock = ^(){
         EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
         chooseVC.isLeft = YES;
         [chooseVC pushToNavigationController:weakSelf.navigationController animated:YES];
     };
-    [self.view addSubview:_leftFingerBtn];
-    
-    _rightFingerBtn = [[EMMeasureButton alloc] init];
-    _rightFingerBtn.layer.masksToBounds = YES;
-    _rightFingerBtn.layer.cornerRadius = 24;
-    _rightFingerBtn.normalColor = kColor_Button1;
-    _rightFingerBtn.highlightColor = kColor_Highlight_Button3;
-    [_rightFingerBtn setTitle:kLocalization(@"em_measure_righthand") forState:UIControlStateNormal];
-    [_rightFingerBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
-    _rightFingerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    _rightFingerBtn.measureBlock = ^(){
+    _mainView.rightFingerBtn.measureBlock = ^(){
         EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
         chooseVC.isLeft = NO;
         [chooseVC pushToNavigationController:weakSelf.navigationController animated:YES];
     };
-    [self.view addSubview:_rightFingerBtn];
-    [_measureNotiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
-        make.top.equalTo(@(60 + kNavigationHeight + kStatusHeight));
+        make.top.equalTo(@0);
         make.right.equalTo(@0);
-        make.height.equalTo(@24);
-    }];
-    [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.measureNotiLabel.mas_bottom).offset(35);
-        make.centerX.equalTo(weakSelf.measureNotiLabel.mas_centerX);
-        make.height.equalTo(@176);
-        make.width.equalTo(@176);
-    }];
-    [_leftFingerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@19);
-        make.top.equalTo(weakSelf.iconView.mas_bottom).offset(49);
-        make.right.equalTo(weakSelf.rightFingerBtn.mas_left).offset(-21);
-        make.height.equalTo(@48);
-        make.width.equalTo(weakSelf.rightFingerBtn.mas_width);
-    }];
-    [_rightFingerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(@(-19));
-        make.top.equalTo(weakSelf.iconView.mas_bottom).offset(49);
-        make.left.equalTo(weakSelf.leftFingerBtn.mas_right).offset(21);
-        make.height.equalTo(@48);
-        make.width.equalTo(weakSelf.rightFingerBtn.mas_width);
+        make.bottom.equalTo(@0);
     }];
 }
 
