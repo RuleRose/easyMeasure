@@ -37,24 +37,27 @@
     [self addSubview:_iconView];
     MJWeakSelf;
     _leftFingerBtn = [[EMMeasureButton alloc] init];
+    _leftFingerBtn.backgroundColor = [UIColor clearColor];
     _leftFingerBtn.layer.masksToBounds = YES;
     _leftFingerBtn.layer.cornerRadius = 24;
-    _leftFingerBtn.normalColor = kColor_Button1;
-    _leftFingerBtn.highlightColor = kColor_Highlight_Button3;
-    [_leftFingerBtn setTitle:kLocalization(@"em_measure_lefthand") forState:UIControlStateNormal];
-    [_leftFingerBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
-    _leftFingerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [_leftFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake((kScreen_Width - 59)/2, 48) color:kColor_Button1] forState:UIControlStateNormal];
+    [_leftFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake((kScreen_Width - 59)/2, 48) color:kColor_Highlight_Button3] forState:UIControlStateHighlighted];
+    _leftFingerBtn.textLabel.text = kLocalization(@"em_measure_lefthand");
+    _leftFingerBtn.textLabel.font = [UIFont systemFontOfSize:16];
+    _leftFingerBtn.textLabel.textColor = kColor_Text1;
     [self addSubview:_leftFingerBtn];
     
     _rightFingerBtn = [[EMMeasureButton alloc] init];
+    _rightFingerBtn.backgroundColor = [UIColor clearColor];
     _rightFingerBtn.layer.masksToBounds = YES;
     _rightFingerBtn.layer.cornerRadius = 24;
-    _rightFingerBtn.normalColor = kColor_Button1;
-    _rightFingerBtn.highlightColor = kColor_Highlight_Button3;
-    [_rightFingerBtn setTitle:kLocalization(@"em_measure_righthand") forState:UIControlStateNormal];
-    [_rightFingerBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
-    _rightFingerBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [_rightFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake(kScreen_Width - 59, 96) color:kColor_Button1] forState:UIControlStateNormal];
+    [_rightFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake(kScreen_Width - 59, 96) color:kColor_Highlight_Button3] forState:UIControlStateHighlighted];
+    _rightFingerBtn.textLabel.text = kLocalization(@"em_measure_righthand");
+    _rightFingerBtn.textLabel.font = [UIFont systemFontOfSize:16];
+    _rightFingerBtn.textLabel.textColor = kColor_Text1;
     [self addSubview:_rightFingerBtn];
+    
     [_measureNotiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.top.equalTo(@(60 + kNavigationHeight + kStatusHeight));

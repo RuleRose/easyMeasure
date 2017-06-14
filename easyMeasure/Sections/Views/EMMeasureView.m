@@ -153,8 +153,8 @@
     CGFloat width = kScreen_Width*347/375;
     CGFloat height = 77;
     if(_fingerType == kFingerOfThumb){
-        width = kScreen_Width*216/375;
-        height = 88;
+        width = kScreen_Width*270/375;
+        height = 104;
     }
     if (_isLeft) {
         [_fingerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -178,18 +178,33 @@
         make.height.equalTo(@1);
         make.top.equalTo(weakSelf.baseLine.mas_top).offset(-(height + 1));
     }];
-    [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(weakSelf.baseLine.mas_centerX);
-        make.centerY.equalTo(weakSelf.baseLine.mas_centerY);
-        make.width.equalTo(@16);
-        make.height.equalTo(@16);
-    }];
-    [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(weakSelf.controlLine.mas_centerX);
-        make.centerY.equalTo(weakSelf.controlLine.mas_centerY);
-        make.width.equalTo(@16);
-        make.height.equalTo(@16);
-    }];
+    if (_fingerType == kFingerOfThumb) {
+        [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(weakSelf.baseLine.mas_centerX).dividedBy(3.0/2);
+            make.centerY.equalTo(weakSelf.baseLine.mas_centerY);
+            make.width.equalTo(@16);
+            make.height.equalTo(@16);
+        }];
+        [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(weakSelf.controlLine.mas_centerX).dividedBy(3.0/2);
+            make.centerY.equalTo(weakSelf.controlLine.mas_centerY);
+            make.width.equalTo(@16);
+            make.height.equalTo(@16);
+        }];
+    }else{
+        [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(weakSelf.baseLine.mas_centerX);
+            make.centerY.equalTo(weakSelf.baseLine.mas_centerY);
+            make.width.equalTo(@16);
+            make.height.equalTo(@16);
+        }];
+        [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(weakSelf.controlLine.mas_centerX);
+            make.centerY.equalTo(weakSelf.controlLine.mas_centerY);
+            make.width.equalTo(@16);
+            make.height.equalTo(@16);
+        }];
+    }
     if (_isLeft) {
         [_handleView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(@(-15));

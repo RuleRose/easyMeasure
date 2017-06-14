@@ -7,6 +7,7 @@
 //
 
 #import "EMMeasureResultView.h"
+#import "UIImage+Extension.h"
 
 @implementation EMMeasureResultView
 - (instancetype)init
@@ -71,11 +72,11 @@
     _remeasureBtn = [[EMMeasureButton alloc] init];
     _remeasureBtn.layer.masksToBounds = YES;
     _remeasureBtn.layer.cornerRadius = 24;
-    _remeasureBtn.normalColor = kColor_Button1;
-    _remeasureBtn.highlightColor = kColor_Highlight_Button3;
-    [_remeasureBtn setTitle:kLocalization(@"em_remeasure") forState:UIControlStateNormal];
-    [_remeasureBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
-    _remeasureBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [_remeasureBtn setImage:[UIImage drawImageWithSize:CGSizeMake(590, 88) color:kColor_Button1] forState:UIControlStateNormal];
+    [_remeasureBtn setImage:[UIImage drawImageWithSize:CGSizeMake(590, 88) color:kColor_Highlight_Button3] forState:UIControlStateHighlighted];
+    _remeasureBtn.textLabel.text = kLocalization(@"em_remeasure");
+    _remeasureBtn.textLabel.font = [UIFont systemFontOfSize:16];
+    _remeasureBtn.textLabel.textColor = kColor_Text1;
     [self addSubview:_remeasureBtn];
     CGFloat height = kScreen_Width/1.6;
     MJWeakSelf;

@@ -35,17 +35,9 @@
     _mainView = [[EMMainView alloc] init];
     _mainView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_mainView];
-    MJWeakSelf;
-    _mainView.leftFingerBtn.measureBlock = ^(){
-        EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
-        chooseVC.isLeft = YES;
-        [chooseVC pushToNavigationController:weakSelf.navigationController animated:YES];
-    };
-    _mainView.rightFingerBtn.measureBlock = ^(){
-        EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
-        chooseVC.isLeft = NO;
-        [chooseVC pushToNavigationController:weakSelf.navigationController animated:YES];
-    };
+    [_mainView.leftFingerBtn addTarget:self action:@selector(leftFingerBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_mainView.rightFingerBtn addTarget:self action:@selector(rightFingerBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+
     [_mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.top.equalTo(@0);
@@ -58,6 +50,19 @@
     EMResultsListViewController *listVC = [[EMResultsListViewController alloc] init];
     [listVC pushToNavigationController:self.navigationController animated:YES];
 }
+
+- (void)leftFingerBtnPressed{
+    EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
+    chooseVC.isLeft = YES;
+    [chooseVC pushToNavigationController:self.navigationController animated:YES];
+}
+
+- (void)rightFingerBtnPressed{
+    EMFingerChooseViewController *chooseVC = [[EMFingerChooseViewController alloc] init];
+    chooseVC.isLeft = NO;
+    [chooseVC pushToNavigationController:self.navigationController animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

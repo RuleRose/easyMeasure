@@ -13,45 +13,25 @@
 {
     self = [super init];
     if (self) {
-
+        [self setupViews];
     }
     return self;
 }
 
-- (void)setNormalColor:(UIColor *)normalColor{
-    _normalColor = normalColor;
-    self.backgroundColor = _normalColor;
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    self.backgroundColor = self.highlightColor;
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    UITouch* touch = [touches anyObject];
-    CGPoint pos = [touch locationInView:self];
-    if (CGRectContainsPoint(self.bounds, pos)) {
-        self.backgroundColor = self.highlightColor;
-    }else{
-        self.backgroundColor = self.normalColor;
-    }
-}
-
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    UITouch* touch = [touches anyObject];
-    CGPoint pos = [touch locationInView:self];
-    if (CGRectContainsPoint(self.bounds, pos)) {
-        if (_measureBlock) {
-            _measureBlock();
-        }
-    }
-    self.backgroundColor = self.normalColor;
-
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    self.backgroundColor = self.normalColor;
+- (void)setupViews{
+    _textLabel = [[UILabel alloc] init];
+    _textLabel.userInteractionEnabled = NO;
+    _textLabel.backgroundColor = [UIColor clearColor];
+    _textLabel.textColor = kColor_Text1;
+    _textLabel.font = [UIFont systemFontOfSize:16];
+    _textLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:_textLabel];
+    [_textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.top.equalTo(@0);
+        make.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

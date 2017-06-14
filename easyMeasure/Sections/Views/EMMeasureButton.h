@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^MeasureButtonBlock)();
 
 @interface EMMeasureButton : UIButton
-@property(nonatomic, strong) UIColor *normalColor;
-@property(nonatomic, strong) UIColor *highlightColor;
-@property(nonatomic, strong) MeasureButtonBlock measureBlock;
+@property(nonatomic, strong) UILabel *textLabel;
 
 @end
