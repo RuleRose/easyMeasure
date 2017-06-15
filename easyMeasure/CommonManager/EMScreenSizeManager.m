@@ -129,37 +129,29 @@ Singleton_Implementation(EMScreenSizeManager);
 - (CGFloat)degreeWithWidth:(CGFloat)width degrees:(NSDictionary *)degrees{
     CGFloat up_degree = 0;
     CGFloat down_degree = 0;
-    CGFloat up_degree_width = 0;
+    CGFloat up_degree_width = 100;
     CGFloat down_degree_width = 0;
-    for (NSString *key in degrees.allKeys) {
-        NSString *degree_width =  [degrees objectForKey:key];
-        if (up_degree_width == 0) {
-            if ([degree_width floatValue] >= width) {
-                up_degree = [key floatValue];
-                up_degree_width = [degree_width floatValue];
-            }
-        }else{
-            if ([degree_width floatValue] >= width && [degree_width floatValue] <= up_degree_width) {
-                up_degree = [key floatValue];
-                up_degree_width = [degree_width floatValue];
-            }
+    for (NSString *degree_width in degrees.allKeys) {
+        if ([degree_width floatValue] >= width && [degree_width floatValue] <= up_degree_width) {
+            up_degree = [[degrees objectForKey:degree_width] floatValue];
+            up_degree_width = [degree_width floatValue];
         }
-        if (down_degree_width ==0) {
-            if ([degree_width floatValue] <= width) {
-                down_degree = [key floatValue];
-                down_degree_width = [degree_width floatValue];
-            }
-        }else{
-            if ([degree_width floatValue] <= width && [degree_width floatValue] >= down_degree_width) {
-                down_degree = [key floatValue];
-                down_degree_width = [degree_width floatValue];
-            }
+        if ([degree_width floatValue] <= width && [degree_width floatValue] >= down_degree_width) {
+            down_degree = [[degrees objectForKey:degree_width] floatValue];
+            down_degree_width = [degree_width floatValue];
         }
     }
-    if (up_degree <= down_degree) {
-        return down_degree;
-    }else{
-        return up_degree;
+    
+    if (width > up_degree_width) {
+        return 0;
     }
+    
+    if (down_degree_width == 0) {
+        return 0;
+    }
+    if (up_degree_width == 100) {
+        return 0;
+    }
+    return up_degree;
 }
 @end

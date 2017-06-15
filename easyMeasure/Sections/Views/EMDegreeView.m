@@ -62,65 +62,53 @@
     
 }
 
-
-
-- (void)setDegree:(CGFloat)degree{
+- (void)loadWidth:(CGFloat)width degree:(CGFloat)degree{
     _degree = degree;
     NSString *text = @"";
-    if (degree == (NSInteger)degree)  {
-        text = [NSString stringWithFormat:@"%0.0f",degree];
+    if (_degree == 0) {
+        text = kLocalization(@"em_degree_none");
+        _degreeLabel.text = text;
+        _degreeLabel.textAlignment = NSTextAlignmentCenter;
+        MJWeakSelf;
+        [_degreeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.bottom.equalTo(@(-4));
+            make.height.equalTo(@24);
+            make.right.equalTo(@0);
+        }];
+        [_degreeUnitLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(weakSelf.degreeLabel.mas_right);
+            make.right.equalTo(@0);
+            make.bottom.equalTo(@0);
+            make.height.equalTo(@24);
+        }];
     }else{
-        text = [NSString stringWithFormat:@"%0.1f",degree];
+        _degreeLabel.textAlignment = NSTextAlignmentRight;
+        if (_degree == (NSInteger)_degree)  {
+            text = [NSString stringWithFormat:@"%0.0f",_degree];
+        }else{
+            text = [NSString stringWithFormat:@"%0.1f",_degree];
+        }
+        _degreeLabel.text = text;
+        CGSize size1 = [text sizeWithFont:[UIFont systemFontOfSize:20]];
+        CGSize size2 = [kLocalization(@"em_degree_unit") sizeWithFont:[UIFont systemFontOfSize:12]];
+        CGFloat viewWidth = width/2 + (size1.width - size2.width)/2;
+        MJWeakSelf;
+        [_degreeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.bottom.equalTo(@(-4));
+            make.height.equalTo(@24);
+            make.width.equalTo(@(viewWidth));
+        }];
+        [_degreeUnitLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(weakSelf.degreeLabel.mas_right);
+            make.right.equalTo(@0);
+            make.bottom.equalTo(@0);
+            make.height.equalTo(@24);
+        }];
+        [self layoutIfNeeded];
     }
-    _degreeLabel.text = text;
-
-    MJWeakSelf;
-    [_degreeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@0);
-        make.bottom.equalTo(@(-4));
-        make.height.equalTo(@24);
-        make.width.equalTo(weakSelf.degreeUnitLabel.mas_width);
-    }];
-    [_degreeUnitLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.degreeLabel.mas_right);
-        make.right.equalTo(@0);
-        make.bottom.equalTo(@0);
-        make.height.equalTo(@24);
-    }];
-    [self layoutIfNeeded];
     
-}
-
-- (void)loadWidth:(CGFloat)width degreeWidth:(CGFloat)degreeWidth{
-    
-    
-    _degree = [[EMScreenSizeManager defaultInstance] hkdegreeWithWidth:degreeWidth];
-    _degree = [[EMScreenSizeManager defaultInstance] usdegreeWithWidth:degreeWidth];
-    _degree = [[EMScreenSizeManager defaultInstance] eurodegreeWithWidth:degreeWidth];
-    NSString *text = @"";
-    if (_degree == (NSInteger)_degree)  {
-        text = [NSString stringWithFormat:@"%0.0f",_degree];
-    }else{
-        text = [NSString stringWithFormat:@"%0.1f",_degree];
-    }
-    _degreeLabel.text = text;
-    CGSize size1 = [text sizeWithFont:[UIFont systemFontOfSize:20]];
-    CGSize size2 = [kLocalization(@"em_degree_unit") sizeWithFont:[UIFont systemFontOfSize:12]];
-    CGFloat viewWidth = width/2 + (size1.width - size2.width)/2;
-    MJWeakSelf;
-    [_degreeLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@0);
-        make.bottom.equalTo(@(-4));
-        make.height.equalTo(@24);
-        make.width.equalTo(@(viewWidth));
-    }];
-    [_degreeUnitLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.degreeLabel.mas_right);
-        make.right.equalTo(@0);
-        make.bottom.equalTo(@0);
-        make.height.equalTo(@24);
-    }];
-    [self layoutIfNeeded];
 }
 /*
 // Only override drawRect: if you perform custom drawing.
