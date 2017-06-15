@@ -34,23 +34,24 @@
     _resultView.backgroundColor = [UIColor clearColor];
     _resultView.measure = _measure;
     [self.view addSubview:_resultView];
-    MJWeakSelf;
-    _resultView.remeasureBtn.measureBlock = ^(){
-        EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
-        measureVC.measureModel = weakSelf.measure;
-        measureVC.isLeft = [weakSelf.measure.finger_left boolValue];
-        measureVC.fingerType = [weakSelf.measure.finger_type integerValue];
-        NSMutableArray* viewControllers = [[NSMutableArray alloc] initWithArray:weakSelf.navigationController.viewControllers];
-        [viewControllers removeObject:weakSelf];
-        [viewControllers addObject:measureVC];
-        [weakSelf.navigationController setViewControllers:viewControllers animated:YES];
-    };
+    [_resultView.remeasureBtn addTarget:self action:@selector(remeasureBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     [_resultView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
         make.top.equalTo(@0);
         make.right.equalTo(@0);
         make.bottom.equalTo(@0);
     }];
+}
+
+- (void)remeasureBtnPressed{
+    EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
+    measureVC.measureModel = _measure;
+    measureVC.isLeft = [_measure.finger_left boolValue];
+    measureVC.fingerType = [_measure.finger_type integerValue];
+    NSMutableArray* viewControllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+    [viewControllers removeObject:self];
+    [viewControllers addObject:measureVC];
+    [self.navigationController setViewControllers:viewControllers animated:YES];
 }
 
 - (void)goBack:(UIButton *)sender{

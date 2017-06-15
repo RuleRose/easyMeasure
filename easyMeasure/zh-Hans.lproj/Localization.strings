@@ -30,6 +30,7 @@
 "em_measure_lefthand" = "测量左手";
 "em_measure_righthand" = "测量右手";
 "em_measure_finger" = "测量手指";
+"em_degree_none" = "无";
 
 "em_label_ring_size" = "建议您挑选戒指的尺寸为";
 "em_label_ring_diameter" = "您的戒指内径为";

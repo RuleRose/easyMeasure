@@ -13,5 +13,5 @@
 @property(nonatomic, strong)UILabel *degreeUnitLabel;
 @property(nonatomic, strong)UILabel *degreeLabel;
 @property(nonatomic, assign)CGFloat degree;
-- (void)loadWidth:(CGFloat)width degreeWidth:(CGFloat)degreeWidth;
+- (void)loadWidth:(CGFloat)width degree:(CGFloat)degree;
 @end

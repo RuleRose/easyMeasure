@@ -7,6 +7,7 @@
 //
 
 #import "EMFingerView.h"
+#import "UIImage+Extension.h"
 
 @implementation EMFingerView
 - (instancetype)initWithLeft:(BOOL)left fingerType:(FingerType)fingerType{
@@ -68,18 +69,14 @@
     _fingerBtn = [[EMMeasureButton alloc] init];
     _fingerBtn.layer.masksToBounds = YES;
     _fingerBtn.layer.cornerRadius = _buttonSize.height/2;
-    _fingerBtn.normalColor = kColor_Button1;
-    _fingerBtn.highlightColor = kColor_Highlight_Button3;
-    [_fingerBtn setTitle:_finger forState:UIControlStateNormal];
-    [_fingerBtn setTitleColor:kColor_Text1 forState:UIControlStateNormal];
-    _fingerBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    MJWeakSelf;
-    _fingerBtn.measureBlock = ^(){
-        if (weakSelf.delegate && [_delegate respondsToSelector:@selector(measureFinger:left:)]) {
-            [weakSelf.delegate measureFinger:weakSelf.fingerType left:weakSelf.isLeft];
-        }
-    };
+    [_fingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake(_buttonSize.width*2, _buttonSize.height*2) color:kColor_Button1] forState:UIControlStateNormal];
+    [_fingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake(_buttonSize.width*2, _buttonSize.height*2) color:kColor_Highlight_Button3] forState:UIControlStateHighlighted];
+    _fingerBtn.textLabel.text = _finger;
+    _fingerBtn.textLabel.font = [UIFont systemFontOfSize:14];
+    _fingerBtn.textLabel.textColor = kColor_Text1;
+    [_fingerBtn addTarget:self action:@selector(fingerBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_fingerBtn];
+    MJWeakSelf;
     if (_isLeft) {
         [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@0);
@@ -106,6 +103,12 @@
             make.height.equalTo(@(weakSelf.buttonSize.height));
             make.width.equalTo(@(weakSelf.buttonSize.width));
         }];
+    }
+}
+
+- (void)fingerBtnPressed{
+    if (_delegate && [_delegate respondsToSelector:@selector(measureFinger:left:)]) {
+        [_delegate measureFinger:_fingerType left:_isLeft];
     }
 }
 /*
