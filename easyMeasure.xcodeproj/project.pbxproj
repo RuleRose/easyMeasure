@@ -78,14 +78,16 @@
 		CC0F10171EEBB699002FD6DF /* 2_05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0F100C1EEBB699002FD6DF /* 2_05@2x.png */; };
 		CC1EF5A31EF2DB19004B3B12 /* EMMeasureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1EF5A21EF2DB19004B3B12 /* EMMeasureButton.m */; };
 		CC1EF5A61EF2DB9C004B3B12 /* muzhi_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC1EF5A41EF2DB9C004B3B12 /* muzhi_1@2x.png */; };
-		CC1EF5A71EF2DB9C004B3B12 /* muzhi_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC1EF5A51EF2DB9C004B3B12 /* muzhi_2@2x.png */; };
 		CC1EF5AA1EF2DBB5004B3B12 /* muzhi_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC1EF5A81EF2DBB5004B3B12 /* muzhi_1@3x.png */; };
-		CC1EF5AB1EF2DBB5004B3B12 /* muzhi_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC1EF5A91EF2DBB5004B3B12 /* muzhi_2@3x.png */; };
 		CC1EF5AE1EF2DD13004B3B12 /* EMMeasureResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1EF5AD1EF2DD13004B3B12 /* EMMeasureResultViewController.m */; };
 		CC1EF5B11EF2DD45004B3B12 /* EMFingerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1EF5B01EF2DD45004B3B12 /* EMFingerView.m */; };
 		CC1EF5B41EF2DD6C004B3B12 /* EMMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1EF5B31EF2DD6C004B3B12 /* EMMainView.m */; };
 		CC1EF5B71EF2DD9B004B3B12 /* EMMeasureResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1EF5B61EF2DD9B004B3B12 /* EMMeasureResultView.m */; };
 		CC1EF5BA1EF2DDC5004B3B12 /* EMMeasureView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1EF5B91EF2DDC5004B3B12 /* EMMeasureView.m */; };
+		CC2F5CEF1EF4FBC50006A68D /* shou_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F5CEE1EF4FBC50006A68D /* shou_2@2x.png */; };
+		CC2F5CF11EF4FBD30006A68D /* shou_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F5CF01EF4FBD30006A68D /* shou_2@3x.png */; };
+		CC2F5CF31EF4FBE60006A68D /* muzhi_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F5CF21EF4FBE60006A68D /* muzhi_2@2x.png */; };
+		CC2F5CF51EF4FBEA0006A68D /* muzhi_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F5CF41EF4FBEA0006A68D /* muzhi_2@3x.png */; };
 		CC708F921EEC13060087AD74 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC708F911EEC13060087AD74 /* NSDate+Extension.m */; };
 		CC708F951EEC130F0087AD74 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC708F941EEC130F0087AD74 /* UIImage+Extension.m */; };
 		CC708FB21EEC131B0087AD74 /* EMFingerChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC708F991EEC131B0087AD74 /* EMFingerChooseViewController.m */; };
@@ -97,8 +99,6 @@
 		CC708FB91EEC131B0087AD74 /* EMMeasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC708FA81EEC131B0087AD74 /* EMMeasureModel.m */; };
 		CC708FBA1EEC131B0087AD74 /* EMDegreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC708FAB1EEC131B0087AD74 /* EMDegreeView.m */; };
 		CC708FBD1EEC131B0087AD74 /* EMMeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC708FB11EEC131B0087AD74 /* EMMeasureCell.m */; };
-		CC708FBF1EEC13450087AD74 /* shou_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC708FBE1EEC13450087AD74 /* shou_2@2x.png */; };
-		CC708FC11EEC135A0087AD74 /* shou_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC708FC01EEC135A0087AD74 /* shou_2@3x.png */; };
 		CC708FC51EEC1FCC0087AD74 /* EMDegree.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC708FC41EEC1FCC0087AD74 /* EMDegree.plist */; };
 		CC708FC71EEED6AA0087AD74 /* 2_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC708FC61EEED6AA0087AD74 /* 2_01@2x.png */; };
 		CC708FCB1EEED6BC0087AD74 /* 2_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC708FC81EEED6BC0087AD74 /* 2_02@2x.png */; };
@@ -234,9 +234,7 @@
 		CC1EF5A11EF2DB19004B3B12 /* EMMeasureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMeasureButton.h; sourceTree = "<group>"; };
 		CC1EF5A21EF2DB19004B3B12 /* EMMeasureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMeasureButton.m; sourceTree = "<group>"; };
 		CC1EF5A41EF2DB9C004B3B12 /* muzhi_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muzhi_1@2x.png"; sourceTree = "<group>"; };
-		CC1EF5A51EF2DB9C004B3B12 /* muzhi_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muzhi_2@2x.png"; sourceTree = "<group>"; };
 		CC1EF5A81EF2DBB5004B3B12 /* muzhi_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muzhi_1@3x.png"; sourceTree = "<group>"; };
-		CC1EF5A91EF2DBB5004B3B12 /* muzhi_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muzhi_2@3x.png"; sourceTree = "<group>"; };
 		CC1EF5AC1EF2DD13004B3B12 /* EMMeasureResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMeasureResultViewController.h; sourceTree = "<group>"; };
 		CC1EF5AD1EF2DD13004B3B12 /* EMMeasureResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMeasureResultViewController.m; sourceTree = "<group>"; };
 		CC1EF5AF1EF2DD45004B3B12 /* EMFingerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFingerView.h; sourceTree = "<group>"; };
@@ -247,6 +245,10 @@
 		CC1EF5B61EF2DD9B004B3B12 /* EMMeasureResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMeasureResultView.m; sourceTree = "<group>"; };
 		CC1EF5B81EF2DDC5004B3B12 /* EMMeasureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMeasureView.h; sourceTree = "<group>"; };
 		CC1EF5B91EF2DDC5004B3B12 /* EMMeasureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMeasureView.m; sourceTree = "<group>"; };
+		CC2F5CEE1EF4FBC50006A68D /* shou_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shou_2@2x.png"; sourceTree = "<group>"; };
+		CC2F5CF01EF4FBD30006A68D /* shou_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shou_2@3x.png"; sourceTree = "<group>"; };
+		CC2F5CF21EF4FBE60006A68D /* muzhi_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muzhi_2@2x.png"; sourceTree = "<group>"; };
+		CC2F5CF41EF4FBEA0006A68D /* muzhi_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muzhi_2@3x.png"; sourceTree = "<group>"; };
 		CC708F901EEC13060087AD74 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		CC708F911EEC13060087AD74 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		CC708F931EEC130F0087AD74 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
@@ -269,8 +271,6 @@
 		CC708FAB1EEC131B0087AD74 /* EMDegreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMDegreeView.m; sourceTree = "<group>"; };
 		CC708FB01EEC131B0087AD74 /* EMMeasureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMeasureCell.h; sourceTree = "<group>"; };
 		CC708FB11EEC131B0087AD74 /* EMMeasureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMeasureCell.m; sourceTree = "<group>"; };
-		CC708FBE1EEC13450087AD74 /* shou_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shou_2@2x.png"; sourceTree = "<group>"; };
-		CC708FC01EEC135A0087AD74 /* shou_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shou_2@3x.png"; sourceTree = "<group>"; };
 		CC708FC41EEC1FCC0087AD74 /* EMDegree.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EMDegree.plist; sourceTree = "<group>"; };
 		CC708FC61EEED6AA0087AD74 /* 2_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_01@2x.png"; sourceTree = "<group>"; };
 		CC708FC81EEED6BC0087AD74 /* 2_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_02@2x.png"; sourceTree = "<group>"; };
@@ -604,10 +604,10 @@
 				CC0F0FA21EEACEF9002FD6DF /* image_muzhi@2x.png */,
 				CC0F0FA31EEACEF9002FD6DF /* image_qitashouzhi@2x.png */,
 				CC1EF5A41EF2DB9C004B3B12 /* muzhi_1@2x.png */,
-				CC1EF5A51EF2DB9C004B3B12 /* muzhi_2@2x.png */,
 				CC0F0FA41EEACEF9002FD6DF /* image@2x.png */,
 				CC0F0FA51EEACEF9002FD6DF /* shou_1@2x.png */,
-				CC708FBE1EEC13450087AD74 /* shou_2@2x.png */,
+				CC2F5CEE1EF4FBC50006A68D /* shou_2@2x.png */,
+				CC2F5CF21EF4FBE60006A68D /* muzhi_2@2x.png */,
 				CC0F0FA61EEACEF9002FD6DF /* titel_button_fanhui_highlight@2x.png */,
 				CC0F0FA71EEACEF9002FD6DF /* titel_button_fanhui@2x.png */,
 				CC0F0FA81EEACEF9002FD6DF /* titel_button_jilu_highlight@2x.png */,
@@ -628,9 +628,9 @@
 				CC0F0FBE1EEACF0B002FD6DF /* button_wancheng@3x.png */,
 				CC0F0FBF1EEACF0B002FD6DF /* image@3x.png */,
 				CC0F0FC01EEACF0B002FD6DF /* shou_1@3x.png */,
-				CC708FC01EEC135A0087AD74 /* shou_2@3x.png */,
+				CC2F5CF41EF4FBEA0006A68D /* muzhi_2@3x.png */,
 				CC1EF5A81EF2DBB5004B3B12 /* muzhi_1@3x.png */,
-				CC1EF5A91EF2DBB5004B3B12 /* muzhi_2@3x.png */,
+				CC2F5CF01EF4FBD30006A68D /* shou_2@3x.png */,
 				CC0F0FC11EEACF0B002FD6DF /* titel_button_fanhui_highlight@3x.png */,
 				CC0F0FC21EEACF0B002FD6DF /* titel_button_fanhui@3x.png */,
 				CC0F0FC31EEACF0B002FD6DF /* titel_button_jilu_highlight@3x.png */,
@@ -776,14 +776,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0F0FC71EEACF0B002FD6DF /* button_jian_highlight@3x.png in Resources */,
+				CC2F5CEF1EF4FBC50006A68D /* shou_2@2x.png in Resources */,
 				CC708FC71EEED6AA0087AD74 /* 2_01@2x.png in Resources */,
 				CC708FDB1EEED7920087AD74 /* titel_text@2x.png in Resources */,
 				CC0F0FB11EEACEF9002FD6DF /* image_muzhi@2x.png in Resources */,
 				CC0F0FB41EEACEF9002FD6DF /* shou_1@2x.png in Resources */,
-				CC1EF5A71EF2DB9C004B3B12 /* muzhi_2@2x.png in Resources */,
 				CC0F0FC81EEACF0B002FD6DF /* button_jian@3x.png in Resources */,
+				CC2F5CF31EF4FBE60006A68D /* muzhi_2@2x.png in Resources */,
 				CC0F0FC91EEACF0B002FD6DF /* button_wancheng_highlight@3x.png in Resources */,
-				CC708FBF1EEC13450087AD74 /* shou_2@2x.png in Resources */,
 				CC1EF5AA1EF2DBB5004B3B12 /* muzhi_1@3x.png in Resources */,
 				CC1EF5A61EF2DB9C004B3B12 /* muzhi_1@2x.png in Resources */,
 				CC0F0FB51EEACEF9002FD6DF /* titel_button_fanhui_highlight@2x.png in Resources */,
@@ -793,8 +793,8 @@
 				CC0F0FB01EEACEF9002FD6DF /* button_wancheng@2x.png in Resources */,
 				CC0F10121EEBB699002FD6DF /* 1_06@2x.png in Resources */,
 				CC0F0FCD1EEACF0B002FD6DF /* titel_button_fanhui_highlight@3x.png in Resources */,
+				CC2F5CF11EF4FBD30006A68D /* shou_2@3x.png in Resources */,
 				CC0F0FAF1EEACEF9002FD6DF /* button_wancheng_highlight@2x.png in Resources */,
-				CC708FC11EEC135A0087AD74 /* shou_2@3x.png in Resources */,
 				CC0F0FC61EEACF0B002FD6DF /* button_jia@3x.png in Resources */,
 				CC0F10111EEBB699002FD6DF /* 1_05@2x.png in Resources */,
 				C11CB77D1ECE877E006E67D5 /* Assets.xcassets in Resources */,
@@ -814,6 +814,7 @@
 				CC0F0FCB1EEACF0B002FD6DF /* image@3x.png in Resources */,
 				CC0F0FB31EEACEF9002FD6DF /* image@2x.png in Resources */,
 				CC708FDD1EEED7990087AD74 /* titel_text@3x.png in Resources */,
+				CC2F5CF51EF4FBEA0006A68D /* muzhi_2@3x.png in Resources */,
 				CC0F0FCA1EEACF0B002FD6DF /* button_wancheng@3x.png in Resources */,
 				CC0F0FCF1EEACF0B002FD6DF /* titel_button_jilu_highlight@3x.png in Resources */,
 				CC708FC51EEC1FCC0087AD74 /* EMDegree.plist in Resources */,
@@ -823,7 +824,6 @@
 				CC0F0FB71EEACEF9002FD6DF /* titel_button_jilu_highlight@2x.png in Resources */,
 				CC0F0FB61EEACEF9002FD6DF /* titel_button_fanhui@2x.png in Resources */,
 				C1CB46751ED7F9390091732C /* DeviceScreenSize.plist in Resources */,
-				CC1EF5AB1EF2DBB5004B3B12 /* muzhi_2@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
