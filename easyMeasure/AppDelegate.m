@@ -28,6 +28,7 @@
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+    [NSThread sleepForTimeInterval:2];
     return YES;
 }
 
