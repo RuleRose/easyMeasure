@@ -44,14 +44,15 @@
 }
 
 - (void)remeasureBtnPressed{
-    EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
-    measureVC.measureModel = _measure;
-    measureVC.isLeft = [_measure.finger_left boolValue];
-    measureVC.fingerType = [_measure.finger_type integerValue];
-    NSMutableArray* viewControllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
-    [viewControllers removeObject:self];
-    [viewControllers addObject:measureVC];
-    [self.navigationController setViewControllers:viewControllers animated:YES];
+//    EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
+//    measureVC.measureModel = _measure;
+//    measureVC.isLeft = [_measure.finger_left boolValue];
+//    measureVC.fingerType = [_measure.finger_type integerValue];
+//    NSMutableArray* viewControllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+//    [viewControllers removeObject:self];
+//    [viewControllers addObject:measureVC];
+//    [self.navigationController setViewControllers:viewControllers animated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)goBack:(UIButton *)sender{
