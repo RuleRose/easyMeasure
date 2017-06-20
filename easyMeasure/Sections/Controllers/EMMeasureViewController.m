@@ -11,6 +11,7 @@
 #import "EMMeasurementViewController.h"
 #import "NSDate+Extension.h"
 #import "EMMeasureView.h"
+#import "EMNotiPopView.h"
 
 @interface EMMeasureViewController ()
 @property(nonatomic, strong)EMMeasureView *measureView;
@@ -49,6 +50,9 @@
     }
     self.title = title;
     [self setupViews];
+
+
+    
     // Do any additional setup after loading the view.
 }
 
@@ -56,6 +60,11 @@
     [super viewWillAppear:animated];
     [self setBackBarButton];
     [self setNavigationButtons:1 title:@[kLocalization(@"em_measure_intro")] image:nil highlightedImage:nil frame:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 80, 44)]] isRight:YES];
+    [self showNotiView];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 - (void)navigationRightButtonClicked:(UIButton *)sender {
@@ -76,6 +85,27 @@
         make.bottom.equalTo(@0);
     }];
 }
+
+- (void)showNotiView{
+    if (_fingerType == kFingerOfThumb) {
+        NSNumber *showThumbNoti = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEFAULT_SHOW_THUMB"];
+        if (showThumbNoti) {
+            return;
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"USER_DEFAULT_SHOW_THUMB"];
+    }else{
+        NSNumber *showThumbNoti = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEFAULT_SHOW_OTHERFINGER"];
+        if (showThumbNoti) {
+            return;
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"USER_DEFAULT_SHOW_OTHERFINGER"];
+
+    }
+    EMNotiPopView *notiView = [[EMNotiPopView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height)];
+    notiView.baseView = self.navigationController.view;
+    [notiView showMenus];
+}
+
 - (void)finishBtnPressed{
     if (!_measureModel) {
         _measureModel = [[EMMeasureModel alloc] init];
