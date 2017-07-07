@@ -10,6 +10,7 @@
 #import "EMMainViewController.h"
 #import "XJFDBManager.h"
 #import "EMMeasureModel.h"
+#import "EMGuideViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,11 +23,21 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = kColor_1;
-    EMMainViewController *mainVC = [[EMMainViewController alloc] init];
-    _navigationC = [[EMNavigationController alloc] initWithRootViewController:mainVC];
-    [self.window setRootViewController:_navigationC];
-    // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
+    NSNumber *showGuide = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULT_SHOW_GUIDE];
+    if ([showGuide boolValue]) {
+        EMMainViewController *mainVC = [[EMMainViewController alloc] init];
+        _navigationC = [[EMNavigationController alloc] initWithRootViewController:mainVC];
+        [self.window setRootViewController:_navigationC];
+        // Override point for customization after application launch.
+        [self.window makeKeyAndVisible];
+    }else{
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:USER_DEFAULT_SHOW_GUIDE];
+        EMGuideViewController *guideView = [[EMGuideViewController alloc] init];
+        _navigationC = [[EMNavigationController alloc] initWithRootViewController:guideView];
+        [self.window setRootViewController:_navigationC];
+        // Override point for customization after application launch.
+        [self.window makeKeyAndVisible];
+    }
     [XJFDBManager createTableWithModel:[EMMeasureModel class]];
     [NSThread sleepForTimeInterval:2];
     return YES;

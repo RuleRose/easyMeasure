@@ -88,17 +88,17 @@
 
 - (void)showNotiView{
     if (_fingerType == kFingerOfThumb) {
-        NSNumber *showThumbNoti = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEFAULT_SHOW_THUMB"];
+        NSNumber *showThumbNoti = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULT_SHOW_THUMB];
         if (showThumbNoti) {
             return;
         }
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"USER_DEFAULT_SHOW_THUMB"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:USER_DEFAULT_SHOW_THUMB];
     }else{
-        NSNumber *showThumbNoti = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEFAULT_SHOW_OTHERFINGER"];
+        NSNumber *showThumbNoti = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULT_SHOW_OTHERFINGER];
         if (showThumbNoti) {
             return;
         }
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"USER_DEFAULT_SHOW_OTHERFINGER"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:USER_DEFAULT_SHOW_OTHERFINGER];
 
     }
     EMNotiPopView *notiView = [[EMNotiPopView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height)];
