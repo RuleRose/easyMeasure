@@ -11,7 +11,7 @@
 #import "EMMeasurementViewController.h"
 #import "NSDate+Extension.h"
 #import "EMMeasureView.h"
-#import "EMNotiPopView.h"
+#import "EMMeasurePopView.h"
 
 @interface EMMeasureViewController ()
 @property(nonatomic, strong)EMMeasureView *measureView;
@@ -61,6 +61,8 @@
     [self setBackBarButton];
     [self setNavigationButtons:1 title:@[kLocalization(@"em_measure_intro")] image:nil highlightedImage:nil frame:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 80, 44)]] isRight:YES];
     [self showNotiView];
+    [self showStatusBar];
+    [self showNavigationBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -101,7 +103,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:USER_DEFAULT_SHOW_OTHERFINGER];
 
     }
-    EMNotiPopView *notiView = [[EMNotiPopView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height)];
+    EMMeasurePopView *notiView = [[EMMeasurePopView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height)];
     notiView.baseView = self.navigationController.view;
     [notiView showMenus];
 }

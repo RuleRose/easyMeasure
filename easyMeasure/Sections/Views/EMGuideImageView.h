@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^GuideHiddenBlock)();
+//typedef void (^GuideHiddenBlock)();
 
 @interface EMGuideImageView : UIImageView
-@property(nonatomic, assign)GuideHiddenBlock hiddenblock;
+//@property(nonatomic, assign)GuideHiddenBlock hiddenblock;
 @end

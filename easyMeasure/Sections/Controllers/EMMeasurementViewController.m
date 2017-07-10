@@ -27,6 +27,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setBackBarButton];
+    [self showStatusBar];
+    [self showNavigationBar];
 }
 
 - (void)setupViews{

@@ -8,6 +8,7 @@
 
 #import "EMFingerChooseViewController.h"
 #import "EMFingerChooseView.h"
+#import "EMFingerTypeViewController.h"
 
 @interface EMFingerChooseViewController ()<FingerViewDelegate>
 @property(nonatomic, strong)EMFingerChooseView *chooseView;
@@ -31,6 +32,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setBackBarButton];
+    [self showStatusBar];
+    [self showNavigationBar];
 }
 
 - (void)setupViews{
@@ -53,11 +56,10 @@
 
 #pragma mark FingerViewDelegate
 - (void)measureFinger:(FingerType)fingerType left:(BOOL)isLeft{
-    EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
-    measureVC.isLeft = isLeft;
-    measureVC.fingerType = fingerType;
-    [measureVC pushToNavigationController:self.navigationController animated:YES
-     ];
+    EMFingerTypeViewController *typeVC = [[EMFingerTypeViewController alloc] init];
+    typeVC.isLeft = isLeft;
+    typeVC.fingerType = fingerType;
+    [typeVC pushToNavigationController:self.navigationController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,8 @@
 
 #import "EMGuideView.h"
 #import "EMGuideImageView.h"
+#import "EMMeasureButton.h"
+#import "UIImage+Extension.h"
 
 #define VERMARGIN 5
 #define HORMARGIN 10
@@ -15,8 +17,8 @@
 
 @interface EMGuideView()<UIScrollViewDelegate>
 @property (nonatomic, strong) NSMutableArray *images;
-@property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) UIButton *hiddenBtn;
+//@property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, strong) EMMeasureButton *hiddenBtn;
 
 @end
 
@@ -35,18 +37,18 @@
     return _scrollView;
 }
 
-- (UIPageControl *)pageControl {
-    if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc] init];
-        _pageControl.userInteractionEnabled = NO;
-        CGSize size = [_pageControl sizeForNumberOfPages:_pageControl.numberOfPages];
-        size.height = 8;
-        _pageControl.frame = CGRectMake(0, 0, size.width, size.height);
-        CGFloat centerY = self.frame.size.height - size.height * 0.5 - VERMARGIN;
-        _pageControl.center = CGPointMake(self.frame.size.width * 0.5, centerY);
-    }
-    return _pageControl;
-}
+//- (UIPageControl *)pageControl {
+//    if (!_pageControl) {
+//        _pageControl = [[UIPageControl alloc] init];
+//        _pageControl.userInteractionEnabled = NO;
+//        CGSize size = [_pageControl sizeForNumberOfPages:_pageControl.numberOfPages];
+//        size.height = 8;
+//        _pageControl.frame = CGRectMake(0, 0, size.width, size.height);
+//        CGFloat centerY = self.frame.size.height - size.height * 0.5 - VERMARGIN;
+//        _pageControl.center = CGPointMake(self.frame.size.width * 0.5, centerY);
+//    }
+//    return _pageControl;
+//}
 
 - (instancetype)init
 {
@@ -68,11 +70,24 @@
 
 - (void)setupViews{
     [self addSubview:self.scrollView];
-    [self addSubview:self.pageControl];
-    _hiddenBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreen_Width - 100, 64, 80, 48)];
-    _hiddenBtn.backgroundColor = [UIColor grayColor];
+//    [self addSubview:self.pageControl];
+    _hiddenBtn = [[EMMeasureButton alloc] init];
+    _hiddenBtn.layer.masksToBounds = YES;
+    _hiddenBtn.layer.cornerRadius = 13;
+    
+    [_hiddenBtn setImage:[UIImage drawImageWithSize:CGSizeMake(130, 52) color:kColorFromRGBA(0xffffff, 0.1)] forState:UIControlStateNormal];
+    [_hiddenBtn setImage:[UIImage drawImageWithSize:CGSizeMake(130, 52) color:kColorFromRGBA(0xffffff, 0.3)] forState:UIControlStateHighlighted];
+    _hiddenBtn.textLabel.text = kLocalization(@"em_close");
+    _hiddenBtn.textLabel.font = [UIFont systemFontOfSize:13];
+    _hiddenBtn.textLabel.textColor = kColor_Text4;
     [self addSubview:_hiddenBtn];
     [_hiddenBtn addTarget:self action:@selector(hiddenGuide) forControlEvents:UIControlEventTouchUpInside];
+    [_hiddenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@65);
+        make.height.equalTo(@26);
+        make.right.equalTo(@(-9));
+        make.top.equalTo(@18);
+    }];
 }
 
 - (void)hiddenGuide{
@@ -101,42 +116,42 @@
             }
         }
     }
-    MJWeakSelf;
+//    MJWeakSelf;
     for (NSInteger i = 0; i < _images.count; i ++) {
         EMGuideImageView *imageView = [[EMGuideImageView alloc] initWithFrame:CGRectMake(i * self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
         imageView.backgroundColor = [UIColor clearColor];
         imageView.image = _images[i];
-        imageView.hiddenblock = ^(){
-            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(hiddenblock)]) {
-                [weakSelf.delegate hiddenGuide];
-            }
-        };
+//        imageView.hiddenblock = ^(){
+//            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(hiddenblock)]) {
+//                [weakSelf.delegate hiddenGuide];
+//            }
+//        };
         [_scrollView addSubview:imageView];
     }
     //防止在滚动过程中重新给imageArray赋值时报错
-    if (_images.count > 1) {
-        self.pageControl.numberOfPages = _images.count;
-        _pageControl.hidden = NO;
-    }else{
-        self.pageControl.numberOfPages = _imageNames.count;
-        _pageControl.hidden = YES;
-    }
-    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * _images.count, self.frame.size.height);
-    _pageControl.currentPage = 0;
+//    if (_images.count > 1) {
+//        self.pageControl.numberOfPages = _images.count;
+//        _pageControl.hidden = NO;
+//    }else{
+//        self.pageControl.numberOfPages = _imageNames.count;
+//        _pageControl.hidden = YES;
+//    }
+    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * _images.count, 0);
+//    _pageControl.currentPage = 0;
 }
 
 #pragma mark- --------UIScrollViewDelegate--------
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat offsetX = scrollView.contentOffset.x;
-    
-    NSInteger currentIndex = (offsetX + self.frame.size.width/2)/self.frame.size.width;
-    self.pageControl.currentPage = currentIndex;
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGFloat offsetX = scrollView.contentOffset.x;
+//    
+//    NSInteger currentIndex = (offsetX + self.frame.size.width/2)/self.frame.size.width;
+//    self.pageControl.currentPage = currentIndex;
+//}
 
-- (void)setPageColor:(UIColor *)color andCurrentPageColor:(UIColor *)currentColor {
-    _pageControl.pageIndicatorTintColor = color;
-    _pageControl.currentPageIndicatorTintColor = currentColor;
-}
+//- (void)setPageColor:(UIColor *)color andCurrentPageColor:(UIColor *)currentColor {
+//    _pageControl.pageIndicatorTintColor = color;
+//    _pageControl.currentPageIndicatorTintColor = currentColor;
+//}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

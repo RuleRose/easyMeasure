@@ -40,8 +40,8 @@
     _leftFingerBtn.backgroundColor = [UIColor clearColor];
     _leftFingerBtn.layer.masksToBounds = YES;
     _leftFingerBtn.layer.cornerRadius = 24;
-    [_leftFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake((kScreen_Width - 59)/2, 48) color:kColor_Button1] forState:UIControlStateNormal];
-    [_leftFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake((kScreen_Width - 59)/2, 48) color:kColor_Highlight_Button3] forState:UIControlStateHighlighted];
+    [_leftFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake(kScreen_Width - 59, 96) color:kColor_Button1] forState:UIControlStateNormal];
+    [_leftFingerBtn setImage:[UIImage drawImageWithSize:CGSizeMake(kScreen_Width - 59, 96) color:kColor_Highlight_Button3] forState:UIControlStateHighlighted];
     _leftFingerBtn.textLabel.text = kLocalization(@"em_measure_lefthand");
     _leftFingerBtn.textLabel.font = [UIFont systemFontOfSize:16];
     _leftFingerBtn.textLabel.textColor = kColor_Text1;

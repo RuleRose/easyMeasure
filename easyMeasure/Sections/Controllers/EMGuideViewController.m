@@ -18,16 +18,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupViews];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self hideStatusBar];
+    [self hideNavigationBar];
 }
 
 - (void)setupViews{
     _guideView = [[EMGuideView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height)];
     _guideView.backgroundColor = [UIColor clearColor];
     _guideView.delegate = self;
-    _guideView.imageNames = @[@"banner1",@"banner2", @"banner3",@"banner4"];
-    [_guideView setPageColor:kColorFromRGB(0x999999) andCurrentPageColor:kColorFromRGB(0x666666)];
+    if (kScreen_Height <= 960/2) {
+        _guideView.imageNames = @[@"loading_1_640x960",@"loading_2_640x960"];
+
+    }else if (kScreen_Height <= 1136/2){
+        _guideView.imageNames = @[@"loading_1_640x1136",@"loading_2_640x1136"];
+
+    }else if (kScreen_Height <= 1334/2){
+        _guideView.imageNames = @[@"loading_1_750x1334",@"loading_2_750x1334"];
+
+    }else{
+        _guideView.imageNames = @[@"loading_1_1242x2208",@"loading_2_1242x2208"];
+    }
+//    [_guideView setPageColor:kColorFromRGB(0x999999) andCurrentPageColor:kColorFromRGB(0x666666)];
     [self.view addSubview:_guideView];
 }
 

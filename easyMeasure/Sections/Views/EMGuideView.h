@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSArray *imageNames;
 @property (nonatomic, assign) id<EMGuideViewViewDelegate> delegate;
 
-- (void)setPageColor:(UIColor *)color andCurrentPageColor:(UIColor *)currentColor;
+//- (void)setPageColor:(UIColor *)color andCurrentPageColor:(UIColor *)currentColor;
 @end
 @protocol EMGuideViewViewDelegate <NSObject>
 @optional
