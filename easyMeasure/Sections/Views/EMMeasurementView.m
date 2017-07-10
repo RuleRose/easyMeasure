@@ -33,7 +33,7 @@
 - (void)setFingerType:(FingerType)fingerType{
     _fingerType = fingerType;
     if (_fingerType == kFingerOfThumb) {
-        _imageArr = @[@"2_01",@"2_02",@"2_03",@"2_04",@"2_05"];
+        _imageArr = @[@"2_02",@"2_03",@"2_04",@"2_05",@"2_06"];
     }else{
         _imageArr = @[@"1_02",@"1_03",@"1_04",@"1_05",@"1_06"];
     }

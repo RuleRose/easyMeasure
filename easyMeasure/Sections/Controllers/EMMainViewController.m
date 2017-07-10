@@ -29,6 +29,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setNavigationButtons:1 title:nil image:@[[UIImage imageNamed:@"titel_button_jilu"]] highlightedImage:@[[UIImage imageNamed:@"titel_button_jilu_highlight"]] frame:nil isRight:YES];
+    [self showStatusBar];
+    [self showNavigationBar];
 }
 
 - (void)setupViews{

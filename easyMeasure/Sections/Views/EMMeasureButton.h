@@ -10,5 +10,5 @@
 
 @interface EMMeasureButton : UIButton
 @property(nonatomic, strong) UILabel *textLabel;
-
+@property(nonatomic, strong) UIImageView *iconView;
 @end

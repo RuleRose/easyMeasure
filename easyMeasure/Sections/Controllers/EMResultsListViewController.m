@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"历史记录";
+    self.title = kLocalization(@"em_history_title");
     self.view.backgroundColor = kColorFromRGB(0xefefef);
     _measures = [[NSMutableArray alloc] init];
     [self setupViews];
@@ -31,6 +31,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self showStatusBar];
+    [self showNavigationBar];
     [self setBackBarButton];
     [self setNavigationButtons:1 title:@[kLocalization(@"em_clear")] image:nil highlightedImage:nil frame:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 64, 44)]] isRight:YES];
     [self loadData];

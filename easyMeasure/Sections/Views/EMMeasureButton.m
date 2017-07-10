@@ -32,6 +32,18 @@
         make.right.equalTo(@0);
         make.bottom.equalTo(@0);
     }];
+    
+    _iconView = [[UIImageView alloc] init];
+    _iconView.userInteractionEnabled = NO;
+    _iconView.backgroundColor = [UIColor clearColor];
+    _iconView.contentMode = UIViewContentModeCenter;
+    [self addSubview:_iconView];
+    [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@0);
+        make.top.equalTo(@0);
+        make.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+    }];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

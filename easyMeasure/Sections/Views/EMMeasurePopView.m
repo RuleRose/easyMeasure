@@ -1,14 +1,16 @@
 //
-//  EMNotiPopView.m
+//  EMMeasurePopView.m
 //  easyMeasure
 //
-//  Created by qiwl on 2017/6/17.
+//  Created by qiwl on 2017/7/10.
 //  Copyright © 2017年 goldsmith. All rights reserved.
 //
 
-#import "EMNotiPopView.h"
+#import "EMMeasurePopView.h"
+#import "UIImage+Extension.h"
 
-@implementation EMNotiPopView
+@implementation EMMeasurePopView
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -20,39 +22,30 @@
 }
 
 - (void)setupViews{
-    _triImageView = [[UIImageView alloc] init];
-    _triImageView.backgroundColor = [UIColor clearColor];
-    _triImageView.image = kImage(@"jiantou");
-    [self addSubview:_triImageView];
-    
     _notiImageView = [[UIImageView alloc] init];
     _notiImageView.backgroundColor = [UIColor clearColor];
-    _notiImageView.image = kImage(@"text");
+    _notiImageView.image = kImage(@"text3");
     [self addSubview:_notiImageView];
-
     
-    _confirmBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _confirmBtn = [[EMMeasureButton alloc] init];
     _confirmBtn.backgroundColor = [UIColor clearColor];
-    [_confirmBtn setImage:kImage(@"button_highlight") forState:UIControlStateNormal];
-    [_confirmBtn setImage:kImage(@"button") forState:UIControlStateHighlighted];
+    _confirmBtn.layer.masksToBounds = YES;
+    _confirmBtn.layer.cornerRadius = 24;
+    [_confirmBtn setImage:[UIImage drawImageWithSize:CGSizeMake(372, 88) color:kColor_Button1] forState:UIControlStateNormal];
+    [_confirmBtn setImage:[UIImage drawImageWithSize:CGSizeMake(372, 88) color:kColor_Highlight_Button3] forState:UIControlStateHighlighted];
+    _confirmBtn.iconView.image = kImage(@"text4");
     [_confirmBtn addTarget:self action:@selector(confrimBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_confirmBtn];
     MJWeakSelf;
-    [_triImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(kNavigationHeight + kStatusHeight));
-        make.width.equalTo(@37);
-        make.height.equalTo(@44);
-        make.right.equalTo(weakSelf.notiImageView.mas_right);
-    }];
     [_notiImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.triImageView.mas_bottom).offset(24);
-        make.width.equalTo(@250);
-        make.height.equalTo(@19);
+        make.top.equalTo(@232);
+        make.width.equalTo(@254);
+        make.height.equalTo(@41);
         make.centerX.equalTo(weakSelf.mas_centerX);
     }];
     [_confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.notiImageView.mas_bottom).offset(64);
-        make.width.equalTo(@220);
+        make.top.equalTo(weakSelf.notiImageView.mas_bottom).offset(73);
+        make.width.equalTo(@186);
         make.height.equalTo(@44);
         make.centerX.equalTo(weakSelf.mas_centerX);
     }];
@@ -88,7 +81,7 @@
 - (void)showMenusAnimation
 {
     self.alpha = 1.0;
-
+    
 }
 
 - (void)hiddenMenusAnimation
@@ -110,13 +103,5 @@
         [self touchAtPoint:pos];
     }
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

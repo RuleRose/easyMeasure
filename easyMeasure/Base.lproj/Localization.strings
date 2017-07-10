@@ -32,9 +32,15 @@
 "em_measure_righthand" = "测量右手";
 "em_measure_finger" = "测量手指";
 "em_degree_none" = "无";
+"em_close" = "关闭";
+"em_history_title" = "历史记录";
+"em_fingertype_title" = "选择手指类型";
+"em_fingertype_left" = "上细下粗型";
+"em_fingertype_right" = "基本等宽型";
+"em_fingertype_detail" = "当手指用力按压在硬平面上时，\n请观察手指轮廓，\n并选择您手指的近似外形。";
 
-"em_label_ring_size" = "建议您挑选戒指的尺寸为";
-"em_label_ring_diameter" = "您的戒指内径为";
+"em_label_ring_size" = "金匠学院建议您的戒指尺寸为";
+"em_label_ring_diameter" = "测量结果是";
 "em_label_measure_finger" = "请选择要测量的手指";
 "em_label_measure_hand" = "请选择要测量的手";
 
