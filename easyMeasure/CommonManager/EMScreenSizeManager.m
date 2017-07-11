@@ -11,6 +11,7 @@
 
 @interface EMScreenSizeManager ()
 @property(nonatomic, assign) CGFloat width;
+@property(nonatomic, strong) NSMutableDictionary *basicDegreeDic;
 @property(nonatomic, strong) NSMutableDictionary *degreeDic;
 
 @end
@@ -23,7 +24,10 @@ Singleton_Implementation(EMScreenSizeManager);
     if (self) {
         _width = NON_OBJECT_DEFAULT_VALUE;
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"EMDegree" ofType:@"plist"];
-        _degreeDic = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        _basicDegreeDic = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        
+        
+        
     }
     return self;
 }
@@ -111,19 +115,43 @@ Singleton_Implementation(EMScreenSizeManager);
     return type;
 }
 
-- (CGFloat)hkdegreeWithWidth:(CGFloat)width{
-    NSDictionary *hkDic = [_degreeDic objectForKey:@"hk"];
-    return [self degreeWithWidth:width degrees:hkDic];
+- (CGFloat)hkdegreeWithWidth:(CGFloat)width basic:(BOOL)isBasic{
+    
+    
+    if (isBasic) {
+        NSDictionary *basicDic = [_degreeDic objectForKey:@"basic"];
+        NSDictionary *hkDic = [basicDic objectForKey:@"hk"];
+        return [self degreeWithWidth:width degrees:hkDic];
+    }else{
+        NSDictionary *basicDic = [_degreeDic objectForKey:@"ranging"];
+        NSDictionary *hkDic = [basicDic objectForKey:@"hk"];
+        return [self degreeWithWidth:width degrees:hkDic];
+    }
+
 }
 
-- (CGFloat)usdegreeWithWidth:(CGFloat)width{
-    NSDictionary *usDic = [_degreeDic objectForKey:@"us"];
-    return [self degreeWithWidth:width degrees:usDic];
+- (CGFloat)usdegreeWithWidth:(CGFloat)width basic:(BOOL)isBasic{
+    if (isBasic) {
+        NSDictionary *basicDic = [_degreeDic objectForKey:@"basic"];
+        NSDictionary *usDic = [basicDic objectForKey:@"us"];
+        return [self degreeWithWidth:width degrees:usDic];
+    }else{
+        NSDictionary *basicDic = [_degreeDic objectForKey:@"ranging"];
+        NSDictionary *usDic = [basicDic objectForKey:@"us"];
+        return [self degreeWithWidth:width degrees:usDic];
+    }
 }
 
-- (CGFloat)eurodegreeWithWidth:(CGFloat)width{
-    NSDictionary *euroDic = [_degreeDic objectForKey:@"euro"];
-    return [self degreeWithWidth:width degrees:euroDic];
+- (CGFloat)eurodegreeWithWidth:(CGFloat)width basic:(BOOL)isBasic{
+    if (isBasic) {
+        NSDictionary *basicDic = [_degreeDic objectForKey:@"basic"];
+        NSDictionary *euroDic = [basicDic objectForKey:@"euro"];
+        return [self degreeWithWidth:width degrees:euroDic];
+    }else{
+        NSDictionary *basicDic = [_degreeDic objectForKey:@"ranging"];
+        NSDictionary *euroDic = [basicDic objectForKey:@"euro"];
+        return [self degreeWithWidth:width degrees:euroDic];
+    }
 }
 
 - (CGFloat)degreeWithWidth:(CGFloat)width degrees:(NSDictionary *)degrees{

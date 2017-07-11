@@ -115,6 +115,7 @@
     _measureModel.width = [NSString stringWithFormat:@"%f",_measureView.width];
     _measureModel.finger_left = [NSString stringWithFormat:@"%d",_isLeft];
     _measureModel.finger_type = [NSString stringWithFormat:@"%lu",(unsigned long)_fingerType];
+    _measureModel.finger_basic = [NSString stringWithFormat:@"%d",_isBasic];
     _measureModel.measure_time = [NSDate timestampFromDate:[NSDate date]];
     if ([NSString leie_isBlankString:_measureModel.pid]) {
         [_measureModel insertToDB];

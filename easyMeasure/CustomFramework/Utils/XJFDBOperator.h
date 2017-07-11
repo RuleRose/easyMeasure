@@ -14,6 +14,7 @@
 @interface XJFDBOperator : NSObject
 Singleton_Interface(XJFDBOperator);
 - (void)close;
+- (void)open;
 //执行批量sql命令
 /*
  Formate like:

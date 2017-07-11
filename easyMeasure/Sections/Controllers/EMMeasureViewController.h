@@ -11,6 +11,7 @@
 
 @interface EMMeasureViewController : XJFBaseViewController
 @property(nonatomic, assign) BOOL isLeft;
+@property(nonatomic, assign) BOOL isBasic;
 @property(nonatomic, assign) FingerType fingerType;
 @property(nonatomic, strong) EMMeasureModel *measureModel;
 

@@ -11,6 +11,8 @@
 #import "XJFDBManager.h"
 #import "EMMeasureModel.h"
 #import "EMGuideViewController.h"
+#import "VersionModel.h"
+#import "NSFileManager+Extensions.h"
 
 @interface AppDelegate ()
 
@@ -38,9 +40,49 @@
         // Override point for customization after application launch.
         [self.window makeKeyAndVisible];
     }
-    [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+    [self checkDB];
     [NSThread sleepForTimeInterval:2];
     return YES;
+}
+
+
+
+- (void)checkDB{
+    
+    VersionModel *versionModel = [[VersionModel alloc] init];
+    NSArray *result = [XJFDBManager searchModelsWithCondition:versionModel andpage:-1 andOrderby:nil isAscend:NO];
+    if (result.count > 0) {
+        versionModel = result.firstObject;
+        NSString *currentVerion =  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        NSString *version = versionModel.version;
+        if (![NSString leie_isBlankString:version] && ![currentVerion isEqualToString:version]) {
+            //本地版本与当前版本不同，更新数据库
+            [NSFileManager removeDirectoryAtPath:DATABASE_PATH];
+            XJFDBOperator *operator= [XJFDBOperator defaultInstance];
+            [operator close];
+            [operator open];
+            [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+            [XJFDBManager createTableWithModel:[VersionModel class]];
+            NSString *currentVerion =  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+            VersionModel *versionModel = [[VersionModel alloc] init];
+            versionModel.version = currentVerion;
+            versionModel.pid = @"version";
+            [versionModel insertToDB];
+        }
+    }else{
+
+        [NSFileManager removeDirectoryAtPath:DATABASE_PATH];
+        XJFDBOperator *operator= [XJFDBOperator defaultInstance];
+        [operator close];
+        [operator open];
+        [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+        [XJFDBManager createTableWithModel:[VersionModel class]];
+        NSString *currentVerion =  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        VersionModel *versionModel = [[VersionModel alloc] init];
+        versionModel.version = currentVerion;
+        versionModel.pid = @"version";
+        [versionModel insertToDB];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

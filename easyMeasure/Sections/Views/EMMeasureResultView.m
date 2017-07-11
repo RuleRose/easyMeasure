@@ -152,10 +152,9 @@
 - (void)setMeasure:(EMMeasureModel *)measure{
     _measure = measure;
     _measureLabel.text = [NSString stringWithFormat:@"%0.1fmm", [_measure.width floatValue]];
-    
-    CGFloat hk_degree = [[EMScreenSizeManager defaultInstance] hkdegreeWithWidth:[measure.width floatValue]];
-    CGFloat us_degree = [[EMScreenSizeManager defaultInstance] usdegreeWithWidth:[measure.width floatValue]];
-    CGFloat euro_degree = [[EMScreenSizeManager defaultInstance] eurodegreeWithWidth:[measure.width floatValue]];
+    CGFloat hk_degree = [[EMScreenSizeManager defaultInstance] hkdegreeWithWidth:[measure.width floatValue] basic:[_measure.finger_basic boolValue]];
+    CGFloat us_degree = [[EMScreenSizeManager defaultInstance] usdegreeWithWidth:[measure.width floatValue] basic:[_measure.finger_basic boolValue]];
+    CGFloat euro_degree = [[EMScreenSizeManager defaultInstance] eurodegreeWithWidth:[measure.width floatValue] basic:[_measure.finger_basic boolValue]];
     [_hkDegreeView loadWidth:kScreen_Width/3 degree:hk_degree];
     [_usDegreeView loadWidth:kScreen_Width/3 degree:us_degree];
     [_euroDegreeView loadWidth:kScreen_Width/3 degree:euro_degree];

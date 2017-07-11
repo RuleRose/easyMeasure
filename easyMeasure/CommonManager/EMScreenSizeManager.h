@@ -13,8 +13,8 @@ Singleton_Interface(EMScreenSizeManager);
 
 - (CGFloat)widthOfOnePoint; //返回毫米单位
 
-- (CGFloat)hkdegreeWithWidth:(CGFloat)width;
-- (CGFloat)usdegreeWithWidth:(CGFloat)width;
-- (CGFloat)eurodegreeWithWidth:(CGFloat)width;
+- (CGFloat)hkdegreeWithWidth:(CGFloat)width basic:(BOOL)isBasic;
+- (CGFloat)usdegreeWithWidth:(CGFloat)width basic:(BOOL)isBasic;
+- (CGFloat)eurodegreeWithWidth:(CGFloat)width basic:(BOOL)isBasic;
 
 @end
