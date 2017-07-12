@@ -11,7 +11,6 @@
 
 @interface EMScreenSizeManager ()
 @property(nonatomic, assign) CGFloat width;
-@property(nonatomic, strong) NSMutableDictionary *basicDegreeDic;
 @property(nonatomic, strong) NSMutableDictionary *degreeDic;
 
 @end
@@ -24,7 +23,7 @@ Singleton_Implementation(EMScreenSizeManager);
     if (self) {
         _width = NON_OBJECT_DEFAULT_VALUE;
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"EMDegree" ofType:@"plist"];
-        _basicDegreeDic = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        _degreeDic = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
         
         
         
@@ -123,8 +122,8 @@ Singleton_Implementation(EMScreenSizeManager);
         NSDictionary *hkDic = [basicDic objectForKey:@"hk"];
         return [self degreeWithWidth:width degrees:hkDic];
     }else{
-        NSDictionary *basicDic = [_degreeDic objectForKey:@"ranging"];
-        NSDictionary *hkDic = [basicDic objectForKey:@"hk"];
+        NSDictionary *rangingDic = [_degreeDic objectForKey:@"ranging"];
+        NSDictionary *hkDic = [rangingDic objectForKey:@"hk"];
         return [self degreeWithWidth:width degrees:hkDic];
     }
 
@@ -136,8 +135,8 @@ Singleton_Implementation(EMScreenSizeManager);
         NSDictionary *usDic = [basicDic objectForKey:@"us"];
         return [self degreeWithWidth:width degrees:usDic];
     }else{
-        NSDictionary *basicDic = [_degreeDic objectForKey:@"ranging"];
-        NSDictionary *usDic = [basicDic objectForKey:@"us"];
+        NSDictionary *rangingDic = [_degreeDic objectForKey:@"ranging"];
+        NSDictionary *usDic = [rangingDic objectForKey:@"us"];
         return [self degreeWithWidth:width degrees:usDic];
     }
 }
@@ -148,8 +147,8 @@ Singleton_Implementation(EMScreenSizeManager);
         NSDictionary *euroDic = [basicDic objectForKey:@"euro"];
         return [self degreeWithWidth:width degrees:euroDic];
     }else{
-        NSDictionary *basicDic = [_degreeDic objectForKey:@"ranging"];
-        NSDictionary *euroDic = [basicDic objectForKey:@"euro"];
+        NSDictionary *rangingDic = [_degreeDic objectForKey:@"ranging"];
+        NSDictionary *euroDic = [rangingDic objectForKey:@"euro"];
         return [self degreeWithWidth:width degrees:euroDic];
     }
 }

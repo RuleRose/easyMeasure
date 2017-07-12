@@ -11,7 +11,6 @@
 #import "XJFDBManager.h"
 #import "EMMeasureModel.h"
 #import "EMGuideViewController.h"
-#import "VersionModel.h"
 #import "NSFileManager+Extensions.h"
 
 @interface AppDelegate ()
@@ -48,40 +47,29 @@
 
 
 - (void)checkDB{
-    
-    VersionModel *versionModel = [[VersionModel alloc] init];
-    NSArray *result = [XJFDBManager searchModelsWithCondition:versionModel andpage:-1 andOrderby:nil isAscend:NO];
-    if (result.count > 0) {
-        versionModel = result.firstObject;
-        NSString *currentVerion =  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-        NSString *version = versionModel.version;
-        if (![NSString leie_isBlankString:version] && ![currentVerion isEqualToString:version]) {
-            //本地版本与当前版本不同，更新数据库
-            [NSFileManager removeDirectoryAtPath:DATABASE_PATH];
-            XJFDBOperator *operator= [XJFDBOperator defaultInstance];
-            [operator close];
-            [operator open];
-            [XJFDBManager createTableWithModel:[EMMeasureModel class]];
-            [XJFDBManager createTableWithModel:[VersionModel class]];
-            NSString *currentVerion =  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-            VersionModel *versionModel = [[VersionModel alloc] init];
-            versionModel.version = currentVerion;
-            versionModel.pid = @"version";
-            [versionModel insertToDB];
+    NSNumber *version = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULT_LOCAL_VERSION];
+    if (version) {
+        if ([version integerValue] == USER_DEFAULT_CURRENT_VERSION) {
+            //当前版本
+            return;
+        }else{
+            //历史版本
+            //根据版本需要改变数据库
+//            [NSFileManager removeDirectoryAtPath:DATABASE_PATH];
+//            XJFDBOperator *operator= [XJFDBOperator defaultInstance];
+//            [operator close];
+//            [operator open];
+//            [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+//            NSInteger currentVersion = USER_DEFAULT_CURRENT_VERSION;
+//            NSInteger localVersion = version;
+//            
+//            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:USER_DEFAULT_CURRENT_VERSION] forKey:USER_DEFAULT_LOCAL_VERSION];
+
         }
     }else{
-
-        [NSFileManager removeDirectoryAtPath:DATABASE_PATH];
-        XJFDBOperator *operator= [XJFDBOperator defaultInstance];
-        [operator close];
-        [operator open];
+        //第一次进入
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:USER_DEFAULT_CURRENT_VERSION] forKey:USER_DEFAULT_LOCAL_VERSION];
         [XJFDBManager createTableWithModel:[EMMeasureModel class]];
-        [XJFDBManager createTableWithModel:[VersionModel class]];
-        NSString *currentVerion =  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-        VersionModel *versionModel = [[VersionModel alloc] init];
-        versionModel.version = currentVerion;
-        versionModel.pid = @"version";
-        [versionModel insertToDB];
     }
 }
 

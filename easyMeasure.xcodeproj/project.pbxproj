@@ -88,7 +88,6 @@
 		CC2F5CF51EF4FBEA0006A68D /* muzhi_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F5CF41EF4FBEA0006A68D /* muzhi_2@3x.png */; };
 		CC2F5CFD1EF54E0F0006A68D /* yindaoye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F5CFC1EF54E0F0006A68D /* yindaoye@2x.png */; };
 		CC2F5CFF1EF54E1A0006A68D /* yindaoye@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC2F5CFE1EF54E1A0006A68D /* yindaoye@3x.png */; };
-		CC4C3EFA1F144D7E00DD5957 /* VersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C3EF91F144D7E00DD5957 /* VersionModel.m */; };
 		CC4C3EFE1F144E5C00DD5957 /* NSFileManager+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C3EFD1F144E5C00DD5957 /* NSFileManager+Extensions.m */; };
 		CC6FAAF41EF80B310069D8B5 /* button_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6FAAF01EF80B310069D8B5 /* button_highlight@2x.png */; };
 		CC6FAAF51EF80B310069D8B5 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6FAAF11EF80B310069D8B5 /* button@2x.png */; };
@@ -290,8 +289,6 @@
 		CC2F5CF41EF4FBEA0006A68D /* muzhi_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muzhi_2@3x.png"; sourceTree = "<group>"; };
 		CC2F5CFC1EF54E0F0006A68D /* yindaoye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yindaoye@2x.png"; sourceTree = "<group>"; };
 		CC2F5CFE1EF54E1A0006A68D /* yindaoye@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yindaoye@3x.png"; sourceTree = "<group>"; };
-		CC4C3EF81F144D7E00DD5957 /* VersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionModel.h; sourceTree = "<group>"; };
-		CC4C3EF91F144D7E00DD5957 /* VersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionModel.m; sourceTree = "<group>"; };
 		CC4C3EFC1F144E5C00DD5957 /* NSFileManager+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Extensions.h"; sourceTree = "<group>"; };
 		CC4C3EFD1F144E5C00DD5957 /* NSFileManager+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Extensions.m"; sourceTree = "<group>"; };
 		CC6FAAF01EF80B310069D8B5 /* button_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_highlight@2x.png"; sourceTree = "<group>"; };
@@ -801,8 +798,6 @@
 			children = (
 				CC708FA71EEC131B0087AD74 /* EMMeasureModel.h */,
 				CC708FA81EEC131B0087AD74 /* EMMeasureModel.m */,
-				CC4C3EF81F144D7E00DD5957 /* VersionModel.h */,
-				CC4C3EF91F144D7E00DD5957 /* VersionModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1055,7 +1050,6 @@
 				CC8955971EFFA45C0083E710 /* EMGuideView.m in Sources */,
 				C173C0271ED5507600BCD66F /* XJFBackgroundView.m in Sources */,
 				C173C0171ED5507600BCD66F /* NSMutableDictionary+Extension.m in Sources */,
-				CC4C3EFA1F144D7E00DD5957 /* VersionModel.m in Sources */,
 				CC708FE31EEEDAE20087AD74 /* EMFingerChooseView.m in Sources */,
 				C173C02A1ED5507600BCD66F /* XJFUILabel.m in Sources */,
 				CC708FB21EEC131B0087AD74 /* EMFingerChooseViewController.m in Sources */,
