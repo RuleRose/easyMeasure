@@ -64,6 +64,7 @@
     EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
     measureVC.isLeft = _isLeft;
     measureVC.fingerType = _fingerType;
+    measureVC.isBasic = NO;
     [measureVC pushToNavigationController:self.navigationController animated:YES];
 }
 
@@ -71,6 +72,7 @@
     EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
     measureVC.isLeft = _isLeft;
     measureVC.fingerType = _fingerType;
+    measureVC.isBasic = YES;
     [measureVC pushToNavigationController:self.navigationController animated:YES];
 }
 

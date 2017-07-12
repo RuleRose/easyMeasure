@@ -11,5 +11,6 @@
 
 @interface EMMeasureResultViewController : XJFBaseViewController
 @property(nonatomic, strong)EMMeasureModel *measure;
+@property(nonatomic, assign) BOOL isBasic;
 
 @end

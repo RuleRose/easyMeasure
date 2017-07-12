@@ -11,6 +11,7 @@
 #import "XJFDBManager.h"
 #import "EMMeasureModel.h"
 #import "EMGuideViewController.h"
+#import "NSFileManager+Extensions.h"
 
 @interface AppDelegate ()
 
@@ -38,9 +39,38 @@
         // Override point for customization after application launch.
         [self.window makeKeyAndVisible];
     }
-    [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+    [self checkDB];
     [NSThread sleepForTimeInterval:2];
     return YES;
+}
+
+
+
+- (void)checkDB{
+    NSNumber *version = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULT_LOCAL_VERSION];
+    if (version) {
+        if ([version integerValue] == USER_DEFAULT_CURRENT_VERSION) {
+            //当前版本
+            return;
+        }else{
+            //历史版本
+            //根据版本需要改变数据库
+//            [NSFileManager removeDirectoryAtPath:DATABASE_PATH];
+//            XJFDBOperator *operator= [XJFDBOperator defaultInstance];
+//            [operator close];
+//            [operator open];
+//            [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+//            NSInteger currentVersion = USER_DEFAULT_CURRENT_VERSION;
+//            NSInteger localVersion = version;
+//            
+//            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:USER_DEFAULT_CURRENT_VERSION] forKey:USER_DEFAULT_LOCAL_VERSION];
+
+        }
+    }else{
+        //第一次进入
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:USER_DEFAULT_CURRENT_VERSION] forKey:USER_DEFAULT_LOCAL_VERSION];
+        [XJFDBManager createTableWithModel:[EMMeasureModel class]];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

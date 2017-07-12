@@ -28,6 +28,12 @@ Singleton_Implementation(XJFDBOperator);
     [self close];
 }
 
+- (void)open{
+    if (!_dbqueue) {
+        _dbqueue = [FMDatabaseQueue databaseQueueWithPath:DATABASE_PATH];
+    }
+}
+
 - (void)close {
     if (_dbqueue) {
         [_dbqueue close];

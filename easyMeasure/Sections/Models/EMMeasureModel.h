@@ -13,5 +13,6 @@
 @property(nonatomic, copy) NSString *width; //宽度
 @property(nonatomic, copy) NSString *finger_type;//手指
 @property(nonatomic, copy) NSString *finger_left;//左右手
+@property(nonatomic, copy) NSString *finger_basic;//是否等宽
 
 @end
