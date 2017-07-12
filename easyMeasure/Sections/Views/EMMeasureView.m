@@ -16,7 +16,7 @@
     if (self) {
         _isLeft = isLeft;
         _fingerType = fingerType;
-        _time = 0.01;
+        _time = 0.03;
         _widthUnit =  [[EMScreenSizeManager defaultInstance] widthOfOnePoint];
         [self setupViews];
         [self loadData];
