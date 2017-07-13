@@ -56,10 +56,18 @@
 
 #pragma mark FingerViewDelegate
 - (void)measureFinger:(FingerType)fingerType left:(BOOL)isLeft{
-    EMFingerTypeViewController *typeVC = [[EMFingerTypeViewController alloc] init];
-    typeVC.isLeft = isLeft;
-    typeVC.fingerType = fingerType;
-    [typeVC pushToNavigationController:self.navigationController animated:YES];
+    if (fingerType == kFingerOfThumb) {
+        EMMeasureViewController *measureVC = [[EMMeasureViewController alloc] init];
+        measureVC.isLeft = _isLeft;
+        measureVC.fingerType = fingerType;
+        measureVC.isBasic = YES;
+        [measureVC pushToNavigationController:self.navigationController animated:YES];
+    }else{
+        EMFingerTypeViewController *typeVC = [[EMFingerTypeViewController alloc] init];
+        typeVC.isLeft = isLeft;
+        typeVC.fingerType = fingerType;
+        [typeVC pushToNavigationController:self.navigationController animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
