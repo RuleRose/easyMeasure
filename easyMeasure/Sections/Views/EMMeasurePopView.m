@@ -22,6 +22,18 @@
 }
 
 - (void)setupViews{
+    _measureLabel = [[UILabel alloc] init];
+    _measureLabel.backgroundColor = [UIColor clearColor];
+    _measureLabel.text = kLocalization(@"em_measure_intro");
+    _measureLabel.textColor = kColorFromRGB(0xffffff);
+    _measureLabel.font = [UIFont systemFontOfSize:16];
+    [self addSubview:_measureLabel];
+    
+    _triView = [[UIImageView alloc] init];
+    _triView.backgroundColor = [UIColor clearColor];
+    _triView.image = kImage(@"dianji");
+    [self addSubview:_triView];
+
     _notiImageView = [[UIImageView alloc] init];
     _notiImageView.backgroundColor = [UIColor clearColor];
     _notiImageView.image = kImage(@"text3");
@@ -37,14 +49,26 @@
     [_confirmBtn addTarget:self action:@selector(confrimBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_confirmBtn];
     MJWeakSelf;
+    [_measureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@20);
+        make.width.equalTo(@80);
+        make.height.equalTo(@44);
+        make.right.equalTo(@(-5));
+    }];
+    [_triView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@50);
+        make.width.equalTo(@57);
+        make.height.equalTo(@44);
+        make.right.equalTo(@(-92));
+    }];
     [_notiImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@232);
+        make.top.equalTo(weakSelf.triView.mas_bottom).offset(56);
         make.width.equalTo(@254);
         make.height.equalTo(@41);
         make.centerX.equalTo(weakSelf.mas_centerX);
     }];
     [_confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.notiImageView.mas_bottom).offset(73);
+        make.top.equalTo(weakSelf.notiImageView.mas_bottom).offset(48);
         make.width.equalTo(@186);
         make.height.equalTo(@44);
         make.centerX.equalTo(weakSelf.mas_centerX);

@@ -10,6 +10,8 @@
 #import "EMMeasureButton.h"
 
 @interface EMMeasurePopView : UIView
+@property(nonatomic,strong)UILabel *measureLabel;
+@property(nonatomic,strong)UIImageView *triView;
 @property(nonatomic,strong)UIView *baseView;
 @property(nonatomic,strong)UIImageView *notiImageView;
 @property(nonatomic,strong)EMMeasureButton *confirmBtn;
