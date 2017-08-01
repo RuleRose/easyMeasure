@@ -22,12 +22,6 @@
 }
 
 - (void)setupViews{
-    _measureLabel = [[UILabel alloc] init];
-    _measureLabel.backgroundColor = [UIColor clearColor];
-    _measureLabel.text = kLocalization(@"em_measure_intro");
-    _measureLabel.textColor = kColorFromRGB(0xffffff);
-    _measureLabel.font = [UIFont systemFontOfSize:16];
-    [self addSubview:_measureLabel];
     
     _triView = [[UIImageView alloc] init];
     _triView.backgroundColor = [UIColor clearColor];
@@ -49,12 +43,6 @@
     [_confirmBtn addTarget:self action:@selector(confrimBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_confirmBtn];
     MJWeakSelf;
-    [_measureLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@20);
-        make.width.equalTo(@80);
-        make.height.equalTo(@44);
-        make.right.equalTo(@(-5));
-    }];
     [_triView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@50);
         make.width.equalTo(@57);
