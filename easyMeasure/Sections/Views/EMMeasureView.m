@@ -92,7 +92,7 @@
     _upRedCircle = [[UIView alloc] init];
     _upRedCircle.backgroundColor = [UIColor redColor];
     _upRedCircle.layer.masksToBounds = YES;
-    _upRedCircle.layer.cornerRadius = 8;
+    _upRedCircle.layer.cornerRadius = 5;
     [self addSubview:_upRedCircle];
     
     _downRedCircle = [[UIView alloc] init];
@@ -189,8 +189,8 @@
             [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(weakSelf.controlLine.mas_centerX).dividedBy(3.0/2);
                 make.centerY.equalTo(weakSelf.controlLine.mas_centerY);
-                make.width.equalTo(@16);
-                make.height.equalTo(@16);
+                make.width.equalTo(@10);
+                make.height.equalTo(@10);
             }];
         }else{
             [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -202,8 +202,8 @@
             [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(weakSelf.controlLine.mas_centerX).multipliedBy(4.0/3);
                 make.centerY.equalTo(weakSelf.controlLine.mas_centerY);
-                make.width.equalTo(@16);
-                make.height.equalTo(@16);
+                make.width.equalTo(@10);
+                make.height.equalTo(@10);
             }];
         }
     }else{
@@ -216,8 +216,8 @@
         [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(weakSelf.controlLine.mas_centerX);
             make.centerY.equalTo(weakSelf.controlLine.mas_centerY);
-            make.width.equalTo(@16);
-            make.height.equalTo(@16);
+            make.width.equalTo(@10);
+            make.height.equalTo(@10);
         }];
     }
     if (_isLeft) {
