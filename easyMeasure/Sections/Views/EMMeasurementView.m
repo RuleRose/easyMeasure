@@ -33,9 +33,9 @@
 - (void)setFingerType:(FingerType)fingerType{
     _fingerType = fingerType;
     if (_fingerType == kFingerOfThumb) {
-        _imageArr = @[@"2_02",@"2_03",@"2_04",@"2_05",@"2_06",@"2_07"];
+        _imageArr = @[@"1",@"content",@"3"];
     }else{
-        _imageArr = @[@"1_02",@"1_03",@"1_04",@"1_05",@"1_06",@"1_07"];
+        _imageArr = @[@"2",@"content",@"3"];
     }
     for (UIView *subView in _scrollView.subviews) {
         [subView removeFromSuperview];
