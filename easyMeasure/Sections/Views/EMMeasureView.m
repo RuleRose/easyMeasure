@@ -98,7 +98,7 @@
     _downRedCircle = [[UIView alloc] init];
     _downRedCircle.backgroundColor = [UIColor redColor];
     _downRedCircle.layer.masksToBounds = YES;
-    _downRedCircle.layer.cornerRadius = 8;
+    _downRedCircle.layer.cornerRadius = 5;
     [self addSubview:_downRedCircle];
     
     _handleView = [[UIView alloc] init];
@@ -183,8 +183,8 @@
             [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(weakSelf.baseLine.mas_centerX).dividedBy(3.0/2);
                 make.centerY.equalTo(weakSelf.baseLine.mas_centerY);
-                make.width.equalTo(@16);
-                make.height.equalTo(@16);
+                make.width.equalTo(@10);
+                make.height.equalTo(@10);
             }];
             [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(weakSelf.controlLine.mas_centerX).dividedBy(3.0/2);
@@ -196,8 +196,8 @@
             [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(weakSelf.baseLine.mas_centerX).multipliedBy(4.0/3);
                 make.centerY.equalTo(weakSelf.baseLine.mas_centerY);
-                make.width.equalTo(@16);
-                make.height.equalTo(@16);
+                make.width.equalTo(@10);
+                make.height.equalTo(@10);
             }];
             [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(weakSelf.controlLine.mas_centerX).multipliedBy(4.0/3);
@@ -210,8 +210,8 @@
         [_downRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(weakSelf.baseLine.mas_centerX);
             make.centerY.equalTo(weakSelf.baseLine.mas_centerY);
-            make.width.equalTo(@16);
-            make.height.equalTo(@16);
+            make.width.equalTo(@10);
+            make.height.equalTo(@10);
         }];
         [_upRedCircle mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(weakSelf.controlLine.mas_centerX);
