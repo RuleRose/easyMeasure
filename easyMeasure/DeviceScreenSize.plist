@@ -38,5 +38,14 @@
 		<key>width</key>
 		<integer>414</integer>
 	</dict>
+	<key>X</key>
+	<dict>
+		<key>size</key>
+		<real>5.15</real>
+		<key>height</key>
+		<integer>812</integer>
+		<key>width</key>
+		<integer>375</integer>
+	</dict>
 </dict>
 </plist>

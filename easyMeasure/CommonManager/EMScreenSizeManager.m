@@ -87,10 +87,16 @@ Singleton_Implementation(EMScreenSizeManager);
         type = @"iPhone 6s Plus";
     else if ([platform isEqualToString:@"iPhone8,4"])
         type = @"iPhone SE";
-    else if ([platform isEqualToString:@"iPhone9,1"])
+    else if ([platform isEqualToString:@"iPhone9,1"] || [platform isEqualToString:@"iPhone9,3"])
         type = @"iPhone 7";
-    else if ([platform isEqualToString:@"iPhone9,2"])
+    else if ([platform isEqualToString:@"iPhone9,2"] || [platform isEqualToString:@"iPhone9,4"])
         type = @"iPhone 7 Plus";
+    else if ([platform isEqualToString:@"iPhone10,1"] || [platform isEqualToString:@"iPhone10,4"])
+        type = @"iPhone 8";
+    else if ([platform isEqualToString:@"iPhone10,2"] || [platform isEqualToString:@"iPhone10,5"])
+        type = @"iPhone 8 Plus";
+    else if ([platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"])
+        type = @"iPhone X";
     else if ([platform isEqualToString:@"i386"])
         type = @"iPhone Simulator";
     else if ([platform isEqualToString:@"x86_64"])
@@ -101,11 +107,13 @@ Singleton_Implementation(EMScreenSizeManager);
     } else if ([type isEqualToString:@"iPhone 5"] || [type isEqualToString:@"iPhone 5c"] || [type isEqualToString:@"iPhone 5s"] ||
                [type isEqualToString:@"iPhone SE"]) {
         type = @"5";
-    } else if ([type isEqualToString:@"iPhone 6"] || [type isEqualToString:@"iPhone 6s"] || [type isEqualToString:@"iPhone 7"]) {
+    } else if ([type isEqualToString:@"iPhone 6"] || [type isEqualToString:@"iPhone 6s"] || [type isEqualToString:@"iPhone 7"] || [type isEqualToString:@"iPhone 8"]) {
         type = @"6";
-    } else if ([type isEqualToString:@"iPhone 6 Plus"] || [type isEqualToString:@"iPhone 6s Plus"] || [type isEqualToString:@"iPhone 7 Plus"]) {
+    } else if ([type isEqualToString:@"iPhone 6 Plus"] || [type isEqualToString:@"iPhone 6s Plus"] || [type isEqualToString:@"iPhone 7 Plus"] || [type isEqualToString:@"iPhone 8 Plus"]) {
         type = @"6p";
-    } else if ([type isEqualToString:@"iPhone Simulator"]) {
+    } else if ([type isEqualToString:@"iPhone X"]) {
+        type = @"X";
+    }else if ([type isEqualToString:@"iPhone Simulator"]) {
         type = @"6";
     } else {
         type = @"4";
